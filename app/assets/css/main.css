@@ -1,2 +1,58 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme {
+    --color-royal-blue-50: oklch(0.957 0.021 286.04);
+    --color-royal-blue-100: oklch(0.916 0.042 285.57);
+    --color-royal-blue-200: oklch(0.832 0.086 284.38);
+    --color-royal-blue-300: oklch(0.757 0.128 282.92);
+    --color-royal-blue-400: oklch(0.677 0.175 280.67);
+    --color-royal-blue-500: oklch(0.596 0.223 277.24);
+    --color-royal-blue-600: oklch(0.517 0.271 271.77);
+    --color-royal-blue-700: oklch(0.449 0.311 264.05);
+    --color-royal-blue-800: oklch(0.355 0.246 264.05);
+    --color-royal-blue-900: oklch(0.262 0.181 264.05);
+    --color-royal-blue-950: oklch(14.514% 0.1006 264.073);
+
+    --color-golden-50: oklch(0.977 0.022 87.12);
+    --color-golden-100: oklch(0.954 0.044 88.51);
+    --color-golden-200: oklch(0.916 0.084 88.56);
+    --color-golden-300: oklch(0.874 0.121 87.81);
+    --color-golden-400: oklch(0.838 0.146 85.89);
+    --color-golden-500: oklch(0.801 0.161 82.07);
+    --color-golden-600: oklch(0.705 0.143 81.19);
+    --color-golden-700: oklch(0.573 0.116 81.81);
+    --color-golden-800: oklch(0.427 0.085 83.54);
+    --color-golden-900: oklch(0.282 0.054 86.42);
+    --color-golden-950: oklch(0.185 0.035 92.93);
+}
+
+:root {
+    --ui-primary: var(--color-golden-500);
+
+    --ui-bg: var(--color-white);
+    --ui-bg-muted: var(--ui-color-neutral-50);
+    --ui-bg-elevated: var(--ui-color-neutral-100);
+    --ui-bg-accented: var(--ui-color-neutral-200);
+    --ui-bg-inverted: var(--color-royal-blue-950);
+
+    --ui-border: var(--ui-color-yellow-200);
+    --ui-border-muted: var(--ui-color-yellow-200);
+    --ui-border-accented: var(--ui-color-yellow-300);
+    --ui-border-inverted: var(--ui-color-yellow-900);
+}
+
+.dark {
+    --ui-primary: var(--color-golden-500);
+
+    --ui-bg: var(--color-royal-blue-950);
+    --ui-bg-muted: var(--ui-color-neutral-800);
+    --ui-bg-elevated: var(--ui-color-neutral-800);
+    --ui-bg-accented: var(--ui-color-neutral-700);
+    --ui-bg-inverted: var(--color-white);
+
+    --ui-border: var(--ui-color-yellow-800);
+    --ui-border-muted: var(--ui-color-yellow-700);
+    --ui-border-accented: var(--ui-color-yellow-700);
+    --ui-border-inverted: var(--color-white);
+}
