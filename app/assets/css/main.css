@@ -2,6 +2,9 @@
 @import "@nuxt/ui";
 
 @theme {
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --font-mono--font-feature-settings: "ss09" on;
     --color-royal-blue-50: oklch(0.957 0.021 286.04);
     --color-royal-blue-100: oklch(0.916 0.042 285.57);
     --color-royal-blue-200: oklch(0.832 0.086 284.38);
