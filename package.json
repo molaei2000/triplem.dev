@@ -2,27 +2,49 @@
 	"name": "nuxt-app",
 	"type": "module",
 	"private": true,
+	"packageManager": "pnpm@10.12.4",
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
+		"check:updates": "pnpm dlx npm-check -u",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix"
 	},
 	"dependencies": {
-		"@nuxt/eslint": "1.9.0",
+		"@nuxt/content": "^3.8.0",
+		"@nuxt/eslint": "1.10.0",
 		"@nuxt/image": "1.11.0",
-		"@nuxt/ui": "4.0.1",
-		"nuxt": "^4.1.2",
+		"@nuxt/ui": "4.1.0",
+		"@nuxtjs/seo": "^3.2.2",
+		"better-sqlite3": "^12.4.1",
+		"chart.js": "^4.5.1",
+		"culori": "^4.0.2",
+		"dayjs": "^1.11.19",
+		"fuse.js": "^7.1.0",
+		"lodash": "^4.17.21",
+		"motion-v": "^1.7.4",
+		"nuxt": "^4.2.0",
+		"remark-reading-time": "^2.0.2",
+		"sortablejs": "^1.15.6",
 		"tailwindcss": "^4.1.14",
 		"typescript": "^5.9.3",
 		"vue": "^3.5.22",
-		"vue-router": "^4.5.1"
+		"vue-chartjs": "^5.3.2",
+		"vue-router": "^4.6.3"
 	},
 	"devDependencies": {
 		"@lihbr/eslint-config": "^0.0.3",
+		"@types/culori": "^4.0.1",
+		"@vueuse/core": "^14.0.0",
+		"@vueuse/nuxt": "^14.0.0",
 		"eslint": "^9.37.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"better-sqlite3"
+		]
 	}
 }

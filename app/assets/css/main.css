@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@import "~/assets/css/typography.css";
+@import "~/assets/css/markdown.css";
 
 @theme {
     --font-sans: "Inter", sans-serif;
@@ -59,3 +61,10 @@
     --ui-border-accented: var(--ui-color-yellow-700);
     --ui-border-inverted: var(--color-white);
 }
+
+* {
+    scrollbar-width: thin !important;
+    scroll-behavior: smooth;
+    scroll-margin-top: calc(var(--ui-header-height) + 1rem) !important;
+}
+

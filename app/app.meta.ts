@@ -11,7 +11,7 @@ export default {
             "A passionate fullstack developer and open-source enthusiast.",
 		jobTitle: "Fullstack Developer",
 	},
-	url: "https://github.com/molaei2000/triplem.dev",
+	url: "https://github.com/molaei2000",
 	icon: "/favicon.ico",
 	contactEmail: "mahdi.molaei2000@gmail.com",
 }
