@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<UContainer>
 		<p>
 			test
 		</p>
@@ -7,5 +7,5 @@
 		<UButton color="primary">
 			Primary Button
 		</UButton>
-	</div>
+	</UContainer>
 </template>
