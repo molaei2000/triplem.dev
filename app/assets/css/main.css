@@ -7,18 +7,7 @@
     --font-sans: "Inter", sans-serif;
     --font-mono: "Geist Mono", monospace;
     --font-delius-swash-caps: "Delius Swash Caps", cursive;
-    --font-mono--font-feature-settings: "ss09" on;
-    --color-royal-blue-50: oklch(0.957 0.021 286.04);
-    --color-royal-blue-100: oklch(0.916 0.042 285.57);
-    --color-royal-blue-200: oklch(0.832 0.086 284.38);
-    --color-royal-blue-300: oklch(0.757 0.128 282.92);
-    --color-royal-blue-400: oklch(0.677 0.175 280.67);
-    --color-royal-blue-500: oklch(0.596 0.223 277.24);
-    --color-royal-blue-600: oklch(0.517 0.271 271.77);
-    --color-royal-blue-700: oklch(0.449 0.311 264.05);
-    --color-royal-blue-800: oklch(0.355 0.246 264.05);
-    --color-royal-blue-900: oklch(0.262 0.181 264.05);
-    --color-royal-blue-950: oklch(14.514% 0.1006 264.073);
+    /* --font-mono--font-feature-settings: "ss09" on; */
 
     --color-golden-50: oklch(0.977 0.022 87.12);
     --color-golden-100: oklch(0.954 0.044 88.51);
@@ -40,12 +29,11 @@
     --ui-bg-muted: var(--ui-color-neutral-50);
     --ui-bg-elevated: var(--ui-color-neutral-100);
     --ui-bg-accented: var(--ui-color-neutral-200);
-    --ui-bg-inverted: var(--color-royal-blue-950);
 
-    --ui-border: var(--ui-color-yellow-200);
-    --ui-border-muted: var(--ui-color-yellow-200);
-    --ui-border-accented: var(--ui-color-yellow-300);
-    --ui-border-inverted: var(--ui-color-yellow-900);
+    --ui-border: var(--color-golden-200);
+    --ui-border-muted: var(--color-golden-100);
+    --ui-border-accented: var(--color-golden-300);
+    --ui-border-inverted: var(--color-golden-900);
 }
 
 .dark {
@@ -57,10 +45,10 @@
     --ui-bg-accented: var(--ui-color-neutral-700);
     --ui-bg-inverted: var(--color-white);
 
-    --ui-border: var(--ui-color-yellow-800);
-    --ui-border-muted: var(--ui-color-yellow-700);
-    --ui-border-accented: var(--ui-color-yellow-700);
-    --ui-border-inverted: var(--color-white);
+    --ui-border: var(--color-golden-700);
+    --ui-border-muted: var(--color-golden-800);
+    --ui-border-accented: var(--color-golden-600);
+    --ui-border-inverted: var(--color-golden-100);
 }
 
 * {

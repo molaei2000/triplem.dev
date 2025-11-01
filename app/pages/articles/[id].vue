@@ -76,82 +76,85 @@ onMounted(() => {
 </script>
 
 <template>
-  <u-page :ui="{ center: 'lg:col-span-7!' }">
-    <template #right>
-      <u-page-aside :ui="{ root: 'lg:col-span-3!' }">
-        <u-page-anchors
-          :links="[
-            { label: 'YouTube tutorial', icon: 'mdi:youtube', to: 'https://www.youtube.com/@matteo-beltrame', target: '_blank' },
-            { label: 'All articles', icon: 'material-symbols:article-rounded', to: '/articles/' }
-          ]"
-        />
-        <u-separator type="dotted" />
-        <u-content-toc v-if="data" :links="data.body.toc?.links" highlight />
-        <u-field-group class="w-full">
-          <u-button
-            label="Share this article"
-            icon="material-symbols:share"
-            variant="subtle"
-            color="neutral"
-            class="grow"
-            @click="share"
+  <UContainer>
+    <u-page :ui="{ center: 'lg:col-span-7!' }">
+      <template #right>
+        <u-page-aside :ui="{ root: 'lg:col-span-3!' }">
+          <u-page-anchors
+            :links="[
+              { label: 'YouTube tutorial', icon: 'mdi:youtube', to: 'https://www.youtube.com/@matteo-beltrame', target: '_blank' },
+              { label: 'All articles', icon: 'material-symbols:article-rounded', to: '/articles/' }
+            ]"
           />
-          <u-dropdown-menu :items="[{ label: 'Copy URL', icon: 'mdi:link-variant', onSelect: copyLink }]">
-            <u-button icon="i-lucide-chevron-down" variant="subtle" color="neutral" />
-          </u-dropdown-menu>
-        </u-field-group>
-      </u-page-aside>
-    </template>
-    <u-page-header :title="data?.title" :description="data?.description" headline="Blog">
-      <div class="flex items-end flex-wrap gap-4 justify-between mt-4">
-        <div class="flex flex-col gap-4">
-          <u-user
-            :name="data?.author"
-            :description="data?.author_description"
-            :avatar="{ src: data?.author_avatar }"
-            class="cursor-default"
-            @click="() => authorEl?.scrollIntoView()"
-          />
-          <div class="flex flex-row gap-2 items-center flex-wrap">
-            <u-badge v-for="k in data?.tags" color="primary" variant="soft">
-              {{ k }}
-            </u-badge>
+          <u-separator type="dotted" />
+          <u-content-toc v-if="data" :links="data.body.toc?.links" highlight />
+          <u-field-group class="w-full">
+            <u-button
+              label="Share this article"
+              icon="material-symbols:share"
+              variant="subtle"
+              color="neutral"
+              class="grow"
+              @click="share"
+            />
+            <u-dropdown-menu :items="[{ label: 'Copy URL', icon: 'mdi:link-variant', onSelect: copyLink }]">
+              <u-button icon="i-lucide-chevron-down" variant="subtle" color="neutral" />
+            </u-dropdown-menu>
+          </u-field-group>
+        </u-page-aside>
+      </template>
+      <u-page-header :title="data?.title" :description="data?.description" headline="Blog">
+        <div class="flex items-end flex-wrap gap-4 justify-between mt-4">
+          <div class="flex flex-col gap-4">
+            <u-user
+              :name="data?.author"
+              :description="data?.author_description"
+              :avatar="{ src: data?.author_avatar }"
+              class="cursor-default"
+              @click="() => authorEl?.scrollIntoView()"
+            />
+            <div class="flex flex-row gap-2 items-center flex-wrap">
+              <u-badge v-for="k in data?.tags" color="primary" variant="soft">
+                {{ k }}
+              </u-badge>
+            </div>
+          </div>
+          <div class="flex flex-row items-center gap-4">
+            <p class="flex flex-row items-center gap-1 typ-sublabel">
+              <icon name="material-symbols:calendar-today-rounded" class="text-primary" /> {{
+                dayjs(data?.date).format("DD MMM YYYY") }}
+            </p>
+            <p class="flex flex-row items-center gap-1 typ-sublabel">
+              <icon name="material-symbols:alarm-rounded" class="text-primary" /> {{ readingTimeText }}
+            </p>
           </div>
         </div>
-        <div class="flex flex-row items-center gap-4">
-          <p class="flex flex-row items-center gap-1 typ-sublabel">
-            <icon name="material-symbols:calendar-today-rounded" class="text-primary" /> {{ dayjs(data?.date).format("DD MMM YYYY") }}
-          </p>
-          <p class="flex flex-row items-center gap-1 typ-sublabel">
-            <icon name="material-symbols:alarm-rounded" class="text-primary" /> {{ readingTimeText }}
-          </p>
-        </div>
-      </div>
-    </u-page-header>
+      </u-page-header>
 
-    <u-content-toc v-if="data" :links="data.body.toc?.links" highlight class="lg:hidden" />
-    <u-page-body>
-      <ContentRenderer v-if="data" id="content" :value="data" class="markdown-content flex-1" />
-      <u-separator />
-      <p class="font-semibold">
-        Related articles
-      </p>
-      <u-blog-posts id="related-articles">
-        <u-blog-post
-          v-for="article in links"
-          :title="article.title"
-          :image="article.thumbnail"
-          :authors="[{ name: article.author, avatar: { src: article.author_avatar }, description: article.author_description }]"
-          :badge="Math.abs(new Date().getTime() - new Date(article?.date).getTime()) < 8.64e7 * 7 ? { label: 'New', color: 'primary' } : undefined"
-          :date="article.date"
-          :to="article.path"
-          variant="subtle"
-        />
-      </u-blog-posts>
+      <u-content-toc v-if="data" :links="data.body.toc?.links" highlight class="lg:hidden" />
+      <u-page-body>
+        <ContentRenderer v-if="data" id="content" :value="data" class="markdown-content flex-1" />
+        <u-separator />
+        <p class="font-semibold">
+          Related articles
+        </p>
+        <u-blog-posts id="related-articles">
+          <u-blog-post
+            v-for="article in links"
+            :title="article.title"
+            :image="article.thumbnail"
+            :authors="[{ name: article.author, avatar: { src: article.author_avatar }, description: article.author_description }]"
+            :badge="Math.abs(new Date().getTime() - new Date(article?.date).getTime()) < 8.64e7 * 7 ? { label: 'New', color: 'primary' } : undefined"
+            :date="article.date"
+            :to="article.path"
+            variant="subtle"
+          />
+        </u-blog-posts>
 
-      <u-content-surround :surround="surround" />
-    </u-page-body>
-  </u-page>
+        <u-content-surround :surround="surround" />
+      </u-page-body>
+    </u-page>
+  </UContainer>
 </template>
 
 <style lang="css">

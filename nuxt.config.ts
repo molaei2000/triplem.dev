@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     head: {
       meta: [{ name: 'apple-mobile-web-app-title', content: 'TripleM' }],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }
+        { rel: 'icon', type: 'image/svg+xml', href: '/mmm.png' }
       ]
     }
   },
