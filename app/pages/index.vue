@@ -1,11 +1,5 @@
 <template>
-	<UContainer>
-		<p>
-			test
-		</p>
-
-		<UButton color="primary">
-			Primary Button
-		</UButton>
-	</UContainer>
+	<UPage>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, provident.</p>
+	</UPage>
 </template>

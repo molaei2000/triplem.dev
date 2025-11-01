@@ -51,7 +51,7 @@
 .dark {
     --ui-primary: var(--color-golden-500);
 
-    --ui-bg: var(--color-royal-blue-950);
+    --ui-bg: #000;
     --ui-bg-muted: var(--ui-color-neutral-800);
     --ui-bg-elevated: var(--ui-color-neutral-800);
     --ui-bg-accented: var(--ui-color-neutral-700);
