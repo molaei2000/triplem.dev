@@ -1,128 +1,149 @@
 <script lang="ts" setup>
-import "leaflet.markercluster/dist/MarkerCluster.css"
-import "leaflet.markercluster/dist/MarkerCluster.Default.css"
-import "leaflet/dist/leaflet.css"
+import 'leaflet.markercluster/dist/MarkerCluster.css'
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
+import 'leaflet/dist/leaflet.css'
 
-export type LeafletInstance = typeof import("leaflet")
+export type LeafletInstance = typeof import('leaflet')
 export type MarkerDefinition = {
-	coords: [number, number]
-	id: string
-	popup?: string
-	onClick?: (ev: Event) => void
-	options?: L.MarkerOptions
+  coords: [number, number]
+  id: string
+  popup?: string
+  onClick?: (ev: Event) => void
+  options?: L.MarkerOptions
 }
 
 const props = withDefaults(
-	defineProps<{
-		mapId: string
-		width?: string
-		height?: string
-		center?: [number, number]
-		zoom?: number
-		controls?: boolean
-		markers?: MarkerDefinition[]
-		cluster?: boolean
-	}>(),
-	{
-		cluster: true,
-		controls: true,
-		width: "100%",
-		height: "100%",
-		zoom: 6,
-		center: [41.89025458379308, 12.492188020193412] as any,
-	},
+  defineProps<{
+    mapId: string
+    width?: string
+    height?: string
+    center?: [number, number]
+    zoom?: number
+    controls?: boolean
+    markers?: MarkerDefinition[]
+    cluster?: boolean
+  }>(),
+  {
+    cluster: true,
+    controls: true,
+    width: '100%',
+    height: '100%',
+    zoom: 6,
+    center: [41.89025458379308, 12.492188020193412] as any
+  }
 )
-const emit = defineEmits<{ (e: "ready", L: LeafletInstance, map?: L.Map): void }>()
+const emit = defineEmits<{ (e: 'ready', L: LeafletInstance, map?: L.Map): void }>()
 let leaflet: LeafletInstance
 let map: L.Map | undefined
 const ready = ref(false)
 
 function zoomIn() {
-	map?.setZoom(map.getZoom() + 1)
+  map?.setZoom(map.getZoom() + 1)
 }
 function zoomOut() {
-	map?.setZoom(map.getZoom() - 1)
+  map?.setZoom(map.getZoom() - 1)
 }
 async function onMapReady() {
-	emit("ready", leaflet, map)
-	ready.value = true
+  emit('ready', leaflet, map)
+  ready.value = true
 }
 
 function fitView(animate: boolean = true) {
-	if (props.markers && props.markers.length > 0) {
-		const bounds = leaflet.latLngBounds(props.markers?.map((coord) => leaflet.latLng(coord.coords[0], coord.coords[1])))
-		map?.fitBounds(bounds, {
-			padding: [48, 48],
-			maxZoom: 14,
-			animate,
-		})
-	} else {
-		map?.setView(props.center, props.zoom)
-	}
+  if (props.markers && props.markers.length > 0) {
+    const bounds = leaflet.latLngBounds(props.markers?.map(coord => leaflet.latLng(coord.coords[0], coord.coords[1])))
+    map?.fitBounds(bounds, {
+      padding: [48, 48],
+      maxZoom: 14,
+      animate
+    })
+  } else {
+    map?.setView(props.center, props.zoom)
+  }
 }
 function injectMarkers() {
-	const clusterGroup = leaflet.markerClusterGroup()
-	const layers: L.Layer[] = []
-	console.log(props.markers);
-	(props.markers ?? []).forEach((m) => {
-		const opt = m.options ?? {}
-		const marker = leaflet.marker(m.coords, {
-			title: m.id,
-			...opt,
-		})
-		if (m.popup) {
-			const popup = leaflet.DomUtil.create("div", "w-full h-full")
-			if (m.onClick !== undefined) {
-				popup.classList.add("cursor-pointer");
-				(popup as HTMLElement).addEventListener("click", m.onClick)
-			}
-			popup.innerHTML = m.popup
-			marker.bindPopup(popup)
-		}
-		if (props.cluster) {
-			clusterGroup.addLayer(marker)
-		} else {
-			layers.push(marker)
-		}
-	})
-	if (props.cluster) {
-		layers.push(clusterGroup)
-	}
-	layers.forEach((l) => map?.addLayer(l))
+  const clusterGroup = leaflet.markerClusterGroup()
+  const layers: L.Layer[] = []
+  console.log(props.markers);
+  (props.markers ?? []).forEach((m) => {
+    const opt = m.options ?? {}
+    const marker = leaflet.marker(m.coords, {
+      title: m.id,
+      ...opt
+    })
+    if (m.popup) {
+      const popup = leaflet.DomUtil.create('div', 'w-full h-full')
+      if (m.onClick !== undefined) {
+        popup.classList.add('cursor-pointer');
+        (popup as HTMLElement).addEventListener('click', m.onClick)
+      }
+      popup.innerHTML = m.popup
+      marker.bindPopup(popup)
+    }
+    if (props.cluster) {
+      clusterGroup.addLayer(marker)
+    } else {
+      layers.push(marker)
+    }
+  })
+  if (props.cluster) {
+    layers.push(clusterGroup)
+  }
+  layers.forEach(l => map?.addLayer(l))
 }
 
 onMounted(async () => {
-	leaflet = (await import("leaflet")).default
-	await import("leaflet.markercluster")
-	map = leaflet
-		.map(props.mapId, {
-			worldCopyJump: true,
-			minZoom: 3,
-			zoomControl: false,
-		})
-		.setView(props.center, props.zoom)
-		.whenReady(onMapReady)
+  leaflet = (await import('leaflet')).default
+  await import('leaflet.markercluster')
+  map = leaflet
+    .map(props.mapId, {
+      worldCopyJump: true,
+      minZoom: 3,
+      zoomControl: false
+    })
+    .setView(props.center, props.zoom)
+    .whenReady(onMapReady)
 
-	leaflet
-		.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-			attribution: "<a href=\"https://www.openstreetmap.org/copyright\" target=\"__blank\">OpenStreetMap</a> contributors",
-		})
-		.addTo(map)
+  leaflet
+    .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '<a href="https://www.openstreetmap.org/copyright" target="__blank">OpenStreetMap</a> contributors'
+    })
+    .addTo(map)
 
-	injectMarkers()
-	fitView(false)
+  injectMarkers()
+  fitView(false)
 })
 </script>
 
 <template>
-	<div :style="{ height, width }" class="relative overflow-clip rounded-lg">
-		<div v-if="controls" class="absolute bottom-0 right-[50%] translate-x-[50%] p-4 flex items-center gap-1 z-1000">
-			<u-button title="Zoom out" variant="soft" size="sm" color="neutral" icon="material-symbols:remove-rounded" @click="zoomOut" />
-			<u-button title="Zoom in" variant="soft" size="sm" color="neutral" icon="material-symbols:add-rounded" @click="zoomIn" />
-			<u-button title="Center view" variant="soft" size="sm" color="neutral" icon="material-symbols:center-focus-weak-outline" @click="() => fitView()" />
-		</div>
-		<div :id="mapId" :style="{ height: '100%', width: '100%' }" />
-	</div>
+  <div :style="{ height, width }" class="relative overflow-clip rounded-lg">
+    <div v-if="controls" class="absolute bottom-0 right-[50%] translate-x-[50%] p-4 flex items-center gap-1 z-1000">
+      <u-button
+        title="Zoom out"
+        variant="soft"
+        size="sm"
+        color="neutral"
+        icon="material-symbols:remove-rounded"
+        @click="zoomOut"
+      />
+      <u-button
+        title="Zoom in"
+        variant="soft"
+        size="sm"
+        color="neutral"
+        icon="material-symbols:add-rounded"
+        @click="zoomIn"
+      />
+      <u-button
+        title="Center view"
+        variant="soft"
+        size="sm"
+        color="neutral"
+        icon="material-symbols:center-focus-weak-outline"
+        @click="() => fitView()"
+      />
+    </div>
+    <div :id="mapId" :style="{ height: '100%', width: '100%' }" />
+  </div>
 </template>
 
 <style lang="css">

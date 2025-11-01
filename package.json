@@ -16,6 +16,7 @@
 	"dependencies": {
 		"@nuxt/content": "^3.8.0",
 		"@nuxt/eslint": "1.10.0",
+		"@nuxt/eslint-config": "^1.10.0",
 		"@nuxt/image": "1.11.0",
 		"@nuxt/ui": "4.1.0",
 		"@nuxtjs/seo": "^3.2.2",
@@ -40,6 +41,7 @@
 	"devDependencies": {
 		"@lihbr/eslint-config": "^0.0.3",
 		"@types/culori": "^4.0.1",
+		"@types/three": "^0.181.0",
 		"@vueuse/core": "^14.0.0",
 		"@vueuse/nuxt": "^14.0.0",
 		"eslint": "^9.37.0"

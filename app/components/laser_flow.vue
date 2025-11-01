@@ -1,48 +1,48 @@
 <script setup lang="ts">
-import * as THREE from "three"
-import { type CSSProperties, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from "vue"
+import * as THREE from 'three'
+import { type CSSProperties, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 
 type Props = {
-	className?: string
-	style?: CSSProperties
-	wispDensity?: number
-	dpr?: number
-	mouseSmoothTime?: number
-	mouseTiltStrength?: number
-	horizontalBeamOffset?: number
-	verticalBeamOffset?: number
-	flowSpeed?: number
-	verticalSizing?: number
-	horizontalSizing?: number
-	fogIntensity?: number
-	fogScale?: number
-	wispSpeed?: number
-	wispIntensity?: number
-	flowStrength?: number
-	decay?: number
-	falloffStart?: number
-	fogFallSpeed?: number
-	color?: string
+  className?: string
+  style?: CSSProperties
+  wispDensity?: number
+  dpr?: number
+  mouseSmoothTime?: number
+  mouseTiltStrength?: number
+  horizontalBeamOffset?: number
+  verticalBeamOffset?: number
+  flowSpeed?: number
+  verticalSizing?: number
+  horizontalSizing?: number
+  fogIntensity?: number
+  fogScale?: number
+  wispSpeed?: number
+  wispIntensity?: number
+  flowStrength?: number
+  decay?: number
+  falloffStart?: number
+  fogFallSpeed?: number
+  color?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-	wispDensity: 1,
-	mouseSmoothTime: 0.0,
-	mouseTiltStrength: 0.01,
-	horizontalBeamOffset: 0.1,
-	verticalBeamOffset: 0.0,
-	flowSpeed: 0.35,
-	verticalSizing: 0.8,
-	horizontalSizing: 0.5,
-	fogIntensity: 0.45,
-	fogScale: 0.3,
-	wispSpeed: 15.0,
-	wispIntensity: 5.0,
-	flowStrength: 0.25,
-	decay: 1.1,
-	falloffStart: 1.2,
-	fogFallSpeed: 0.6,
-	color: "#A0FFBC",
+  wispDensity: 1,
+  mouseSmoothTime: 0.0,
+  mouseTiltStrength: 0.01,
+  horizontalBeamOffset: 0.1,
+  verticalBeamOffset: 0.0,
+  flowSpeed: 0.35,
+  verticalSizing: 0.8,
+  horizontalSizing: 0.5,
+  fogIntensity: 0.45,
+  fogScale: 0.3,
+  wispSpeed: 15.0,
+  wispIntensity: 5.0,
+  flowStrength: 0.25,
+  decay: 1.1,
+  falloffStart: 1.2,
+  fogFallSpeed: 0.6,
+  color: '#A0FFBC'
 })
 
 const VERT = `
@@ -282,7 +282,7 @@ void main(){
 }
 `
 
-const mountRef = useTemplateRef("mountRef")
+const mountRef = useTemplateRef('mountRef')
 const rendererRef = ref<THREE.WebGLRenderer | null>(null)
 const uniformsRef = ref<any>(null)
 const hasFadedRef = ref(false)
@@ -296,337 +296,337 @@ const pausedRef = ref<boolean>(false)
 const inViewRef = ref<boolean>(true)
 
 function hexToRGB(hex: string) {
-	let c = hex.trim()
-	if (c[0] === "#") {
-		c = c.slice(1)
-	}
-	if (c.length === 3) {
-		c = c
-			.split("")
-			.map((x) => x + x)
-			.join("")
-	}
-	const n = Number.parseInt(c, 16) || 0xFFFFFF
-	return { r: ((n >> 16) & 255) / 255, g: ((n >> 8) & 255) / 255, b: (n & 255) / 255 }
+  let c = hex.trim()
+  if (c[0] === '#') {
+    c = c.slice(1)
+  }
+  if (c.length === 3) {
+    c = c
+      .split('')
+      .map(x => x + x)
+      .join('')
+  }
+  const n = Number.parseInt(c, 16) || 0xFFFFFF
+  return { r: ((n >> 16) & 255) / 255, g: ((n >> 8) & 255) / 255, b: (n & 255) / 255 }
 }
 
 let cleanup: (() => void) | null = null
 
 function setup() {
-	const mount = mountRef.value!
-	const renderer = new THREE.WebGLRenderer({
-		antialias: false,
-		alpha: false,
-		depth: false,
-		stencil: false,
-		powerPreference: "high-performance",
-		premultipliedAlpha: false,
-		preserveDrawingBuffer: false,
-		failIfMajorPerformanceCaveat: false,
-		logarithmicDepthBuffer: false,
-	})
+  const mount = mountRef.value!
+  const renderer = new THREE.WebGLRenderer({
+    antialias: false,
+    alpha: false,
+    depth: false,
+    stencil: false,
+    powerPreference: 'high-performance',
+    premultipliedAlpha: false,
+    preserveDrawingBuffer: false,
+    failIfMajorPerformanceCaveat: false,
+    logarithmicDepthBuffer: false
+  })
 
-	rendererRef.value = renderer
+  rendererRef.value = renderer
 
-	baseDprRef.value = Math.min(props.dpr ?? (window.devicePixelRatio || 1), 2)
-	currentDprRef.value = baseDprRef.value
+  baseDprRef.value = Math.min(props.dpr ?? (window.devicePixelRatio || 1), 2)
+  currentDprRef.value = baseDprRef.value
 
-	renderer.setPixelRatio(currentDprRef.value)
-	renderer.shadowMap.enabled = false
-	renderer.outputColorSpace = THREE.SRGBColorSpace
-	renderer.setClearColor(0x000000, 1)
-	const canvas = renderer.domElement
-	canvas.style.width = "100%"
-	canvas.style.height = "100%"
-	canvas.style.display = "block"
-	mount.appendChild(canvas)
+  renderer.setPixelRatio(currentDprRef.value)
+  renderer.shadowMap.enabled = false
+  renderer.outputColorSpace = THREE.SRGBColorSpace
+  renderer.setClearColor(0x000000, 1)
+  const canvas = renderer.domElement
+  canvas.style.width = '100%'
+  canvas.style.height = '100%'
+  canvas.style.display = 'block'
+  mount.appendChild(canvas)
 
-	const scene = new THREE.Scene()
-	const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
+  const scene = new THREE.Scene()
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
 
-	const geometry = new THREE.BufferGeometry()
-	geometry.setAttribute("position", new THREE.BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3))
+  const geometry = new THREE.BufferGeometry()
+  geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3))
 
-	const { r, g, b } = hexToRGB(props.color || "#FFFFFF")
+  const { r, g, b } = hexToRGB(props.color || '#FFFFFF')
 
-	const uniforms = {
-		iTime: { value: 0 },
-		iResolution: { value: new THREE.Vector3(1, 1, 1) },
-		iMouse: { value: new THREE.Vector4(0, 0, 0, 0) },
-		uWispDensity: { value: props.wispDensity },
-		uTiltScale: { value: props.mouseTiltStrength },
-		uFlowTime: { value: 0 },
-		uFogTime: { value: 0 },
-		uBeamXFrac: { value: props.horizontalBeamOffset },
-		uBeamYFrac: { value: props.verticalBeamOffset },
-		uFlowSpeed: { value: props.flowSpeed },
-		uVLenFactor: { value: props.verticalSizing },
-		uHLenFactor: { value: props.horizontalSizing },
-		uFogIntensity: { value: props.fogIntensity },
-		uFogScale: { value: props.fogScale },
-		uWSpeed: { value: props.wispSpeed },
-		uWIntensity: { value: props.wispIntensity },
-		uFlowStrength: { value: props.flowStrength },
-		uDecay: { value: props.decay },
-		uFalloffStart: { value: props.falloffStart },
-		uFogFallSpeed: { value: props.fogFallSpeed },
-		uColor: { value: new THREE.Vector3(r, g, b) },
-		uFade: { value: hasFadedRef.value ? 1 : 0 },
-	}
-	uniformsRef.value = uniforms
+  const uniforms = {
+    iTime: { value: 0 },
+    iResolution: { value: new THREE.Vector3(1, 1, 1) },
+    iMouse: { value: new THREE.Vector4(0, 0, 0, 0) },
+    uWispDensity: { value: props.wispDensity },
+    uTiltScale: { value: props.mouseTiltStrength },
+    uFlowTime: { value: 0 },
+    uFogTime: { value: 0 },
+    uBeamXFrac: { value: props.horizontalBeamOffset },
+    uBeamYFrac: { value: props.verticalBeamOffset },
+    uFlowSpeed: { value: props.flowSpeed },
+    uVLenFactor: { value: props.verticalSizing },
+    uHLenFactor: { value: props.horizontalSizing },
+    uFogIntensity: { value: props.fogIntensity },
+    uFogScale: { value: props.fogScale },
+    uWSpeed: { value: props.wispSpeed },
+    uWIntensity: { value: props.wispIntensity },
+    uFlowStrength: { value: props.flowStrength },
+    uDecay: { value: props.decay },
+    uFalloffStart: { value: props.falloffStart },
+    uFogFallSpeed: { value: props.fogFallSpeed },
+    uColor: { value: new THREE.Vector3(r, g, b) },
+    uFade: { value: hasFadedRef.value ? 1 : 0 }
+  }
+  uniformsRef.value = uniforms
 
-	const material = new THREE.RawShaderMaterial({
-		vertexShader: VERT,
-		fragmentShader: FRAG,
-		uniforms,
-		transparent: false,
-		depthTest: false,
-		depthWrite: false,
-		blending: THREE.NormalBlending,
-	})
+  const material = new THREE.RawShaderMaterial({
+    vertexShader: VERT,
+    fragmentShader: FRAG,
+    uniforms,
+    transparent: false,
+    depthTest: false,
+    depthWrite: false,
+    blending: THREE.NormalBlending
+  })
 
-	const mesh = new THREE.Mesh(geometry, material)
-	mesh.frustumCulled = false
-	scene.add(mesh)
+  const mesh = new THREE.Mesh(geometry, material)
+  mesh.frustumCulled = false
+  scene.add(mesh)
 
-	const clock = new THREE.Clock()
-	let prevTime = 0
+  const clock = new THREE.Clock()
+  let prevTime = 0
 
-	let fade = hasFadedRef.value ? 1 : 0
-	const mouseTarget = new THREE.Vector2(0, 0)
-	const mouseSmooth = new THREE.Vector2(0, 0)
+  let fade = hasFadedRef.value ? 1 : 0
+  const mouseTarget = new THREE.Vector2(0, 0)
+  const mouseSmooth = new THREE.Vector2(0, 0)
 
-	const setSizeNow = () => {
-		const w = mount.clientWidth || 1
-		const h = mount.clientHeight || 1
-		const pr = currentDprRef.value
-		renderer.setPixelRatio(pr)
-		renderer.setSize(w, h, false)
-		uniforms.iResolution.value.set(w * pr, h * pr, pr)
-		rectRef.value = canvas.getBoundingClientRect()
-	}
+  const setSizeNow = () => {
+    const w = mount.clientWidth || 1
+    const h = mount.clientHeight || 1
+    const pr = currentDprRef.value
+    renderer.setPixelRatio(pr)
+    renderer.setSize(w, h, false)
+    uniforms.iResolution.value.set(w * pr, h * pr, pr)
+    rectRef.value = canvas.getBoundingClientRect()
+  }
 
-	let resizeRaf = 0
-	const scheduleResize = () => {
-		if (resizeRaf) {
-			cancelAnimationFrame(resizeRaf)
-		}
-		resizeRaf = requestAnimationFrame(setSizeNow)
-	}
+  let resizeRaf = 0
+  const scheduleResize = () => {
+    if (resizeRaf) {
+      cancelAnimationFrame(resizeRaf)
+    }
+    resizeRaf = requestAnimationFrame(setSizeNow)
+  }
 
-	setSizeNow()
-	const ro = new ResizeObserver(scheduleResize)
-	ro.observe(mount)
+  setSizeNow()
+  const ro = new ResizeObserver(scheduleResize)
+  ro.observe(mount)
 
-	const io = new IntersectionObserver(
-		(entries) => {
-			inViewRef.value = entries[0]?.isIntersecting ?? true
-		},
-		{ root: null, threshold: 0 },
-	)
-	io.observe(mount)
+  const io = new IntersectionObserver(
+    (entries) => {
+      inViewRef.value = entries[0]?.isIntersecting ?? true
+    },
+    { root: null, threshold: 0 }
+  )
+  io.observe(mount)
 
-	const onVis = () => {
-		pausedRef.value = document.hidden
-	}
-	document.addEventListener("visibilitychange", onVis, { passive: true })
+  const onVis = () => {
+    pausedRef.value = document.hidden
+  }
+  document.addEventListener('visibilitychange', onVis, { passive: true })
 
-	const updateMouse = (clientX: number, clientY: number) => {
-		const rect = rectRef.value
-		if (!rect) {
-			return
-		}
-		const x = clientX - rect.left
-		const y = clientY - rect.top
-		const ratio = currentDprRef.value
-		const hb = rect.height * ratio
-		mouseTarget.set(x * ratio, hb - y * ratio)
-	}
+  const updateMouse = (clientX: number, clientY: number) => {
+    const rect = rectRef.value
+    if (!rect) {
+      return
+    }
+    const x = clientX - rect.left
+    const y = clientY - rect.top
+    const ratio = currentDprRef.value
+    const hb = rect.height * ratio
+    mouseTarget.set(x * ratio, hb - y * ratio)
+  }
 
-	const onMove = (ev: PointerEvent | MouseEvent) => updateMouse(ev.clientX, ev.clientY)
-	const onLeave = () => mouseTarget.set(0, 0)
+  const onMove = (ev: PointerEvent | MouseEvent) => updateMouse(ev.clientX, ev.clientY)
+  const onLeave = () => mouseTarget.set(0, 0)
 
-	canvas.addEventListener("pointermove", onMove as any, { passive: true })
-	canvas.addEventListener("pointerdown", onMove as any, { passive: true })
-	canvas.addEventListener("pointerenter", onMove as any, { passive: true })
-	canvas.addEventListener("pointerleave", onLeave as any, { passive: true })
+  canvas.addEventListener('pointermove', onMove as any, { passive: true })
+  canvas.addEventListener('pointerdown', onMove as any, { passive: true })
+  canvas.addEventListener('pointerenter', onMove as any, { passive: true })
+  canvas.addEventListener('pointerleave', onLeave as any, { passive: true })
 
-	const onCtxLost = (e: Event) => {
-		e.preventDefault()
-		pausedRef.value = true
-	}
-	const onCtxRestored = () => {
-		pausedRef.value = false
-		scheduleResize()
-	}
-	canvas.addEventListener("webglcontextlost", onCtxLost, false)
-	canvas.addEventListener("webglcontextrestored", onCtxRestored, false)
+  const onCtxLost = (e: Event) => {
+    e.preventDefault()
+    pausedRef.value = true
+  }
+  const onCtxRestored = () => {
+    pausedRef.value = false
+    scheduleResize()
+  }
+  canvas.addEventListener('webglcontextlost', onCtxLost, false)
+  canvas.addEventListener('webglcontextrestored', onCtxRestored, false)
 
-	let raf = 0
-	const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v))
-	const dprFloor = 0.6
-	const lowerThresh = 50
-	const upperThresh = 58
+  let raf = 0
+  const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v))
+  const dprFloor = 0.6
+  const lowerThresh = 50
+  const upperThresh = 58
 
-	const adjustDprIfNeeded = (now: number) => {
-		const elapsed = now - lastFpsCheckRef.value
-		if (elapsed < 750) {
-			return
-		}
+  const adjustDprIfNeeded = (now: number) => {
+    const elapsed = now - lastFpsCheckRef.value
+    if (elapsed < 750) {
+      return
+    }
 
-		const samples = fpsSamplesRef.value
-		if (samples.length === 0) {
-			lastFpsCheckRef.value = now
-			return
-		}
-		const avgFps = samples.reduce((a, b) => a + b, 0) / samples.length
+    const samples = fpsSamplesRef.value
+    if (samples.length === 0) {
+      lastFpsCheckRef.value = now
+      return
+    }
+    const avgFps = samples.reduce((a, b) => a + b, 0) / samples.length
 
-		let next = currentDprRef.value
-		const base = baseDprRef.value
+    let next = currentDprRef.value
+    const base = baseDprRef.value
 
-		if (avgFps < lowerThresh) {
-			next = clamp(currentDprRef.value * 0.9, dprFloor, base)
-		} else if (avgFps > upperThresh && currentDprRef.value < base) {
-			next = clamp(currentDprRef.value * 1.05, dprFloor, base)
-		}
+    if (avgFps < lowerThresh) {
+      next = clamp(currentDprRef.value * 0.9, dprFloor, base)
+    } else if (avgFps > upperThresh && currentDprRef.value < base) {
+      next = clamp(currentDprRef.value * 1.05, dprFloor, base)
+    }
 
-		if (Math.abs(next - currentDprRef.value) > 0.01) {
-			currentDprRef.value = next
-			setSizeNow()
-		}
+    if (Math.abs(next - currentDprRef.value) > 0.01) {
+      currentDprRef.value = next
+      setSizeNow()
+    }
 
-		fpsSamplesRef.value = []
-		lastFpsCheckRef.value = now
-	}
+    fpsSamplesRef.value = []
+    lastFpsCheckRef.value = now
+  }
 
-	const animate = () => {
-		raf = requestAnimationFrame(animate)
-		if (pausedRef.value || !inViewRef.value) {
-			return
-		}
+  const animate = () => {
+    raf = requestAnimationFrame(animate)
+    if (pausedRef.value || !inViewRef.value) {
+      return
+    }
 
-		const t = clock.getElapsedTime()
-		const dt = Math.max(0, t - prevTime)
-		prevTime = t
+    const t = clock.getElapsedTime()
+    const dt = Math.max(0, t - prevTime)
+    prevTime = t
 
-		const dtMs = dt * 1000
-		emaDtRef.value = emaDtRef.value * 0.9 + dtMs * 0.1
-		const instFps = 1000 / Math.max(1, emaDtRef.value)
-		fpsSamplesRef.value.push(instFps)
+    const dtMs = dt * 1000
+    emaDtRef.value = emaDtRef.value * 0.9 + dtMs * 0.1
+    const instFps = 1000 / Math.max(1, emaDtRef.value)
+    fpsSamplesRef.value.push(instFps)
 
-		uniforms.iTime.value = t
+    uniforms.iTime.value = t
 
-		const cdt = Math.min(0.033, Math.max(0.001, dt));
-		(uniforms.uFlowTime.value as number) += cdt;
-		(uniforms.uFogTime.value as number) += cdt
+    const cdt = Math.min(0.033, Math.max(0.001, dt));
+    (uniforms.uFlowTime.value as number) += cdt;
+    (uniforms.uFogTime.value as number) += cdt
 
-		if (!hasFadedRef.value) {
-			const fadeDur = 1.0
-			fade = Math.min(1, fade + cdt / fadeDur)
-			uniforms.uFade.value = fade
-			if (fade >= 1) {
-				hasFadedRef.value = true
-			}
-		}
+    if (!hasFadedRef.value) {
+      const fadeDur = 1.0
+      fade = Math.min(1, fade + cdt / fadeDur)
+      uniforms.uFade.value = fade
+      if (fade >= 1) {
+        hasFadedRef.value = true
+      }
+    }
 
-		const tau = Math.max(1e-3, props.mouseSmoothTime)
-		const alpha = 1 - Math.exp(-cdt / tau)
-		mouseSmooth.lerp(mouseTarget, alpha)
-		uniforms.iMouse.value.set(mouseSmooth.x, mouseSmooth.y, 0, 0)
+    const tau = Math.max(1e-3, props.mouseSmoothTime)
+    const alpha = 1 - Math.exp(-cdt / tau)
+    mouseSmooth.lerp(mouseTarget, alpha)
+    uniforms.iMouse.value.set(mouseSmooth.x, mouseSmooth.y, 0, 0)
 
-		renderer.render(scene, camera)
+    renderer.render(scene, camera)
 
-		adjustDprIfNeeded(performance.now())
-	}
+    adjustDprIfNeeded(performance.now())
+  }
 
-	animate()
+  animate()
 
-	cleanup = () => {
-		cancelAnimationFrame(raf)
-		ro.disconnect()
-		io.disconnect()
-		document.removeEventListener("visibilitychange", onVis)
-		canvas.removeEventListener("pointermove", onMove as any)
-		canvas.removeEventListener("pointerdown", onMove as any)
-		canvas.removeEventListener("pointerenter", onMove as any)
-		canvas.removeEventListener("pointerleave", onLeave as any)
-		canvas.removeEventListener("webglcontextlost", onCtxLost)
-		canvas.removeEventListener("webglcontextrestored", onCtxRestored)
-		geometry.dispose()
-		material.dispose()
-		renderer.dispose()
-		if (mount.contains(canvas)) {
-			mount.removeChild(canvas)
-		}
-	}
+  cleanup = () => {
+    cancelAnimationFrame(raf)
+    ro.disconnect()
+    io.disconnect()
+    document.removeEventListener('visibilitychange', onVis)
+    canvas.removeEventListener('pointermove', onMove as any)
+    canvas.removeEventListener('pointerdown', onMove as any)
+    canvas.removeEventListener('pointerenter', onMove as any)
+    canvas.removeEventListener('pointerleave', onLeave as any)
+    canvas.removeEventListener('webglcontextlost', onCtxLost)
+    canvas.removeEventListener('webglcontextrestored', onCtxRestored)
+    geometry.dispose()
+    material.dispose()
+    renderer.dispose()
+    if (mount.contains(canvas)) {
+      mount.removeChild(canvas)
+    }
+  }
 }
 
 onMounted(() => {
-	setup()
+  setup()
 })
 
 onBeforeUnmount(() => {
-	cleanup?.()
+  cleanup?.()
 })
 
 watch(
-	() => [props.dpr],
-	() => {
-		cleanup?.()
-		setup()
-	},
-	{ deep: true },
+  () => [props.dpr],
+  () => {
+    cleanup?.()
+    setup()
+  },
+  { deep: true }
 )
 
 watch(
-	() => [
-		props.wispDensity,
-		props.mouseTiltStrength,
-		props.horizontalBeamOffset,
-		props.verticalBeamOffset,
-		props.flowSpeed,
-		props.verticalSizing,
-		props.horizontalSizing,
-		props.fogIntensity,
-		props.fogScale,
-		props.wispSpeed,
-		props.wispIntensity,
-		props.flowStrength,
-		props.decay,
-		props.falloffStart,
-		props.fogFallSpeed,
-		props.color,
-	],
-	() => {
-		const uniforms = uniformsRef.value
-		if (!uniforms) {
-			return
-		}
+  () => [
+    props.wispDensity,
+    props.mouseTiltStrength,
+    props.horizontalBeamOffset,
+    props.verticalBeamOffset,
+    props.flowSpeed,
+    props.verticalSizing,
+    props.horizontalSizing,
+    props.fogIntensity,
+    props.fogScale,
+    props.wispSpeed,
+    props.wispIntensity,
+    props.flowStrength,
+    props.decay,
+    props.falloffStart,
+    props.fogFallSpeed,
+    props.color
+  ],
+  () => {
+    const uniforms = uniformsRef.value
+    if (!uniforms) {
+      return
+    }
 
-		uniforms.uWispDensity.value = props.wispDensity
-		uniforms.uTiltScale.value = props.mouseTiltStrength
-		uniforms.uBeamXFrac.value = props.horizontalBeamOffset
-		uniforms.uBeamYFrac.value = props.verticalBeamOffset
-		uniforms.uFlowSpeed.value = props.flowSpeed
-		uniforms.uVLenFactor.value = props.verticalSizing
-		uniforms.uHLenFactor.value = props.horizontalSizing
-		uniforms.uFogIntensity.value = props.fogIntensity
-		uniforms.uFogScale.value = props.fogScale
-		uniforms.uWSpeed.value = props.wispSpeed
-		uniforms.uWIntensity.value = props.wispIntensity
-		uniforms.uFlowStrength.value = props.flowStrength
-		uniforms.uDecay.value = props.decay
-		uniforms.uFalloffStart.value = props.falloffStart
-		uniforms.uFogFallSpeed.value = props.fogFallSpeed
+    uniforms.uWispDensity.value = props.wispDensity
+    uniforms.uTiltScale.value = props.mouseTiltStrength
+    uniforms.uBeamXFrac.value = props.horizontalBeamOffset
+    uniforms.uBeamYFrac.value = props.verticalBeamOffset
+    uniforms.uFlowSpeed.value = props.flowSpeed
+    uniforms.uVLenFactor.value = props.verticalSizing
+    uniforms.uHLenFactor.value = props.horizontalSizing
+    uniforms.uFogIntensity.value = props.fogIntensity
+    uniforms.uFogScale.value = props.fogScale
+    uniforms.uWSpeed.value = props.wispSpeed
+    uniforms.uWIntensity.value = props.wispIntensity
+    uniforms.uFlowStrength.value = props.flowStrength
+    uniforms.uDecay.value = props.decay
+    uniforms.uFalloffStart.value = props.falloffStart
+    uniforms.uFogFallSpeed.value = props.fogFallSpeed
 
-		const { r, g, b } = hexToRGB(props.color || "#FFFFFF")
-		console.log(props.color)
-		uniforms.uColor.value.set(r, g, b)
-	},
-	{ deep: true },
+    const { r, g, b } = hexToRGB(props.color || '#FFFFFF')
+    console.log(props.color)
+    uniforms.uColor.value.set(r, g, b)
+  },
+  { deep: true }
 )
 </script>
 
 <template>
-	<div ref="mountRef" class="w-full h-full relative" :class="[className]" :style="style" />
+  <div ref="mountRef" class="w-full h-full relative" :class="[className]" :style="style" />
 </template>
