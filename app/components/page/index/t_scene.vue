@@ -1,0 +1,189 @@
+<script lang="ts" setup>
+/* eslint-disable vue/attribute-hyphenation */
+import type { Group } from 'three'
+import { useWindowSize } from '@vueuse/core'
+import { gsap } from 'gsap'
+
+// const { totalItems } = useCart()
+const totalItems = ref(0)
+const route = useRoute()
+const { width } = useWindowSize()
+
+const activeModel = ref<string>('800')
+const $canister = shallowRef<Group | null>(null)
+const $canisterInternal = shallowRef<Group | null>(null)
+const $packaging = shallowRef<Group | null>(null)
+
+const { isDark } = useDark()
+
+const options = computed(() => {
+  if (width.value >= 1280) {
+    return {
+      x: 0.33,
+      canisterPosition: [1.5, 2.5, 0],
+      packagingPosition: [-1.5, -2.5, 0],
+      scale: 1
+    } as const
+  }
+
+  return {
+    x: 0.5,
+    canisterPosition: [2.5, 4.5, 0],
+    packagingPosition: [-2.5, -5, 0],
+    scale: 0.75
+  } as const
+})
+
+useLoop().onBeforeRender(({ elapsed }) => {
+  if ($canisterInternal.value) {
+    $canisterInternal.value.rotation.y = Math.PI / 4 - Math.sin(elapsed * 0.25) * Math.PI / 2
+  }
+})
+
+useGSAP((isReducedMotion) => {
+  if (!$canister.value || !$packaging.value) {
+    return
+  }
+
+  const $canisterPosition = $canister.value.position
+  const $packagingPosition = $packaging.value.position
+
+  const $canisterRotation = $canister.value.rotation
+  const $packagingRotation = $packaging.value.rotation
+
+  function animateScroll() {
+    const $sections = document.querySelectorAll<HTMLElement>('[data-scene-position]')
+
+    $sections.forEach(($section) => {
+      const model = $section.dataset.sceneModel
+      const position = $section.dataset.scenePosition
+      const shouldRotate = !isReducedMotion && Boolean($section.dataset.sceneRotate)
+
+      function onUpdate(this: gsap.TweenVars) {
+        if (this.progress() > 0.2 && this.progress() < 0.7 && model) {
+          activeModel.value = model
+        }
+      }
+
+      function onRefresh(self: ScrollTrigger) {
+        if (self.isActive && model) {
+          activeModel.value = model
+        }
+      }
+
+      if (position === 'center' || position === 'top') {
+        gsap.to([$canisterPosition, $packagingPosition], {
+          y: position === 'center' ? 0 : 24,
+          stagger: 0.05,
+          ease: 'power2.inOut',
+          repeatRefresh: true,
+          onUpdate: shouldRotate ? undefined : onUpdate,
+          scrollTrigger: {
+            trigger: $section,
+            start: position === 'center' ? 'top+=40% bottom' : 'top bottom',
+            end: position === 'center' ? 'top+=90% bottom' : 'top+=50% bottom',
+            scrub: true,
+            invalidateOnRefresh: true,
+            onRefresh: shouldRotate ? undefined : onRefresh
+          }
+        })
+      }
+
+      if (shouldRotate) {
+        gsap.to([$canisterRotation, $packagingRotation], {
+          y: `+=${Math.PI * 2}`,
+          stagger: 0.05,
+          ease: 'linear',
+          repeatRefresh: true,
+          onUpdate,
+          scrollTrigger: {
+            trigger: $section,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+            onRefresh
+          }
+        })
+      }
+    })
+  }
+
+  // Intro animation
+  if (!isReducedMotion && window.scrollY < 20) {
+    gsap.fromTo([$canisterPosition, $packagingPosition], {
+      y: -12
+    }, {
+      y: 0,
+      delay: 0.3,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'power2.out',
+      onComplete: animateScroll
+    })
+  } else {
+    animateScroll()
+  }
+
+  // Spin on add to cart
+  if (!isReducedMotion) {
+    watch(totalItems, (next, prev) => {
+      if (next <= prev) {
+        return
+      }
+
+      gsap.to([$canisterRotation, $packagingRotation], {
+        y: `+=${Math.PI * 2}`,
+        stagger: 0.05,
+        duration: 0.8,
+        ease: 'power2.inOut'
+      })
+    })
+  }
+}, () => route.path)
+</script>
+
+<template>
+  <PageIndexTAbsoluteGroup :x="options.x" :distance="20">
+    <TresGroup :position="options.canisterPosition" :scale="options.scale">
+      <Levioso>
+        <TresGroup ref="$canister">
+          <TresGroup ref="$canisterInternal">
+            <PageIndexTFilmCanister :model="activeModel" :rotation="[0, 0, Math.PI / 8]" />
+          </TresGroup>
+        </TresGroup>
+      </Levioso>
+    </TresGroup>
+    <TresGroup :position="options.packagingPosition" :scale="options.scale">
+      <Levioso>
+        <TresGroup ref="$packaging">
+          <PageIndexTFilmPackaging :model="activeModel" :rotation="[-Math.PI / 2, 0, Math.PI / 3]" />
+        </TresGroup>
+      </Levioso>
+    </TresGroup>
+  </PageIndexTAbsoluteGroup>
+
+  <TresMesh receive-shadow :position="[0, 0, -4]" :rotation="[0, 0, 0]">
+    <TresPlaneGeometry :args="[400, 400, 10, 10]" />
+    <TresMeshStandardMaterial :color="isDark ? '#000' : '#fff'" :roughness="0.45" :metalness="0.45" />
+  </TresMesh>
+
+  <TresDirectionalLight
+    cast-shadow
+    :position="[-8, 4, 20]"
+    :intensity=".5"
+    :shadow-mapSize-width="512"
+    :shadow-mapSize-height="512"
+    :shadow-camera-left="-16"
+    :shadow-camera-right="16"
+    :shadow-camera-top="16"
+    :shadow-camera-bottom="-16"
+    :color="0xFFFFFF"
+  />
+
+  <SoftShadows :size="50" :samples="10" />
+
+  <Suspense>
+    <Environment files="/textures/lobby.hdr" :environment-intensity="0.25" />
+  </Suspense>
+</template>

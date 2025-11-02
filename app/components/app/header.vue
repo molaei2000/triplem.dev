@@ -1,33 +1,39 @@
 <script setup lang="ts">
-import logo from '~~/public/mmm.png'
+// import logo from '~~/public/mmm.png'
 </script>
 
 <template>
-  <UHeader>
-    <template #right>
-      <ColorModeButton />
-    </template>
-    <template #left>
-      MMM
-    </template>
-
-    <div class="flex justify-center">
-      <PillNav
-        :logo="logo"
-        logo-alt="Company Logo"
-        :items="[
-          { label: 'Home', href: '/' },
-          { label: 'Articles', href: '/articles' },
-          { label: 'Contact', href: '/contact' }
-        ]"
-        active-href="/"
-        class="custom-nav"
-        ease="power2.easeOut"
-        base-color="#000000"
-        pill-color="#ffffff"
-        hovered-pill-text-color="#ffffff"
-        pill-text-color="#000000"
-      />
-    </div>
-  </UHeader>
+  <header>
+    <nav class="flex justify-between backdrop-blur xl:backdrop-blur-none">
+      <NuxtLink to="/" class="cta py-px ml-4">
+        <BrandSignature class="text-lg" />
+      </NuxtLink>
+      <ul class="xl:w-[calc(40%+2rem)] flex items-center pl-8 pr-4 xl:backdrop-blur">
+        <li
+          v-for="link in [{ key: 'home', title: 'Home', url: '/' }, { key: 'articles', title: 'Articles', url: '/articles' }]"
+          :key="link.key"
+          class="hidden xl:block"
+        >
+          <NuxtLink :to="link.url" class="cta">
+            {{ link.title }}
+          </NuxtLink>
+        </li>
+        <li class="ml-auto">
+          <ColorModeButton />
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
+
+<style scoped>
+@reference "~/assets/css/main.css";
+
+a {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+
+header:has(a:hover) a:not(:hover) {
+  @apply opacity-25;
+}
+</style>

@@ -4,7 +4,7 @@ import appMeta from './app/app.meta'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
-  modules: ['@nuxt/ui', 'motion-v/nuxt', '@nuxt/content', '@nuxtjs/seo', '@vueuse/nuxt', 'nuxt-schema-org'],
+  modules: ['@nuxt/ui', '@tresjs/nuxt', 'motion-v/nuxt', '@nuxt/content', '@nuxtjs/seo', '@vueuse/nuxt', 'nuxt-schema-org'],
   devtools: { enabled: true },
   app: {
     head: {
