@@ -5,7 +5,7 @@ import { useWindowSize } from '@vueuse/core'
 import { gsap } from 'gsap'
 
 // const { totalItems } = useCart()
-const totalItems = ref(0)
+const totalItems = useState('totalItems', () => 0)
 const route = useRoute()
 const { width } = useWindowSize()
 
@@ -165,7 +165,7 @@ useGSAP((isReducedMotion) => {
 
   <TresMesh receive-shadow :position="[0, 0, -4]" :rotation="[0, 0, 0]">
     <TresPlaneGeometry :args="[400, 400, 10, 10]" />
-    <TresMeshStandardMaterial :color="isDark ? '#000' : '#fff'" :roughness="0.45" :metalness="0.45" />
+    <TresMeshStandardMaterial :color="isDark ? '#000' : '#fff'" :roughness="0.45" :metalness="0.6" />
   </TresMesh>
 
   <TresDirectionalLight
