@@ -45,6 +45,7 @@ const query = ref('')
         <u-blog-posts v-else>
           <u-blog-post
             v-for="article in articles"
+            :key="article.id"
             :title="article.title"
             :description="article.description"
             :image="article.thumbnail"
@@ -52,7 +53,7 @@ const query = ref('')
             :badge="Math.abs(new Date().getTime() - new Date(article?.date).getTime()) < 8.64e7 * 7 ? { label: 'New', color: 'primary' } : undefined"
             :date="article.date"
             :to="article.path"
-            variant="naked"
+            variant="subtle"
           />
         </u-blog-posts>
       </u-page-body>

@@ -80,14 +80,6 @@ onMounted(() => {
     <u-page :ui="{ center: 'lg:col-span-7!' }">
       <template #right>
         <u-page-aside :ui="{ root: 'lg:col-span-3!' }">
-          <u-page-anchors
-            :links="[
-              { label: 'YouTube tutorial', icon: 'mdi:youtube', to: 'https://www.youtube.com/@matteo-beltrame', target: '_blank' },
-              { label: 'All articles', icon: 'material-symbols:article-rounded', to: '/articles/' }
-            ]"
-          />
-          <u-separator type="dotted" />
-          <u-content-toc v-if="data" :links="data.body.toc?.links" highlight />
           <u-field-group class="w-full">
             <u-button
               label="Share this article"
@@ -101,6 +93,8 @@ onMounted(() => {
               <u-button icon="i-lucide-chevron-down" variant="subtle" color="neutral" />
             </u-dropdown-menu>
           </u-field-group>
+
+          <u-content-toc v-if="data" :links="data.body.toc?.links" highlight />
         </u-page-aside>
       </template>
       <u-page-header :title="data?.title" :description="data?.description" headline="Blog">
@@ -114,7 +108,7 @@ onMounted(() => {
               @click="() => authorEl?.scrollIntoView()"
             />
             <div class="flex flex-row gap-2 items-center flex-wrap">
-              <u-badge v-for="k in data?.tags" color="primary" variant="soft">
+              <u-badge v-for="k in data?.tags" :key="k" color="primary" variant="soft">
                 {{ k }}
               </u-badge>
             </div>
@@ -141,6 +135,7 @@ onMounted(() => {
         <u-blog-posts id="related-articles">
           <u-blog-post
             v-for="article in links"
+            :key="article.title"
             :title="article.title"
             :image="article.thumbnail"
             :authors="[{ name: article.author, avatar: { src: article.author_avatar }, description: article.author_description }]"
