@@ -3,9 +3,9 @@ title: "You Are What You Eat (So Please Don't Be a Hot Dog)"
 date: 2025-09-01
 description: Learn why eating good is important, because it actually is. Discover tips and tricks to stay healty and always hit your macros and micros.
 tags: [tutorial, health]
-author: Matteo Beltrame
-author_avatar: /assets/avatars/trat.jpg
-author_description: "Coding guy"
+author: Mohammad Mahdi Molaei
+author_avatar: https://github.com/molaei2000.png
+author_description: "Triple M"
 thumbnail: /assets/articles/why-you-should-eat-good.jpeg
 ---
 
