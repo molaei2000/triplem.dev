@@ -7,10 +7,8 @@ import { gsap } from 'gsap'
 const route = useRoute()
 const { width } = useWindowSize()
 
-const activeModel = ref<string>('800')
-const $canister = ref<Group | null>(null)
-const $canisterInternal = ref<Group | null>(null)
-const $packaging = ref<Group | null>(null)
+const $number = useTemplateRef<Group | null>('number')
+const $letterM = useTemplateRef<Group | null>('letterM')
 
 const { isDark } = useDark()
 
@@ -18,89 +16,77 @@ const options = computed(() => {
   if (width.value >= 1280) {
     return {
       x: 0.33,
-      canisterPosition: [1.5, 2.5, 0],
-      packagingPosition: [-1.5, -2.5, 0],
-      scale: 1
+      numberPosition: [1.5, 2.5, 0],
+      letterPosition: [-1.5, -2, 0],
+      scale: 0.04
     } as const
   }
 
   return {
     x: 0.5,
-    canisterPosition: [2.5, 4.5, 0],
-    packagingPosition: [-2.5, -5, 0],
-    scale: 0.75
+    numberPosition: [-1, 6, 0],
+    letterPosition: [-3, 3, 0],
+    scale: 0.02
   } as const
 })
 
-useLoop().onBeforeRender(({ elapsed }) => {
-  if ($canisterInternal.value) {
-    $canisterInternal.value.rotation.y = Math.PI / 4 - Math.sin(elapsed * 0.25) * Math.PI / 2
-  }
-})
+// useLoop().onBeforeRender(({ elapsed }) => {
+//   if ($canisterInternal.value) {
+//     $canisterInternal.value.rotation.y = Math.PI / 4 - Math.sin(elapsed * 0.25) * Math.PI / 2
+//   }
+// })
 
 useGSAP((isReducedMotion) => {
-  if (!$canister.value || !$packaging.value) {
+  if (!$number.value || !$letterM.value) {
     return
   }
 
-  const $canisterPosition = $canister.value.position
-  const $packagingPosition = $packaging.value.position
+  console.log(isReducedMotion)
+  console.log('test')
 
-  const $canisterRotation = $canister.value.rotation
-  const $packagingRotation = $packaging.value.rotation
+  const $numberPosition = $number.value.position
+  const $letterPosition = $letterM.value.position
+
+  const $numberRotation = $number.value.rotation
+  const $letterRotation = $letterM.value.rotation
 
   function animateScroll() {
     const $sections = document.querySelectorAll<HTMLElement>('[data-scene-position]')
+    console.log($sections)
 
     $sections.forEach(($section) => {
-      const model = $section.dataset.sceneModel
       const position = $section.dataset.scenePosition
       const shouldRotate = !isReducedMotion && Boolean($section.dataset.sceneRotate)
 
-      function onUpdate(this: gsap.TweenVars) {
-        if (this.progress() > 0.2 && this.progress() < 0.7 && model) {
-          activeModel.value = model
-        }
-      }
-
-      function onRefresh(self: ScrollTrigger) {
-        if (self.isActive && model) {
-          activeModel.value = model
-        }
-      }
-
+      console.log(position)
       if (position === 'center' || position === 'top') {
-        gsap.to([$canisterPosition, $packagingPosition], {
+        gsap.to([$numberPosition, $letterPosition], {
           y: position === 'center' ? 0 : 24,
           stagger: 0.05,
           ease: 'power2.inOut',
           repeatRefresh: true,
-          onUpdate: shouldRotate ? undefined : onUpdate,
           scrollTrigger: {
             trigger: $section,
             start: position === 'center' ? 'top+=40% bottom' : 'top bottom',
             end: position === 'center' ? 'top+=90% bottom' : 'top+=50% bottom',
             scrub: true,
-            invalidateOnRefresh: true,
-            onRefresh: shouldRotate ? undefined : onRefresh
+            invalidateOnRefresh: true
           }
         })
       }
 
       if (shouldRotate) {
-        gsap.to([$canisterRotation, $packagingRotation], {
+        gsap.to([$numberRotation, $letterRotation], {
           y: `+=${Math.PI * 2}`,
           stagger: 0.05,
           ease: 'linear',
           repeatRefresh: true,
-          onUpdate,
           scrollTrigger: {
             trigger: $section,
             start: 'top center',
             end: 'bottom center',
             scrub: 0.6,
-            invalidateOnRefresh: true,
-            onRefresh
+            invalidateOnRefresh: true
           }
         })
       }
@@ -109,7 +95,7 @@ useGSAP((isReducedMotion) => {
 
   // Intro animation
   if (!isReducedMotion && window.scrollY < 20) {
-    gsap.fromTo([$canisterPosition, $packagingPosition], {
+    gsap.fromTo([$numberPosition, $letterPosition], {
       y: -12
     }, {
       y: 0,
@@ -125,9 +111,9 @@ useGSAP((isReducedMotion) => {
 }, () => route.path)
 
 // const fullRotation = () => {
-//   const $canisterRotation = $canister.value.rotation
-//   const $packagingRotation = $packaging.value.rotation
-//   gsap.to([$canisterRotation, $packagingRotation], {
+//   const $numberRotation = $number.value.rotation
+//   const $letterRotation = $letterM.value.rotation
+//   gsap.to([$numberRotation, $letterRotation], {
 //     y: `+=${Math.PI * 2}`,
 //     stagger: 0.05,
 //     duration: 0.8,
@@ -138,19 +124,17 @@ useGSAP((isReducedMotion) => {
 
 <template>
   <PageIndexTAbsoluteGroup :x="options.x" :distance="20">
-    <TresGroup :position="options.canisterPosition" :scale="options.scale">
+    <TresGroup :position="options.numberPosition" :scale="options.scale/3">
       <Levioso>
-        <TresGroup ref="$canister">
-          <TresGroup ref="$canisterInternal">
-            <PageIndexTFilmCanister :model="activeModel" :rotation="[0, 0, Math.PI / 8]" />
-          </TresGroup>
+        <TresGroup ref="$number">
+          <PageIndexTLetterM :rotation="[0, 0, -Math.PI / 2]" />
         </TresGroup>
       </Levioso>
     </TresGroup>
-    <TresGroup :position="options.packagingPosition" :scale="options.scale">
+    <TresGroup :position="options.letterPosition" :scale="options.scale">
       <Levioso>
-        <TresGroup ref="$packaging">
-          <PageIndexTFilmPackaging :model="activeModel" :rotation="[-Math.PI / 2, 0, Math.PI / 3]" />
+        <TresGroup ref="$letterM">
+          <PageIndexTLetterM :rotation="[0, 0, 0]" />
         </TresGroup>
       </Levioso>
     </TresGroup>

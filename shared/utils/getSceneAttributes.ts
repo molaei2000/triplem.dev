@@ -1,17 +1,14 @@
 type GetSceneAttributesReturnType = {
-  'data-scene-position'?: 'top' | 'center'
-  'data-scene-model'?: string
+  'data-scene-position'?: 'top' | 'center' | 'left'
   'data-scene-rotate'?: boolean
 }
 
 export function getSceneAttributes(params?: {
-  position?: 'top' | 'center'
-  model?: string
+  position?: 'top' | 'center' | 'left'
   rotate?: boolean
 }): GetSceneAttributesReturnType {
   return {
     'data-scene-position': params?.position,
-    'data-scene-model': params?.model,
     'data-scene-rotate': params?.rotate
   }
 }

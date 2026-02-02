@@ -10,8 +10,7 @@ definePageMeta({
     <main>
       <SlideIn
         v-bind="getSceneAttributes({
-          position: 'center',
-          model: '800'
+          position: 'center'
         })"
         class="bounded rich-text flex flex-col items-center justify-center h-screen"
       >
@@ -25,6 +24,14 @@ definePageMeta({
           Get Started
         </UButton>
       </SlideIn>
+      <div
+        v-bind="getSceneAttributes({
+          position: 'left'
+        })"
+        class="bounded rich-text flex flex-col justify-center h-screen"
+      >
+        <span>projects</span>
+      </div>
       <!-- <div
         v-bind="getSceneAttributes({
           position: 'top',

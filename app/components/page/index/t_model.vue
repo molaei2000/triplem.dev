@@ -3,7 +3,7 @@ import { Mesh, MeshStandardMaterial, SRGBColorSpace } from 'three'
 
 const props = defineProps<{
   model: string
-  map: string
+  map?: string
   metalnessMap?: string
 }>()
 
@@ -16,7 +16,7 @@ watch(state, (state) => {
   })
 })
 
-const { state: map, isLoading: isMapLoading } = useTexture(computed(() => props.map))
+const { state: map, isLoading: isMapLoading } = useTexture(computed(() => props.map ?? ''))
 const { state: metalnessMap, isLoading: isMetalnessMapLoading } = useTexture(computed(() => props.metalnessMap ?? ''))
 
 watch(
