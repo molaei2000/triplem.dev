@@ -45,9 +45,6 @@ useGSAP((isReducedMotion) => {
     return
   }
 
-  console.log(isReducedMotion)
-  console.log('test')
-
   const $canisterPosition = $canister.value.position
   const $packagingPosition = $packaging.value.position
 
@@ -59,32 +56,60 @@ useGSAP((isReducedMotion) => {
 
     $sections.forEach(($section) => {
       const model = $section.dataset.sceneModel
-      const position = $section.dataset.scenePosition
+      const position = $section.dataset.scenePosition ?? ''
       const shouldRotate = !isReducedMotion && Boolean($section.dataset.sceneRotate)
 
+      // Parse combined positions (e.g., 'top-left', 'center-right')
+      const isTop = position.includes('top')
+      const isCenter = position === 'center' || position.includes('center-')
+      const isLeft = position.includes('left')
+      const isRight = position.includes('right')
+
       function onUpdate(this: gsap.TweenVars) {
+        console.log(position)
         if (this.progress() > 0.2 && this.progress() < 0.7 && model) {
           activeModel.value = model
         }
       }
 
       function onRefresh(self: ScrollTrigger) {
+        console.log(position)
         if (self.isActive && model) {
           activeModel.value = model
         }
       }
 
-      if (position === 'center' || position === 'top') {
+      // Vertical position (top/center)
+      if (isCenter || isTop) {
         gsap.to([$canisterPosition, $packagingPosition], {
-          y: position === 'center' ? 0 : 24,
+          y: isCenter ? 0 : 24,
           stagger: 0.05,
           ease: 'power2.inOut',
           repeatRefresh: true,
           onUpdate: shouldRotate ? undefined : onUpdate,
           scrollTrigger: {
             trigger: $section,
-            start: position === 'center' ? 'top+=40% bottom' : 'top bottom',
-            end: position === 'center' ? 'top+=90% bottom' : 'top+=50% bottom',
+            start: isCenter ? 'top+=40% bottom' : 'top bottom',
+            end: isCenter ? 'top+=90% bottom' : 'top+=50% bottom',
+            scrub: true,
+            invalidateOnRefresh: true,
+            onRefresh: shouldRotate ? undefined : onRefresh
+          }
+        })
+      }
+
+      // Horizontal position (left/right)
+      if (isLeft || isRight) {
+        gsap.to([$canisterPosition, $packagingPosition], {
+          x: isLeft ? -2 : 16,
+          stagger: 0.05,
+          ease: 'power2.inOut',
+          repeatRefresh: true,
+          onUpdate: shouldRotate ? undefined : onUpdate,
+          scrollTrigger: {
+            trigger: $section,
+            start: 'top+=40% bottom',
+            end: 'top+=90% bottom',
             scrub: true,
             invalidateOnRefresh: true,
             onRefresh: shouldRotate ? undefined : onRefresh

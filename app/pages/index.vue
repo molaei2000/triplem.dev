@@ -27,34 +27,50 @@ const totalItems = useState('totalItems', () => 0)
           Get Started
         </UButton>
       </SlideIn>
-      <!-- <div
+      <div
         v-bind="getSceneAttributes({
-          position: 'top',
+          position: 'right',
           model: '800'
         })"
-        class="bounded rich-text flex flex-col justify-center h-screen"
-      />
+        class="h-screen"
+      >
+        <!-- Your content -->
+      </div>
       <div
         v-bind="getSceneAttributes({
-          position: 'center',
+          position: 'right',
+          model: '800'
+        })"
+        class="h-screen"
+      >
+        <!-- Your content -->
+      </div>
+
+      <div
+        v-bind="getSceneAttributes({
+          position: 'top-right'
+        })"
+        class="rich-text flex flex-col bg-black justify-center h-screen"
+      />
+
+      <div
+        v-bind="getSceneAttributes({
+          position: 'center-left',
           model: '200'
         })"
-        class="bounded rich-text flex flex-col justify-center h-screen"
-      />
+        class="h-screen"
+      >
+        <!-- Your content -->
+      </div>
       <div
         v-bind="getSceneAttributes({
-          position: 'top',
+          position: 'left',
           model: '200'
         })"
-        class="bounded rich-text flex flex-col justify-center h-screen"
-      />
-      <div
-        v-bind="getSceneAttributes({
-          position: 'center',
-          model: '400'
-        })"
-        class="bounded rich-text flex flex-col justify-center h-screen"
-      /> -->
+        class="h-screen"
+      >
+        <!-- Your content -->
+      </div>
     </main>
     <AppFooter />
     <PageIndexTCanvas class="fixed top-0 left-0 right-0 h-lvh -z-1">
