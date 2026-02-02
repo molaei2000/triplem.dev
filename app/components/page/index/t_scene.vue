@@ -4,15 +4,13 @@ import type { Group } from 'three'
 import { useWindowSize } from '@vueuse/core'
 import { gsap } from 'gsap'
 
-// const { totalItems } = useCart()
-const totalItems = useState('totalItems', () => 0)
 const route = useRoute()
 const { width } = useWindowSize()
 
 const activeModel = ref<string>('800')
-const $canister = shallowRef<Group | null>(null)
-const $canisterInternal = shallowRef<Group | null>(null)
-const $packaging = shallowRef<Group | null>(null)
+const $canister = ref<Group | null>(null)
+const $canisterInternal = ref<Group | null>(null)
+const $packaging = ref<Group | null>(null)
 
 const { isDark } = useDark()
 
@@ -124,23 +122,18 @@ useGSAP((isReducedMotion) => {
   } else {
     animateScroll()
   }
-
-  // Spin on add to cart
-  if (!isReducedMotion) {
-    watch(totalItems, (next, prev) => {
-      if (next <= prev) {
-        return
-      }
-
-      gsap.to([$canisterRotation, $packagingRotation], {
-        y: `+=${Math.PI * 2}`,
-        stagger: 0.05,
-        duration: 0.8,
-        ease: 'power2.inOut'
-      })
-    })
-  }
 }, () => route.path)
+
+// const fullRotation = () => {
+//   const $canisterRotation = $canister.value.rotation
+//   const $packagingRotation = $packaging.value.rotation
+//   gsap.to([$canisterRotation, $packagingRotation], {
+//     y: `+=${Math.PI * 2}`,
+//     stagger: 0.05,
+//     duration: 0.8,
+//     ease: 'power2.inOut'
+//   })
+// }
 </script>
 
 <template>

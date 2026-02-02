@@ -2,8 +2,6 @@
 definePageMeta({
   layout: 'blank'
 })
-
-const totalItems = useState('totalItems', () => 0)
 </script>
 
 <template>
@@ -23,7 +21,7 @@ const totalItems = useState('totalItems', () => 0)
         <p class="mt-4 text-xl text-center">
           Triple M
         </p>
-        <UButton class="mt-8" @click="totalItems++">
+        <UButton class="mt-8">
           Get Started
         </UButton>
       </SlideIn>
