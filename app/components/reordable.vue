@@ -4,7 +4,7 @@ import { useSortable } from '@vueuse/integrations/useSortable'
 const props = defineProps<{ items: T[] }>()
 const emits = defineEmits<{ (e: 'update', items: T[]): void, (e: 'swap', from: number, to: number): void }>()
 
-const containerEl = ref<HTMLElement>()
+const containerEl = shallowRef<HTMLElement>()
 
 useSortable(containerEl, props.items, {
   handle: '.handle',

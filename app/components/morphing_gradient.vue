@@ -8,9 +8,9 @@ const props = withDefaults(defineProps<{ size?: string, blur?: number, scaleAmpl
 })
 const blobEl = useTemplateRef('blobEl')
 const mounted = useMounted()
-const previousAngle = ref(0)
-const totalRotation = ref(0)
-const smoothAngle = ref(0)
+const previousAngle = shallowRef(0)
+const totalRotation = shallowRef(0)
+const smoothAngle = shallowRef(0)
 onMounted(() => {
   setTimeout(() => {
     requestAnimationFrame(morph)

@@ -4,7 +4,7 @@ import type { DropdownMenuItem } from '@nuxt/ui'
 const props = defineProps<{ content: string, items?: DropdownMenuItem[] }>()
 const emit = defineEmits<{ (e: 'click', val: string, ev: MouseEvent): void }>()
 const clipboard = useClipboard()
-const copied = ref<boolean>(false)
+const copied = shallowRef(false)
 function onClick(event: MouseEvent) {
   emit('click', props.content, event)
   clipboard.copy(props.content)

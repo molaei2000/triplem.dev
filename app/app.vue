@@ -1,3 +1,7 @@
+<script setup lang="ts">
+// Root app component
+</script>
+
 <template>
   <UApp>
     <NuxtLoadingIndicator />

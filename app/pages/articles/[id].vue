@@ -4,8 +4,8 @@ import l from 'lodash'
 import appMeta from '~/app.meta'
 
 const route = useRoute()
-const authorEl = ref<HTMLElement | null>()
-const relatedArticlesEl = ref<HTMLElement | null>()
+const authorEl = shallowRef<HTMLElement | null>(null)
+const relatedArticlesEl = shallowRef<HTMLElement | null>(null)
 const readingTimeText = computed(() => (data.value?.meta as any).readingTime?.text)
 const clipboard = useClipboard()
 const toast = useToast()

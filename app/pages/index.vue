@@ -15,13 +15,13 @@ const totalItems = useState('totalItems', () => 0)
           position: 'center',
           model: '800'
         })"
-        class="bounded rich-text flex flex-col justify-center h-screen"
+        class="bounded rich-text flex flex-col items-center justify-center h-screen"
       >
-        <h1 class="">
-          Welcome to Our Website
+        <h1 class="text-8xl font-bold tracking-tight">
+          M<sup class="text-5xl">3</sup>
         </h1>
-        <p class="mt-4">
-          Discover amazing content and connect with our community.
+        <p class="mt-4 text-xl text-center">
+          Triple M
         </p>
         <UButton class="mt-8" @click="totalItems++">
           Get Started

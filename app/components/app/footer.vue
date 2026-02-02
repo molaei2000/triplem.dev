@@ -1,3 +1,7 @@
+<script setup lang="ts">
+// Footer component
+</script>
+
 <template>
   <footer class="relative z-20 bg-black text-white" v-bind="getSceneAttributes({ position: 'top' })">
     <div class="flex justify-between">

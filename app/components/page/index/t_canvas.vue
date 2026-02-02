@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ACESFilmicToneMapping, SRGBColorSpace } from 'three'
 
-const mounted = ref(false)
+const mounted = shallowRef(false)
 
 onMounted(() => {
   mounted.value = true

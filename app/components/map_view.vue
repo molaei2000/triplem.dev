@@ -63,8 +63,7 @@ function fitView(animate: boolean = true) {
 function injectMarkers() {
   const clusterGroup = leaflet.markerClusterGroup()
   const layers: L.Layer[] = []
-  console.log(props.markers);
-  (props.markers ?? []).forEach((m) => {
+  ;(props.markers ?? []).forEach((m) => {
     const opt = m.options ?? {}
     const marker = leaflet.marker(m.coords, {
       title: m.id,
