@@ -45,6 +45,9 @@ useGSAP((isReducedMotion) => {
     return
   }
 
+  console.log(isReducedMotion)
+  console.log('test')
+
   const $canisterPosition = $canister.value.position
   const $packagingPosition = $packaging.value.position
 
