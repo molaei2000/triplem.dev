@@ -42,10 +42,10 @@
 	},
 	"devDependencies": {
 		"@types/culori": "^4.0.1",
-		"@types/three": "^0.181.0",
-		"@vueuse/core": "^14.0.0",
-		"@vueuse/nuxt": "^14.0.0",
-		"eslint": "^9.37.0"
+		"@types/three": "^0.182.0",
+		"@vueuse/core": "^14.2.0",
+		"@vueuse/nuxt": "^14.2.0",
+		"eslint": "^9.39.2"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
