@@ -33,6 +33,16 @@ export default defineNuxtConfig({
       }
     }
   }, compatibilityDate: '2025-07-15',
+  vite: {
+    optimizeDeps: {
+      include: [
+        'three',
+        'gsap',
+        '@tresjs/cientos',
+        'gsap/ScrollTrigger'
+      ]
+    }
+  },
   fonts: {
     defaults: {
       weights: [100, 200, 300, 400, 500, 600, 700, 800, 900]
