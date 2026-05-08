@@ -62,8 +62,8 @@ definePageMeta({
       /> -->
     </main>
     <AppFooter />
-    <PageIndexTCanvas class="fixed top-0 left-0 right-0 h-lvh -z-1">
+    <!-- <PageIndexTCanvas class="fixed top-0 left-0 right-0 h-lvh -z-1">
       <PageIndexTScene />
-    </PageIndexTCanvas>
+    </PageIndexTCanvas> -->
   </div>
 </template>

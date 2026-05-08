@@ -1,5 +1,7 @@
 <script setup lang="ts">
 // import logo from '~~/public/mmm.png'
+
+const links = [{ key: 'home', title: 'Home', url: '/' }, { key: 'about-me', title: 'About me', url: '/about-me' }, { key: 'articles', title: 'Articles', url: '/articles' }] as const
 </script>
 
 <template>
@@ -10,7 +12,7 @@
       </NuxtLink>
       <ul class="xl:w-[calc(40%+2rem)] flex items-center pl-8 pr-4 xl:backdrop-blur">
         <li
-          v-for="link in [{ key: 'home', title: 'Home', url: '/' }, { key: 'articles', title: 'Articles', url: '/articles' }]"
+          v-for="link in links"
           :key="link.key"
           class="hidden xl:block"
         >
