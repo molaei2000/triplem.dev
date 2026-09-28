@@ -21,9 +21,36 @@ export default defineNuxtConfig({
         "shadcn-nuxt",
         "@tresjs/nuxt",
     ],
+
+    app: {
+        head: {
+            meta: [
+                { name: "theme-color", content: "#0B0B0A", media: "(prefers-color-scheme: dark)" },
+                { name: "theme-color", content: "#F3EFE7", media: "(prefers-color-scheme: light)" },
+            ],
+            link: [
+                // above-the-fold faces; the rest load on demand (font-display: swap)
+                { rel: "preload", as: "font", type: "font/woff2", crossorigin: "", href: "/fonts/FamiljenGrotesk/familjen-grotesk-latin-600-normal.woff2" },
+                { rel: "preload", as: "font", type: "font/woff2", crossorigin: "", href: "/fonts/InstrumentSans/instrument-sans-latin-400-normal.woff2" },
+            ],
+        },
+    },
+
     fonts: {
         provider: "local",
     },
+
+    i18n: {
+        baseUrl: "https://triplem.dev",
+        defaultLocale: "en",
+        strategy: "prefix_except_default",
+        detectBrowserLanguage: false,
+        locales: [
+            { code: "en", language: "en-US", name: "English", file: "en.json", dir: "ltr" },
+            { code: "fa", language: "fa-IR", name: "فارسی", file: "fa.json", dir: "rtl" },
+        ],
+    },
+
     shadcn: {
         /**
          * Prefix for all the imported component.

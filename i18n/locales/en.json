@@ -1,0 +1,250 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "experience": "Experience",
+    "notes": "Notes",
+    "about": "About",
+    "contact": "Let’s talk",
+    "primary": "Primary",
+    "language": "Language",
+    "theme": "Switch colour theme",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "skip": "Skip to content",
+    "homeLabel": "triplem.dev — home"
+  },
+  "hero": {
+    "index": "00 / Index",
+    "name": "Mohammad Mahdi Molaei",
+    "role": "Senior Front-End Developer — Vue / Nuxt, React / Next.js",
+    "l1": "I build",
+    "l2": "scalable",
+    "l3": "digital",
+    "l4": "experiences",
+    "cta": "Selected work",
+    "stack": "Vue · Nuxt · React · Next.js · TypeScript",
+    "fig": "Fig. 00 — /// realtime · drag, hover, click",
+    "figTouch": "Fig. 00 — /// realtime",
+    "hint": "Drag · Tap",
+    "decompose": "Decompose",
+    "assemble": "Assemble",
+    "reset": "Reset",
+    "readout": {
+      "idle": {
+        "num": "///",
+        "name": "Three slashes, one system",
+        "desc": "Hover a slash, drag to turn the mark, click to decompose."
+      },
+      "idleTouch": {
+        "num": "///",
+        "name": "Three slashes, one system",
+        "desc": "Drag sideways to turn the mark. Tap a slash to explore."
+      },
+      "split": {
+        "num": "/// — Decomposed",
+        "name": "Idea · Architecture · Experience",
+        "desc": "Three layers of one system. Hover each slash."
+      },
+      "s0": {
+        "num": "/ 01 — Left slash",
+        "name": "Idea",
+        "desc": "Understand the product problem before the component tree."
+      },
+      "s1": {
+        "num": "/ 02 — Gold slash",
+        "name": "Architecture",
+        "desc": "Boundaries, data flow and rendering that let the system grow."
+      },
+      "s2": {
+        "num": "/ 03 — Right slash",
+        "name": "Experience",
+        "desc": "Interfaces that feel fast, accessible and considered."
+      }
+    },
+    "srSummary": "An interactive 3D rendering of the triplem.dev mark: three parallel slashes, the middle one gold."
+  },
+  "about": {
+    "label": "01 / About",
+    "caption": "The system decomposes into layers",
+    "s1": "I build interfaces that scale from",
+    "pixels": "pixels",
+    "s2": "to products",
+    "meta": {
+      "basedIn": "Based in",
+      "basedInV": "Europe",
+      "focus": "Focus",
+      "focusV": "Front-End Engineering",
+      "primary": "Primary",
+      "primaryV": "Vue / Nuxt",
+      "also": "Also",
+      "alsoV": "React / Next.js"
+    },
+    "p1a": "I’m a senior front-end engineer working mostly in Vue and Nuxt, and comfortably in React and Next.js.",
+    "p1b": "I care about the parts users never see — boundaries, state, rendering strategy — because they decide how the parts users do see will feel.",
+    "p2": "[One or two sentences on the teams and products you work with — industries, scale, what people rely on you for.]",
+    "method": "Method — three stages, one system",
+    "m": [
+      {
+        "n": "/ 01",
+        "t": "Idea",
+        "d": "Understand the product problem before drawing the component tree."
+      },
+      {
+        "n": "/ 02",
+        "t": "Architecture",
+        "d": "Design boundaries, data flow and rendering so the system can grow without rewrites."
+      },
+      {
+        "n": "/ 03",
+        "t": "Experience",
+        "d": "Ship interfaces that feel fast, accessible and considered — on every device."
+      }
+    ]
+  },
+  "stack": {
+    "label": "02 / Stack",
+    "caption": "Components become skills",
+    "title": "A connected system, not a progress bar.",
+    "intro": "Select a technology to see what it’s for, what it connects to, and where it has shipped.",
+    "groups": {
+      "language": "Language",
+      "framework": "Framework",
+      "craft": "Craft",
+      "primary": "Framework · Primary"
+    },
+    "connects": "Connects to",
+    "shipped": "Shipped in",
+    "shippedV": "[Project 01] · [Project 03]",
+    "d": {
+      "ts": "The contract layer. Typed props, stores and API boundaries keep large codebases refactorable.",
+      "js": "The runtime underneath everything — and knowing where it gets expensive.",
+      "html": "Semantic structure and modern CSS. Layout, motion and accessibility start here.",
+      "vue": "Primary framework. Composition API, composables and component design that scales across teams.",
+      "nuxt": "Primary meta-framework. Hybrid rendering, layers and modules for products that need speed, SEO and structure.",
+      "react": "Second home. Hooks, server components and the patterns that transfer between ecosystems.",
+      "next": "App Router, streaming and server-first data for React products.",
+      "tw": "Utility-first styling backed by design tokens, so themes and systems stay consistent.",
+      "arch": "Boundaries, state ownership, rendering strategy and performance budgets — the decisions that outlive components."
+    }
+  },
+  "experience": {
+    "label": "03 / Experience",
+    "caption": "Skills become architecture",
+    "title": "Chapters",
+    "sub": "Most recent first",
+    "chapter": "Chapter",
+    "items": [
+      {
+        "years": "[YYYY] — Now",
+        "role": "Senior Front-End Developer",
+        "company": "[Company]",
+        "where": "[City / Remote]",
+        "desc": "[What you own: the product, the architecture decisions, the team you lead or support, and the outcome that mattered.]",
+        "stack": "Vue · Nuxt · TypeScript"
+      },
+      {
+        "years": "[YYYY — YYYY]",
+        "role": "Front-End Developer",
+        "company": "[Company]",
+        "where": "[City / Remote]",
+        "desc": "[Scope and the one or two things you’re proudest of from this role.]",
+        "stack": "[Stack · Stack]"
+      },
+      {
+        "years": "[YYYY — YYYY]",
+        "role": "[Role]",
+        "company": "[Company]",
+        "where": "[City / Remote]",
+        "desc": "[Where it started.]",
+        "stack": ""
+      }
+    ]
+  },
+  "work": {
+    "label": "04 / Work",
+    "caption": "Architecture becomes products",
+    "title": "Selected work",
+    "intro": "Three projects, told as case studies: the problem, the architecture, and what shipped.",
+    "featured": "Featured",
+    "screenshot": "[Project screenshot]",
+    "role": "Role",
+    "stack": "Stack",
+    "type": "Type",
+    "caseStudy": "Case study",
+    "view": "View",
+    "items": [
+      {
+        "name": "[Project name]",
+        "desc": "[One line: what it is, who it’s for, and the outcome.]",
+        "role": "[Lead front-end]",
+        "year": "[YYYY]",
+        "stack": "Vue · Nuxt · TypeScript"
+      },
+      {
+        "name": "[Project name]",
+        "desc": "[Short description]",
+        "role": "[Role]",
+        "year": "[YYYY]",
+        "stack": "[Stack · Stack · Stack]"
+      },
+      {
+        "name": "[Project name]",
+        "desc": "[Short description]",
+        "role": "[Role]",
+        "year": "[YYYY]",
+        "stack": "[Stack · Stack · Stack]"
+      }
+    ]
+  },
+  "notes": {
+    "label": "05 / Notes",
+    "caption": "Products become writing",
+    "title": "Notes",
+    "intro": "Engineering notes on architecture, rendering and interface craft.",
+    "read": "{n} min read",
+    "items": [
+      {
+        "title": "Building scalable Nuxt applications",
+        "tags": "Architecture · Nuxt",
+        "date": "September 2026",
+        "min": "[12]"
+      },
+      {
+        "title": "Hybrid rendering in Nuxt, in practice",
+        "tags": "Rendering · Nuxt",
+        "date": "[Month YYYY]",
+        "min": "[8]"
+      },
+      {
+        "title": "State that scales: stores, composables, boundaries",
+        "tags": "Vue · State",
+        "date": "[Month YYYY]",
+        "min": "[10]"
+      },
+      {
+        "title": "Motion that respects the reader",
+        "tags": "Motion · A11y",
+        "date": "[Month YYYY]",
+        "min": "[6]"
+      }
+    ]
+  },
+  "contact": {
+    "label": "06 / Contact",
+    "caption": "Everything simplifies into one connection",
+    "t1": "Let’s build",
+    "t2": "something great",
+    "lead": "Have a product idea, a technical challenge, or an interesting opportunity?",
+    "talk": "Let’s talk.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "converge": "3 → 1 · connection",
+    "email": "Email"
+  },
+  "footer": {
+    "role": "Senior Front-End Developer",
+    "top": "Back to top",
+    "elsewhere": "Elsewhere"
+  }
+}
