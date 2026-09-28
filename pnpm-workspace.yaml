@@ -1,4 +1,13 @@
+shamefullyHoist: true
+strictPeerDependencies: false
+
 allowBuilds:
-  better-sqlite3: true
-  esbuild: true
-  unrs-resolver: false
+    better-sqlite3: false
+    esbuild: true
+    unrs-resolver: false
+    sharp: true
+    vue-demi: false
+
+supportedArchitectures:
+    os: [current, linux]
+    cpu: [current, x64]
