@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema.json",
   "style": "new-york",
-  "font": "jetbrains-mono",
   "typescript": true,
   "tailwind": {
     "config": "",
@@ -11,7 +10,7 @@
     "prefix": ""
   },
   "iconLibrary": "lucide",
-  "rtl": false,
+  "rtl": true,
   "pointer": false,
   "aliases": {
     "components": "@/components",

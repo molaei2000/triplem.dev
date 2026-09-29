@@ -1,244 +1,244 @@
 {
-  "nav": {
-    "home": "Home",
-    "experience": "Experience",
-    "blog": "Blog",
-    "about": "About",
-    "contact": "Let’s talk",
-    "primary": "Primary",
-    "language": "Language",
-    "theme": "Switch colour theme",
-    "menuOpen": "Open menu",
-    "menuClose": "Close menu",
-    "skip": "Skip to content",
-    "homeLabel": "triplem.dev — home"
-  },
-  "hero": {
-    "index": "00 / Index",
-    "name": "Mohammad Mahdi Molaei",
-    "role": "Senior Front-End Developer — Vue / Nuxt, React / Next.js",
-    "l1": "I build",
-    "l2": "scalable",
-    "l3": "digital",
-    "l4": "experiences",
-    "cta": "Selected work",
-    "stack": "Vue · Nuxt · React · Next.js · TypeScript",
-    "fig": "Fig. 00 — /// realtime · drag, hover, click",
-    "figTouch": "Fig. 00 — /// realtime",
-    "hint": "Drag · Tap",
-    "decompose": "Decompose",
-    "assemble": "Assemble",
-    "reset": "Reset",
-    "readout": {
-      "idle": {
-        "num": "///",
-        "name": "Three slashes, one system",
-        "desc": "Hover a slash, drag to turn the mark, click to decompose."
-      },
-      "idleTouch": {
-        "num": "///",
-        "name": "Three slashes, one system",
-        "desc": "Drag sideways to turn the mark. Tap a slash to explore."
-      },
-      "split": {
-        "num": "/// — Decomposed",
-        "name": "Idea · Architecture · Experience",
-        "desc": "Three layers of one system. Hover each slash."
-      },
-      "s0": {
-        "num": "/ 01 — Left slash",
-        "name": "Idea",
-        "desc": "Understand the product problem before the component tree."
-      },
-      "s1": {
-        "num": "/ 02 — Gold slash",
-        "name": "Architecture",
-        "desc": "Boundaries, data flow and rendering that let the system grow."
-      },
-      "s2": {
-        "num": "/ 03 — Right slash",
-        "name": "Experience",
-        "desc": "Interfaces that feel fast, accessible and considered."
-      }
+    "nav": {
+        "home": "Home",
+        "experience": "Experience",
+        "blog": "Blog",
+        "about": "About",
+        "contact": "Let’s talk",
+        "primary": "Primary",
+        "language": "Language",
+        "theme": "Switch colour theme",
+        "menuOpen": "Open menu",
+        "menuClose": "Close menu",
+        "skip": "Skip to content",
+        "homeLabel": "triplem.dev — home"
     },
-    "srSummary": "An interactive 3D rendering of the triplem.dev mark: three parallel slashes, the middle one gold."
-  },
-  "about": {
-    "label": "01 / About",
-    "caption": "The system decomposes into layers",
-    "s1": "I build interfaces that scale from",
-    "pixels": "pixels",
-    "s2": "to products",
-    "meta": {
-      "basedIn": "Based in",
-      "basedInV": "Europe",
-      "focus": "Focus",
-      "focusV": "Front-End Engineering",
-      "primary": "Primary",
-      "primaryV": "Vue / Nuxt",
-      "also": "Also",
-      "alsoV": "React / Next.js"
+    "hero": {
+        "index": "00 / Index",
+        "name": "Mohammad Mahdi Molaei",
+        "role": "Senior Front-End Developer — Vue / Nuxt, React / Next.js",
+        "l1": "I build",
+        "l2": "scalable",
+        "l3": "digital",
+        "l4": "experiences",
+        "cta": "Selected work",
+        "stack": "Vue · Nuxt · React · Next.js · TypeScript",
+        "fig": "Fig. 00 — /// realtime · drag, hover, click",
+        "figTouch": "Fig. 00 — /// realtime",
+        "hint": "Drag · Tap",
+        "decompose": "Decompose",
+        "assemble": "Assemble",
+        "reset": "Reset",
+        "readout": {
+            "idle": {
+                "num": "///",
+                "name": "Three slashes, one system",
+                "desc": "Hover a slash, drag to turn the mark, click to decompose."
+            },
+            "idleTouch": {
+                "num": "///",
+                "name": "Three slashes, one system",
+                "desc": "Drag sideways to turn the mark. Tap a slash to explore."
+            },
+            "split": {
+                "num": "/// — Decomposed",
+                "name": "Idea · Architecture · Experience",
+                "desc": "Three layers of one system. Hover each slash."
+            },
+            "s0": {
+                "num": "/ 01 — Left slash",
+                "name": "Idea",
+                "desc": "Understand the product problem before the component tree."
+            },
+            "s1": {
+                "num": "/ 02 — Gold slash",
+                "name": "Architecture",
+                "desc": "Boundaries, data flow and rendering that let the system grow."
+            },
+            "s2": {
+                "num": "/ 03 — Right slash",
+                "name": "Experience",
+                "desc": "Interfaces that feel fast, accessible and considered."
+            }
+        },
+        "srSummary": "An interactive 3D rendering of the triplem.dev mark: three parallel slashes, the middle one gold."
     },
-    "p1a": "I’m a senior front-end engineer working mostly in Vue and Nuxt, and comfortably in React and Next.js.",
-    "p1b": "I care about the parts users never see — boundaries, state, rendering strategy — because they decide how the parts users do see will feel.",
-    "p2": "[One or two sentences on the teams and products you work with — industries, scale, what people rely on you for.]",
-    "method": "Method — three stages, one system",
-    "m": [
-      {
-        "n": "/ 01",
-        "t": "Idea",
-        "d": "Understand the product problem before drawing the component tree."
-      },
-      {
-        "n": "/ 02",
-        "t": "Architecture",
-        "d": "Design boundaries, data flow and rendering so the system can grow without rewrites."
-      },
-      {
-        "n": "/ 03",
-        "t": "Experience",
-        "d": "Ship interfaces that feel fast, accessible and considered — on every device."
-      }
-    ]
-  },
-  "stack": {
-    "label": "02 / Stack",
-    "caption": "Components become skills",
-    "title": "A connected system, not a progress bar.",
-    "intro": "Select a technology to see what it’s for, what it connects to, and where it has shipped.",
-    "groups": {
-      "language": "Language",
-      "framework": "Framework",
-      "craft": "Craft",
-      "primary": "Framework · Primary"
+    "about": {
+        "label": "01 / About",
+        "caption": "The system decomposes into layers",
+        "s1": "I build interfaces that scale from",
+        "pixels": "pixels",
+        "s2": "to products",
+        "meta": {
+            "basedIn": "Based in",
+            "basedInV": "Asia",
+            "focus": "Focus",
+            "focusV": "Front-End Engineering",
+            "primary": "Primary",
+            "primaryV": "Vue / Nuxt",
+            "also": "Also",
+            "alsoV": "React / Next.js"
+        },
+        "p1a": "I’m a senior front-end engineer working mostly in Vue and Nuxt, and comfortably in React and Next.js.",
+        "p1b": "I care about the parts users never see — boundaries, state, rendering strategy — because they decide how the parts users do see will feel.",
+        "p2": "[One or two sentences on the teams and products you work with — industries, scale, what people rely on you for.]",
+        "method": "Method — three stages, one system",
+        "m": [
+            {
+                "n": "/ 01",
+                "t": "Idea",
+                "d": "Understand the product problem before drawing the component tree."
+            },
+            {
+                "n": "/ 02",
+                "t": "Architecture",
+                "d": "Design boundaries, data flow and rendering so the system can grow without rewrites."
+            },
+            {
+                "n": "/ 03",
+                "t": "Experience",
+                "d": "Ship interfaces that feel fast, accessible and considered — on every device."
+            }
+        ]
     },
-    "connects": "Connects to",
-    "shipped": "Shipped in",
-    "shippedV": "[Project 01] · [Project 03]",
-    "d": {
-      "ts": "The contract layer. Typed props, stores and API boundaries keep large codebases refactorable.",
-      "js": "The runtime underneath everything — and knowing where it gets expensive.",
-      "html": "Semantic structure and modern CSS. Layout, motion and accessibility start here.",
-      "vue": "Primary framework. Composition API, composables and component design that scales across teams.",
-      "nuxt": "Primary meta-framework. Hybrid rendering, layers and modules for products that need speed, SEO and structure.",
-      "react": "Second home. Hooks, server components and the patterns that transfer between ecosystems.",
-      "next": "App Router, streaming and server-first data for React products.",
-      "tw": "Utility-first styling backed by design tokens, so themes and systems stay consistent.",
-      "arch": "Boundaries, state ownership, rendering strategy and performance budgets — the decisions that outlive components."
+    "stack": {
+        "label": "02 / Stack",
+        "caption": "Components become skills",
+        "title": "A connected system, not a progress bar.",
+        "intro": "Select a technology to see what it’s for, what it connects to, and where it has shipped.",
+        "groups": {
+            "language": "Language",
+            "framework": "Framework",
+            "craft": "Craft",
+            "primary": "Framework · Primary"
+        },
+        "connects": "Connects to",
+        "shipped": "Shipped in",
+        "shippedV": "[Project 01] · [Project 03]",
+        "d": {
+            "ts": "The contract layer. Typed props, stores and API boundaries keep large codebases refactorable.",
+            "js": "The runtime underneath everything — and knowing where it gets expensive.",
+            "html": "Semantic structure and modern CSS. Layout, motion and accessibility start here.",
+            "vue": "Primary framework. Composition API, composables and component design that scales across teams.",
+            "nuxt": "Primary meta-framework. Hybrid rendering, layers and modules for products that need speed, SEO and structure.",
+            "react": "Second home. Hooks, server components and the patterns that transfer between ecosystems.",
+            "next": "App Router, streaming and server-first data for React products.",
+            "tw": "Utility-first styling backed by design tokens, so themes and systems stay consistent.",
+            "arch": "Boundaries, state ownership, rendering strategy and performance budgets — the decisions that outlive components."
+        }
+    },
+    "experience": {
+        "label": "03 / Experience",
+        "caption": "Skills become architecture",
+        "title": "Chapters",
+        "sub": "Most recent first",
+        "chapter": "Chapter",
+        "more": "Read more",
+        "less": "Show less",
+        "highlights": "Highlights",
+        "items": {
+            "tarazoo": {
+                "years": "2026",
+                "role": "Front-End Developer",
+                "company": "Tarazoo",
+                "product": "Legal platform",
+                "summary": "The front end of Tarazoo, a server-rendered legal-consultation platform: people browse legal services, ask questions with AI assistance, and book paid sessions with lawyers.",
+                "body": "Built on the Next.js App Router as a set of modules with clear ownership: TanStack Query for server state, Redux Toolkit for client state, and NextAuth for OTP sign-in. Everything is styled with a custom design system on Tailwind CSS 4 and Radix UI, shipped with Docker and Nginx, and watched in production by Sentry with structured logging.",
+                "highlights": [
+                    "A page builder that renders configurable blocks (hero, services, benefits, FAQ, workflow, blog and news, comments) from backend-driven data.",
+                    "An AI-assisted legal question flow, and lawyer reservation and booking with integrated payment.",
+                    "Robust forms on React Hook Form and Zod, with schema validation across sign-in, questions and reservations."
+                ],
+                "alt": [
+                    "Tarazoo home page: the legal platform introduction next to the AI legal assistant card"
+                ]
+            },
+            "nct": {
+                "years": "2024",
+                "role": "Front-End Developer",
+                "company": "NCT",
+                "where": "China",
+                "product": "IKA · Inspection ERP",
+                "summary": "IKA, an ERP for inspection companies: one workspace for the people, contracts and inspections behind every job.",
+                "body": "The app is organised around the inspection business itself: users, customers, coordinators and inspectors, with nested sections for contracts and inspections. It also runs the office around the work (correspondence, a file manager, the monthly menu and staff food reservation), so teams stay in one tool instead of five.",
+                "highlights": [
+                    "Management screens for users, customers, coordinators and inspectors, plus nested contract and inspection sections.",
+                    "Back-office modules in the same app: correspondence, file manager, monthly menu and food reservation.",
+                    "Light and dark themes, a language switch and live notifications across the whole app."
+                ],
+                "alt": [
+                    "IKA dashboard: sidebar with users, customers, coordinators, inspectors, contracts and inspections",
+                    "IKA sign-in screen with theme and language switches"
+                ]
+            },
+            "smartsino": {
+                "years": "2020",
+                "role": "Front-End Developer",
+                "company": "Smart-Sino UK",
+                "where": "China",
+                "product": "Learning management system",
+                "summary": "An advanced learning management system that keeps student and teacher data in one place.",
+                "body": "The flagship product was an advanced Learning Management System (LMS), designed to manage student and teacher data efficiently, with scheduling that organises teacher availability and class sessions.",
+                "highlights": [
+                    "Student and teacher records, managed from one system.",
+                    "Scheduling for teacher availability and class sessions."
+                ],
+                "alt": [
+                    "Smart-Sino UK landing page: “Wise choice, worthy cost” over Tower Bridge"
+                ]
+            }
+        }
+    },
+    "blog": {
+        "label": "04 / Blog",
+        "caption": "Products become writing",
+        "title": "Blog",
+        "intro": "Engineering notes on architecture, rendering and interface craft.",
+        "pageIntro": "Engineering notes on architecture, rendering and interface craft. Written to be useful a year from now.",
+        "metaDescription": "Articles by Mohammad Mahdi Molaei on front-end architecture, rendering and interface craft.",
+        "all": "All posts",
+        "allHint": "Search or filter by topic",
+        "seeAll": "All posts",
+        "latest": "Latest",
+        "read": "{n} min read",
+        "readPost": "Read post",
+        "draft": "Draft",
+        "search": "Search posts",
+        "searchPlaceholder": "Search posts…",
+        "filter": "Filter by topic",
+        "allTags": "All",
+        "count": "Showing {n} of {total}",
+        "empty": "No posts match that yet.",
+        "clear": "Clear search and filters",
+        "none": "The first posts are on their way.",
+        "back": "Blog",
+        "toc": "On this page",
+        "progress": "{n}% read",
+        "writtenBy": "Written by",
+        "share": "Share",
+        "copyLink": "Copy link",
+        "copied": "Copied",
+        "newer": "Newer post",
+        "older": "Older post",
+        "copyCode": "Copy",
+        "copiedCode": "Copied",
+        "indexLabel": "Blog / Index"
+    },
+    "contact": {
+        "label": "05 / Contact",
+        "caption": "Everything simplifies into one connection",
+        "t1": "Let’s build",
+        "t2": "something great",
+        "lead": "Have a product idea, a technical challenge, or an interesting opportunity?",
+        "talk": "Let’s talk.",
+        "copy": "Copy",
+        "copied": "Copied",
+        "converge": "3 → 1 · connection",
+        "email": "Email"
+    },
+    "footer": {
+        "role": "Senior Front-End Developer",
+        "top": "Back to top",
+        "elsewhere": "Elsewhere"
     }
-  },
-  "experience": {
-    "label": "03 / Experience",
-    "caption": "Skills become architecture",
-    "title": "Chapters",
-    "sub": "Most recent first",
-    "chapter": "Chapter",
-    "more": "Read more",
-    "less": "Show less",
-    "highlights": "Highlights",
-    "items": {
-      "tarazoo": {
-        "years": "2026",
-        "role": "Front-End Developer",
-        "company": "Tarazoo",
-        "product": "Legal platform",
-        "summary": "The front end of Tarazoo, a server-rendered legal-consultation platform: people browse legal services, ask questions with AI assistance, and book paid sessions with lawyers.",
-        "body": "Built on the Next.js App Router as a set of modules with clear ownership: TanStack Query for server state, Redux Toolkit for client state, and NextAuth for OTP sign-in. Everything is styled with a custom design system on Tailwind CSS 4 and Radix UI, shipped with Docker and Nginx, and watched in production by Sentry with structured logging.",
-        "highlights": [
-          "A page builder that renders configurable blocks (hero, services, benefits, FAQ, workflow, blog and news, comments) from backend-driven data.",
-          "An AI-assisted legal question flow, and lawyer reservation and booking with integrated payment.",
-          "Robust forms on React Hook Form and Zod, with schema validation across sign-in, questions and reservations."
-        ],
-        "alt": [
-          "Tarazoo home page: the legal platform introduction next to the AI legal assistant card"
-        ]
-      },
-      "nct": {
-        "years": "2024",
-        "role": "Front-End Developer",
-        "company": "NCT",
-        "where": "China",
-        "product": "IKA · Inspection ERP",
-        "summary": "IKA, an ERP for inspection companies: one workspace for the people, contracts and inspections behind every job.",
-        "body": "The app is organised around the inspection business itself: users, customers, coordinators and inspectors, with nested sections for contracts and inspections. It also runs the office around the work (correspondence, a file manager, the monthly menu and staff food reservation), so teams stay in one tool instead of five.",
-        "highlights": [
-          "Management screens for users, customers, coordinators and inspectors, plus nested contract and inspection sections.",
-          "Back-office modules in the same app: correspondence, file manager, monthly menu and food reservation.",
-          "Light and dark themes, a language switch and live notifications across the whole app."
-        ],
-        "alt": [
-          "IKA dashboard: sidebar with users, customers, coordinators, inspectors, contracts and inspections",
-          "IKA sign-in screen with theme and language switches"
-        ]
-      },
-      "smartsino": {
-        "years": "2020",
-        "role": "Front-End Developer",
-        "company": "Smart-Sino UK",
-        "where": "China",
-        "product": "Learning management system",
-        "summary": "An advanced learning management system that keeps student and teacher data in one place.",
-        "body": "The flagship product was an advanced Learning Management System (LMS), designed to manage student and teacher data efficiently, with scheduling that organises teacher availability and class sessions.",
-        "highlights": [
-          "Student and teacher records, managed from one system.",
-          "Scheduling for teacher availability and class sessions."
-        ],
-        "alt": [
-          "Smart-Sino UK landing page: “Wise choice, worthy cost” over Tower Bridge"
-        ]
-      }
-    }
-  },
-  "blog": {
-    "label": "04 / Blog",
-    "caption": "Products become writing",
-    "title": "Blog",
-    "intro": "Engineering notes on architecture, rendering and interface craft.",
-    "pageIntro": "Engineering notes on architecture, rendering and interface craft. Written to be useful a year from now.",
-    "metaDescription": "Articles by Mohammad Mahdi Molaei on front-end architecture, rendering and interface craft.",
-    "all": "All posts",
-    "allHint": "Search or filter by topic",
-    "seeAll": "All posts",
-    "latest": "Latest",
-    "read": "{n} min read",
-    "readPost": "Read post",
-    "draft": "Draft",
-    "search": "Search posts",
-    "searchPlaceholder": "Search posts…",
-    "filter": "Filter by topic",
-    "allTags": "All",
-    "count": "Showing {n} of {total}",
-    "empty": "No posts match that yet.",
-    "clear": "Clear search and filters",
-    "none": "The first posts are on their way.",
-    "back": "Blog",
-    "toc": "On this page",
-    "progress": "{n}% read",
-    "writtenBy": "Written by",
-    "share": "Share",
-    "copyLink": "Copy link",
-    "copied": "Copied",
-    "newer": "Newer post",
-    "older": "Older post",
-    "copyCode": "Copy",
-    "copiedCode": "Copied",
-    "indexLabel": "Blog / Index"
-  },
-  "contact": {
-    "label": "05 / Contact",
-    "caption": "Everything simplifies into one connection",
-    "t1": "Let’s build",
-    "t2": "something great",
-    "lead": "Have a product idea, a technical challenge, or an interesting opportunity?",
-    "talk": "Let’s talk.",
-    "copy": "Copy",
-    "copied": "Copied",
-    "converge": "3 → 1 · connection",
-    "email": "Email"
-  },
-  "footer": {
-    "role": "Senior Front-End Developer",
-    "top": "Back to top",
-    "elsewhere": "Elsewhere"
-  }
 }

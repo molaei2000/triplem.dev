@@ -29,6 +29,26 @@ export function useBlogPosts(limit?: number) {
     );
 }
 
+/** Client-side search + single-topic filter over a (small) list of posts. */
+export function useBlogFilter(posts: Ref<BlogPostItem[]>) {
+    const query = shallowRef("");
+    const tag = shallowRef<string | null>(null);
+
+    const tags = computed(() => [...new Set(posts.value.flatMap(p => p.tags ?? []))]);
+    const needle = computed(() => query.value.trim().toLocaleLowerCase());
+    const results = computed(() => posts.value.filter(p =>
+        (!tag.value || p.tags?.includes(tag.value))
+        && (!needle.value || `${p.title} ${p.description ?? ""} ${(p.tags ?? []).join(" ")}`.toLocaleLowerCase().includes(needle.value)),
+    ));
+
+    function clear() {
+        query.value = "";
+        tag.value = null;
+    }
+
+    return { query, tag, tags, results, clear };
+}
+
 /** Locale-aware formatting for post metadata (Persian calendar and digits on /fa). */
 export function useBlogFormat() {
     const { t, locale } = useI18n();

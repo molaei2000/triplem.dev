@@ -5,6 +5,7 @@ const props = defineProps<{ post: BlogPostItem; index: number; full?: boolean }>
 const { t } = useI18n();
 const fmt = useBlogFormat();
 const first = computed(() => props.index === 0);
+const number = computed(() => String(props.index + 1).padStart(2, "0"));
 </script>
 
 <template>
@@ -14,7 +15,7 @@ const first = computed(() => props.index === 0);
         :class="first ? 'border-hairline-strong' : 'border-hairline'"
     >
         <span class="eyebrow col-span-4 md:col-span-1" :class="first ? 'text-gold' : 'text-subtle group-hover:text-gold'">
-            {{ String(index + 1).padStart(2, "0") }}<span class="md:hidden"> · {{ fmt.date(post.date) }}</span>
+            {{ number }}<span class="md:hidden"> · {{ fmt.date(post.date) }}</span>
         </span>
         <span class="col-span-4 flex flex-col gap-2.5 transition-transform duration-500 ease-out-expo group-hover:translate-x-2.5 md:col-span-6 rtl:group-hover:-translate-x-2.5">
             <span
@@ -22,7 +23,7 @@ const first = computed(() => props.index === 0);
                 :class="full ? 'text-2xl md:text-[2.375rem]' : 'text-2xl md:text-[2.75rem]'"
             >
                 {{ post.title }}
-                <span v-if="post.draft" class="eyebrow ms-2 inline-block rounded border border-gold-line px-2 py-1 align-middle text-gold">{{ t("blog.draft") }}</span>
+                <UiBadge v-if="post.draft" variant="gold" class="ms-2 align-middle">{{ t("blog.draft") }}</UiBadge>
             </span>
             <span v-if="full && post.description" class="max-w-[620px] text-[15px] leading-normal text-subtle">{{ post.description }}</span>
         </span>
@@ -31,9 +32,8 @@ const first = computed(() => props.index === 0);
             <span>{{ fmt.date(post.date) }}</span>
             <span>{{ fmt.read(post.minutes) }}</span>
         </span>
-        <span
-            aria-hidden="true"
-            class="hidden justify-self-end text-[1.75rem] text-subtle transition duration-500 ease-out-expo group-hover:translate-x-1.5 group-hover:text-gold md:col-span-1 md:block rtl:-scale-x-100 rtl:group-hover:-translate-x-1.5"
-        >→</span>
+        <SiteArrow
+            class="hidden justify-self-end text-[1.75rem] text-subtle transition duration-500 ease-out-expo group-hover:translate-x-1.5 group-hover:text-gold md:col-span-1 md:block rtl:group-hover:-translate-x-1.5"
+        />
     </NuxtLink>
 </template>

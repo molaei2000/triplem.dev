@@ -1,4 +1,4 @@
-export default {
+const meta = {
     id: "triplem",
     name: "triplem.dev",
     description: "Mohammad Mahdi Molaei — senior front-end engineer building scalable digital experiences with Vue, Nuxt, React and Next.js.",
@@ -21,3 +21,12 @@ export default {
     icon: "/favicon.ico",
     contactEmail: "mahdi.molaei2000@gmail.com",
 };
+
+export default meta;
+
+/** Public profiles, in display order. Also feeds `sameAs` in the Person JSON-LD. */
+export const socialLinks = [
+    { label: "GitHub", href: meta.social.github },
+    { label: "LinkedIn", href: meta.social.linkedin },
+    { label: "Telegram", href: meta.social.telegram },
+] as const;

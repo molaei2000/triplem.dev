@@ -2,17 +2,24 @@
 const { t } = useI18n();
 const isDesktop = useMediaQuery("(min-width: 768px)");
 
-const stage = ref<{ reset: () => void }>();
-const hover = ref(-1);
-const selected = ref(-1);
-const split = ref(false);
+const stage = useTemplateRef<{ reset: () => void }>("stage");
+const hover = shallowRef(-1);
+const selected = shallowRef(-1);
+const split = shallowRef(false);
 
 const active = computed(() => (selected.value >= 0 ? selected.value : hover.value));
-const readoutKey = computed(() => {
+const readout = computed(() => {
     if (active.value >= 0) return `s${active.value}`;
     if (split.value) return "split";
     return isDesktop.value ? "idle" : "idleTouch";
 });
+
+const lines = [
+    { key: "l1", delay: 300, muted: true },
+    { key: "l2", delay: 380 },
+    { key: "l3", delay: 460 },
+    { key: "l4", delay: 540, stop: true },
+];
 
 // Click/tap on a slash: first selects it, a second press on the active slash decomposes.
 function onTap(i: number) {
@@ -49,10 +56,9 @@ function reset() {
                 id="hero-title"
                 class="tracking-display relative z-10 mt-9 font-display text-[clamp(3.9rem,15vw,8rem)] leading-[0.9] font-semibold tracking-[-0.045em] md:absolute md:top-93 md:mt-0 md:-ms-2 rtl:leading-[1.12]"
             >
-                <span class="line"><span style="--d: 300ms" class="text-subtle">{{ t("hero.l1") }}</span></span>
-                <span class="line"><span style="--d: 380ms">{{ t("hero.l2") }}</span></span>
-                <span class="line"><span style="--d: 460ms">{{ t("hero.l3") }}</span></span>
-                <span class="line"><span style="--d: 540ms">{{ t("hero.l4") }}<span class="text-gold">.</span></span></span>
+                <span v-for="l in lines" :key="l.key" class="line">
+                    <span :style="{ '--d': `${l.delay}ms` }" :class="l.muted && 'text-subtle'">{{ t(`hero.${l.key}`) }}<span v-if="l.stop" class="text-gold">.</span></span>
+                </span>
             </h1>
             <p class="sr-only">{{ t("hero.srSummary") }}</p>
 
@@ -81,35 +87,13 @@ function reset() {
 
             <!-- bottom row: CTA · live readout · controls -->
             <div class="relative z-10 mt-2 grid-12 items-end gap-y-6 md:absolute md:inset-x-10 md:top-[862px] md:mt-0 xl:inset-x-20">
-                <div aria-live="polite" class="col-span-4 flex min-h-23 flex-col gap-1.5 md:order-2 md:col-span-4 md:col-start-7 md:min-h-0">
-                    <span class="eyebrow text-gold">{{ t(`hero.readout.${readoutKey}.num`) }}</span>
-                    <span class="font-display text-xl font-medium tracking-[-0.01em]">{{ t(`hero.readout.${readoutKey}.name`) }}</span>
-                    <span class="text-sm leading-snug text-subtle">{{ t(`hero.readout.${readoutKey}.desc`) }}</span>
-                </div>
-                <div class="col-span-4 flex gap-2 md:order-3 md:col-span-2 md:justify-self-end">
-                    <button
-                        type="button"
-                        class="eyebrow h-11 grow rounded-lg border px-4 transition-colors md:h-10 md:grow-0"
-                        :class="split ? 'border-gold bg-gold text-on-gold' : 'border-hairline-strong text-subtle hover:border-gold-line hover:text-foreground'"
-                        :aria-pressed="split"
-                        @click="split = !split"
-                    >
-                        {{ split ? t("hero.assemble") : t("hero.decompose") }}
-                    </button>
-                    <button
-                        type="button"
-                        class="eyebrow h-11 rounded-lg border border-hairline-strong px-4 text-subtle transition-colors hover:border-gold-line hover:text-foreground md:h-10"
-                        @click="reset"
-                    >
-                        {{ t("hero.reset") }}
-                    </button>
-                </div>
-                <NuxtLinkLocale
-                    :to="{ path: '/', hash: '#experience' }"
-                    class="gold-link col-span-4 justify-self-start py-2 text-[15px] md:order-1 md:col-span-3"
-                >
-                    {{ t("hero.cta") }} ↓
-                </NuxtLinkLocale>
+                <HeroReadout :state="readout" class="col-span-4 min-h-23 md:order-2 md:col-span-4 md:col-start-7 md:min-h-0" />
+                <HeroControls v-model:split="split" class="col-span-4 md:order-3 md:col-span-2 md:justify-self-end" @reset="reset" />
+                <UiButton as-child variant="link" size="inline" class="col-span-4 justify-self-start py-2 md:order-1 md:col-span-3">
+                    <NuxtLinkLocale :to="{ path: '/', hash: '#experience' }">
+                        {{ t("hero.cta") }} <SiteArrow direction="down" />
+                    </NuxtLinkLocale>
+                </UiButton>
             </div>
         </div>
     </section>

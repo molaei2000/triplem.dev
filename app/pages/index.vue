@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import meta from "~/app.meta";
+import meta, { socialLinks } from "~/app.meta";
 
 useSeoMeta({
     description: meta.description,
@@ -8,24 +8,14 @@ useSeoMeta({
     ogType: "website",
 });
 
-useSchemaOrgPerson();
-
-function useSchemaOrgPerson() {
-    useHead({
-        script: [{
-            type: "application/ld+json",
-            innerHTML: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": meta.author.name,
-                "jobTitle": meta.author.jobTitle,
-                "url": meta.siteUrl,
-                "email": `mailto:${meta.contactEmail}`,
-                "sameAs": [meta.social.github, meta.social.linkedin, meta.social.telegram],
-            }),
-        }],
-    });
-}
+useJsonLd({
+    "@type": "Person",
+    "name": meta.author.name,
+    "jobTitle": meta.author.jobTitle,
+    "url": meta.siteUrl,
+    "email": `mailto:${meta.contactEmail}`,
+    "sameAs": socialLinks.map(l => l.href),
+});
 </script>
 
 <template>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <g fill="none" style="stroke-width: var(--mark-stroke, 4.4)">
+    <path d="M6 42L18 6" stroke="var(--mark-1, currentColor)" />
+    <path d="M18 42L30 6" stroke="var(--mark-2, var(--gold))" />
+    <path d="M30 42L42 6" stroke="var(--mark-3, currentColor)" />
+  </g>
+</svg>

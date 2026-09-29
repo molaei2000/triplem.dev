@@ -16,7 +16,7 @@ const { isDark } = useTheme();
 const reducedPref = usePreferredReducedMotion();
 const reduced = computed(() => reducedPref.value === "reduce");
 
-const el = ref<HTMLElement>();
+const el = useTemplateRef<HTMLElement>("el");
 const visible = useElementVisibility(el);
 const input = createSlashInput(props.distance ?? 9);
 input.touch = import.meta.client && matchMedia("(pointer: coarse)").matches;
@@ -26,7 +26,7 @@ watchEffect(() => {
     input.selected = props.selected;
 });
 
-const webgl = ref(true);
+const webgl = shallowRef(true);
 onMounted(() => {
     const c = document.createElement("canvas");
     webgl.value = !!(c.getContext("webgl2") || c.getContext("webgl"));
@@ -117,7 +117,7 @@ defineExpose({
     <div
         ref="el"
         class="relative size-full cursor-grab touch-pan-y select-none active:cursor-grabbing"
-                @pointerenter="onEnter"
+        @pointerenter="onEnter"
         @pointerleave="onLeave"
         @pointerdown="onDown"
         @pointermove="onMove"

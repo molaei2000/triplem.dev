@@ -1,19 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const route = useRoute();
-const localePath = useLocalePath();
+const links = useNavLinks();
 const { y } = useWindowScroll();
 const scrolled = computed(() => y.value > 24);
-const open = ref(false);
-
-// Experience and About are home sections; Blog is its own page.
-const links = [
-    { key: "experience", to: { path: "/", hash: "#experience" } },
-    { key: "blog", to: "/blog" },
-    { key: "about", to: { path: "/", hash: "#about" } },
-] as const;
-const inBlog = computed(() => route.path.startsWith(localePath("/blog")));
-const current = (key: string) => (key === "blog" && inBlog.value ? "page" : undefined);
+const open = shallowRef(false);
 
 watch(() => route.fullPath, () => (open.value = false));
 onKeyStroke("Escape", () => (open.value = false));
@@ -37,38 +28,34 @@ onKeyStroke("Escape", () => (open.value = false));
                 </NuxtLinkLocale>
 
                 <nav :aria-label="t('nav.primary')" class="hidden gap-1 md:flex">
-                    <NuxtLinkLocale
+                    <UiButton
                         v-for="l in links"
                         :key="l.key"
-                        :to="l.to"
-                        :aria-current="current(l.key)"
-                        class="rounded-lg px-3.5 py-2.5 text-sm text-subtle no-underline transition-colors hover:text-foreground aria-[current=page]:text-foreground"
+                        as-child
+                        variant="ghost"
+                        class="px-3.5 font-normal aria-[current=page]:text-foreground"
                     >
-                        {{ t(`nav.${l.key}`) }}
-                    </NuxtLinkLocale>
+                        <NuxtLinkLocale :to="l.to" :aria-current="l.current">{{ t(`nav.${l.key}`) }}</NuxtLinkLocale>
+                    </UiButton>
                 </nav>
 
                 <div class="flex items-center gap-2">
                     <SiteLocaleSwitch class="hidden md:flex" />
                     <SiteThemeToggle />
-                    <NuxtLinkLocale
-                        :to="{ path: '/', hash: '#contact' }"
-                        class="hidden h-10 items-center rounded-[9px] bg-foreground px-4 text-sm font-medium text-background no-underline transition-opacity hover:opacity-90 md:inline-flex"
-                    >
-                        {{ t("nav.contact") }}
-                    </NuxtLinkLocale>
-                    <button
-                        type="button"
-                        class="grid size-11 place-items-center md:hidden"
+                    <UiButton as-child variant="ink" class="hidden md:inline-flex">
+                        <NuxtLinkLocale :to="{ path: '/', hash: '#contact' }">{{ t("nav.contact") }}</NuxtLinkLocale>
+                    </UiButton>
+                    <UiButton
+                        variant="ghost"
+                        size="icon-lg"
+                        class="text-foreground md:hidden [&_.iconify]:size-5"
                         :aria-label="open ? t('nav.menuClose') : t('nav.menuOpen')"
                         :aria-expanded="open"
                         aria-controls="mobile-menu"
                         @click="open = !open"
                     >
-                        <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden="true" class="rtl:-scale-x-100">
-                            <path :d="open ? 'M3 0L17 10M3 10L17 0' : 'M0 1H20M6 9H20'" stroke="currentColor" stroke-width="1.4" />
-                        </svg>
-                    </button>
+                        <Icon :name="open ? 'tm:close' : 'tm:menu'" class="rtl:-scale-x-100" />
+                    </UiButton>
                 </div>
             </div>
 
@@ -78,30 +65,7 @@ onKeyStroke("Escape", () => (open.value = false));
                 leave-active-class="transition duration-200"
                 leave-to-class="opacity-0 -translate-y-2"
             >
-                <nav
-                    v-show="open"
-                    id="mobile-menu"
-                    :aria-label="t('nav.primary')"
-                    class="mt-2 rounded-xl border border-hairline-strong bg-elevated px-5 pt-2 pb-5 shadow-(--shadow-lift) md:hidden"
-                >
-                    <NuxtLinkLocale
-                        v-for="(l, i) in links"
-                        :key="l.key"
-                        :to="l.to"
-                        :aria-current="current(l.key)"
-                        class="flex items-baseline justify-between border-b border-hairline py-4 font-display text-[34px] font-medium tracking-[-0.03em] no-underline"
-                    >
-                        {{ t(`nav.${l.key}`) }}
-                        <span class="eyebrow text-faint">0{{ i + 1 }}</span>
-                    </NuxtLinkLocale>
-                    <NuxtLinkLocale
-                        :to="{ path: '/', hash: '#contact' }"
-                        class="flex items-baseline justify-between py-4 font-display text-[34px] font-medium tracking-[-0.03em] no-underline"
-                    >
-                        {{ t("nav.contact") }}<span class="text-gold rtl:-scale-x-100">→</span>
-                    </NuxtLinkLocale>
-                    <SiteLocaleSwitch class="mt-2 w-fit" />
-                </nav>
+                <SiteMobileMenu v-show="open" id="mobile-menu" :links="links" />
             </Transition>
         </div>
     </header>

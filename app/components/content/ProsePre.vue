@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
 }>(), { code: "", language: null, filename: null, highlights: () => [], meta: null, class: null, style: null });
 
 const { t } = useI18n();
-const { copy, copied } = useClipboard({ legacy: true, copiedDuring: 1600 });
+const { copy, copied } = useCopy();
 </script>
 
 <template>

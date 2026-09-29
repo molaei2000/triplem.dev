@@ -40,6 +40,17 @@ export default defineNuxtConfig({
         provider: "local",
     },
 
+    icon: {
+        // Every icon is a local SVG in app/assets/icons (`tm:<file>`), bundled into
+        // the client so a static build never has to fetch one at runtime.
+        customCollections: [{ prefix: "tm", dir: "./app/assets/icons" }],
+        provider: "none",
+        clientBundle: {
+            scan: true,
+            includeCustomCollections: true,
+        },
+    },
+
     content: {
         build: {
             markdown: {
