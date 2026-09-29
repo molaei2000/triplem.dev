@@ -1,17 +1,19 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const route = useRoute();
+const localePath = useLocalePath();
 const { y } = useWindowScroll();
 const scrolled = computed(() => y.value > 24);
 const open = ref(false);
 
-// Home sections for now; these become real pages (/work, /notes, /about, /contact) in the next pass.
-const links = computed(() => [
-    { key: "work", to: { path: "/", hash: "#work" } },
+// Experience and About are home sections; Blog is its own page.
+const links = [
     { key: "experience", to: { path: "/", hash: "#experience" } },
-    { key: "notes", to: { path: "/", hash: "#notes" } },
+    { key: "blog", to: "/blog" },
     { key: "about", to: { path: "/", hash: "#about" } },
-]);
+] as const;
+const inBlog = computed(() => route.path.startsWith(localePath("/blog")));
+const current = (key: string) => (key === "blog" && inBlog.value ? "page" : undefined);
 
 watch(() => route.fullPath, () => (open.value = false));
 onKeyStroke("Escape", () => (open.value = false));
@@ -39,7 +41,8 @@ onKeyStroke("Escape", () => (open.value = false));
                         v-for="l in links"
                         :key="l.key"
                         :to="l.to"
-                        class="rounded-lg px-3.5 py-2.5 text-sm text-subtle no-underline transition-colors hover:text-foreground"
+                        :aria-current="current(l.key)"
+                        class="rounded-lg px-3.5 py-2.5 text-sm text-subtle no-underline transition-colors hover:text-foreground aria-[current=page]:text-foreground"
                     >
                         {{ t(`nav.${l.key}`) }}
                     </NuxtLinkLocale>
@@ -76,7 +79,7 @@ onKeyStroke("Escape", () => (open.value = false));
                 leave-to-class="opacity-0 -translate-y-2"
             >
                 <nav
-                    v-if="open"
+                    v-show="open"
                     id="mobile-menu"
                     :aria-label="t('nav.primary')"
                     class="mt-2 rounded-xl border border-hairline-strong bg-elevated px-5 pt-2 pb-5 shadow-(--shadow-lift) md:hidden"
@@ -85,6 +88,7 @@ onKeyStroke("Escape", () => (open.value = false));
                         v-for="(l, i) in links"
                         :key="l.key"
                         :to="l.to"
+                        :aria-current="current(l.key)"
                         class="flex items-baseline justify-between border-b border-hairline py-4 font-display text-[34px] font-medium tracking-[-0.03em] no-underline"
                     >
                         {{ t(`nav.${l.key}`) }}

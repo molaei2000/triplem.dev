@@ -10,10 +10,11 @@ import {
     Color,
     Group,
     type Mesh,
-    MeshStandardMaterial,
+    type MeshStandardMaterial,
     PMREMGenerator,
     Raycaster,
     Vector2,
+    Vector3,
     type WebGLRenderer,
 } from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
@@ -21,6 +22,14 @@ import type { SlashInput } from "~/lib/slash-input";
 
 const props = defineProps<{ input: SlashInput; dark: boolean; reduced: boolean; active: boolean }>();
 const emit = defineEmits<{ hover: [index: number, tap: boolean] }>();
+
+// Warm key, gold rim, cool fill.
+const cameraPosition = new Vector3(0, 0, props.input.distance);
+const lights = [
+    { position: new Vector3(-4, 4, 6), intensity: 2.4, color: "#FFF7EB" },
+    { position: new Vector3(5, 1.5, -3), intensity: 1.4, color: "#FFD79A" },
+    { position: new Vector3(3, -2.5, 6), intensity: 0.45, color: "#D9E4FF" },
+];
 
 const { state } = useGLTF("/models/triplem-slash.glb");
 const { renderer, scene, camera } = useTres();
@@ -154,10 +163,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <TresPerspectiveCamera :position="[0, 0, input.distance]" :fov="30" />
+    <TresPerspectiveCamera :position="cameraPosition" :fov="30" />
     <TresAmbientLight :intensity="0.15" />
-    <TresDirectionalLight :position="[-4, 4, 6]" :intensity="2.4" color="#FFF7EB" />
-    <TresDirectionalLight :position="[5, 1.5, -3]" :intensity="1.4" color="#FFD79A" />
-    <TresDirectionalLight :position="[3, -2.5, 6]" :intensity="0.45" color="#D9E4FF" />
+    <TresDirectionalLight v-for="(l, i) in lights" :key="i" :position="l.position" :intensity="l.intensity" :color="l.color" />
     <primitive :object="root" />
 </template>

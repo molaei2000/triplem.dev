@@ -105,7 +105,7 @@ function reset() {
                     </button>
                 </div>
                 <NuxtLinkLocale
-                    :to="{ path: '/', hash: '#work' }"
+                    :to="{ path: '/', hash: '#experience' }"
                     class="gold-link col-span-4 justify-self-start py-2 text-[15px] md:order-1 md:col-span-3"
                 >
                     {{ t("hero.cta") }} ↓

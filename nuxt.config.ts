@@ -40,6 +40,30 @@ export default defineNuxtConfig({
         provider: "local",
     },
 
+    content: {
+        build: {
+            markdown: {
+                toc: { depth: 3, searchDepth: 3 },
+                highlight: {
+                    // code blocks stay dark in both themes (see ProsePre)
+                    theme: "vitesse-dark",
+                    langs: ["ts", "tsx", "js", "vue", "html", "css", "json", "bash", "md"],
+                },
+            },
+        },
+    },
+
+    hooks: {
+        // Reading time for blog posts (~200 wpm; fenced code counts as a third).
+        "content:file:afterParse"({ file, content, collection }) {
+            if (!collection.name.startsWith("blog_") || typeof file.body !== "string") return;
+            const count = (s: string) => s.split(/\s+/).filter(Boolean).length;
+            const code = [...file.body.matchAll(/```[\s\S]*?```/g)].map(m => m[0]).join(" ");
+            const prose = file.body.replace(/```[\s\S]*?```/g, " ");
+            content.minutes = Math.max(1, Math.round((count(prose) + count(code) / 3) / 200));
+        },
+    },
+
     i18n: {
         baseUrl: "https://triplem.dev",
         defaultLocale: "en",

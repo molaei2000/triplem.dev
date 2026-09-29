@@ -1,9 +1,8 @@
 {
   "nav": {
     "home": "Home",
-    "work": "Work",
     "experience": "Experience",
-    "notes": "Notes",
+    "blog": "Blog",
     "about": "About",
     "contact": "Let’s talk",
     "primary": "Primary",
@@ -134,104 +133,99 @@
     "title": "Chapters",
     "sub": "Most recent first",
     "chapter": "Chapter",
-    "items": [
-      {
-        "years": "[YYYY] — Now",
-        "role": "Senior Front-End Developer",
-        "company": "[Company]",
-        "where": "[City / Remote]",
-        "desc": "[What you own: the product, the architecture decisions, the team you lead or support, and the outcome that mattered.]",
-        "stack": "Vue · Nuxt · TypeScript"
-      },
-      {
-        "years": "[YYYY — YYYY]",
+    "more": "Read more",
+    "less": "Show less",
+    "highlights": "Highlights",
+    "items": {
+      "tarazoo": {
+        "years": "2026",
         "role": "Front-End Developer",
-        "company": "[Company]",
-        "where": "[City / Remote]",
-        "desc": "[Scope and the one or two things you’re proudest of from this role.]",
-        "stack": "[Stack · Stack]"
+        "company": "Tarazoo",
+        "product": "Legal platform",
+        "summary": "The front end of Tarazoo, a server-rendered legal-consultation platform: people browse legal services, ask questions with AI assistance, and book paid sessions with lawyers.",
+        "body": "Built on the Next.js App Router as a set of modules with clear ownership: TanStack Query for server state, Redux Toolkit for client state, and NextAuth for OTP sign-in. Everything is styled with a custom design system on Tailwind CSS 4 and Radix UI, shipped with Docker and Nginx, and watched in production by Sentry with structured logging.",
+        "highlights": [
+          "A page builder that renders configurable blocks (hero, services, benefits, FAQ, workflow, blog and news, comments) from backend-driven data.",
+          "An AI-assisted legal question flow, and lawyer reservation and booking with integrated payment.",
+          "Robust forms on React Hook Form and Zod, with schema validation across sign-in, questions and reservations."
+        ],
+        "alt": [
+          "Tarazoo home page: the legal platform introduction next to the AI legal assistant card"
+        ]
       },
-      {
-        "years": "[YYYY — YYYY]",
-        "role": "[Role]",
-        "company": "[Company]",
-        "where": "[City / Remote]",
-        "desc": "[Where it started.]",
-        "stack": ""
+      "nct": {
+        "years": "2024",
+        "role": "Front-End Developer",
+        "company": "NCT",
+        "where": "China",
+        "product": "IKA · Inspection ERP",
+        "summary": "IKA, an ERP for inspection companies: one workspace for the people, contracts and inspections behind every job.",
+        "body": "The app is organised around the inspection business itself: users, customers, coordinators and inspectors, with nested sections for contracts and inspections. It also runs the office around the work (correspondence, a file manager, the monthly menu and staff food reservation), so teams stay in one tool instead of five.",
+        "highlights": [
+          "Management screens for users, customers, coordinators and inspectors, plus nested contract and inspection sections.",
+          "Back-office modules in the same app: correspondence, file manager, monthly menu and food reservation.",
+          "Light and dark themes, a language switch and live notifications across the whole app."
+        ],
+        "alt": [
+          "IKA dashboard: sidebar with users, customers, coordinators, inspectors, contracts and inspections",
+          "IKA sign-in screen with theme and language switches"
+        ]
+      },
+      "smartsino": {
+        "years": "2020",
+        "role": "Front-End Developer",
+        "company": "Smart-Sino UK",
+        "where": "China",
+        "product": "Learning management system",
+        "summary": "An advanced learning management system that keeps student and teacher data in one place.",
+        "body": "The flagship product was an advanced Learning Management System (LMS), designed to manage student and teacher data efficiently, with scheduling that organises teacher availability and class sessions.",
+        "highlights": [
+          "Student and teacher records, managed from one system.",
+          "Scheduling for teacher availability and class sessions."
+        ],
+        "alt": [
+          "Smart-Sino UK landing page: “Wise choice, worthy cost” over Tower Bridge"
+        ]
       }
-    ]
+    }
   },
-  "work": {
-    "label": "04 / Work",
-    "caption": "Architecture becomes products",
-    "title": "Selected work",
-    "intro": "Three projects, told as case studies: the problem, the architecture, and what shipped.",
-    "featured": "Featured",
-    "screenshot": "[Project screenshot]",
-    "role": "Role",
-    "stack": "Stack",
-    "type": "Type",
-    "caseStudy": "Case study",
-    "view": "View",
-    "items": [
-      {
-        "name": "[Project name]",
-        "desc": "[One line: what it is, who it’s for, and the outcome.]",
-        "role": "[Lead front-end]",
-        "year": "[YYYY]",
-        "stack": "Vue · Nuxt · TypeScript"
-      },
-      {
-        "name": "[Project name]",
-        "desc": "[Short description]",
-        "role": "[Role]",
-        "year": "[YYYY]",
-        "stack": "[Stack · Stack · Stack]"
-      },
-      {
-        "name": "[Project name]",
-        "desc": "[Short description]",
-        "role": "[Role]",
-        "year": "[YYYY]",
-        "stack": "[Stack · Stack · Stack]"
-      }
-    ]
-  },
-  "notes": {
-    "label": "05 / Notes",
+  "blog": {
+    "label": "04 / Blog",
     "caption": "Products become writing",
-    "title": "Notes",
+    "title": "Blog",
     "intro": "Engineering notes on architecture, rendering and interface craft.",
+    "pageIntro": "Engineering notes on architecture, rendering and interface craft. Written to be useful a year from now.",
+    "metaDescription": "Articles by Mohammad Mahdi Molaei on front-end architecture, rendering and interface craft.",
+    "all": "All posts",
+    "allHint": "Search or filter by topic",
+    "seeAll": "All posts",
+    "latest": "Latest",
     "read": "{n} min read",
-    "items": [
-      {
-        "title": "Building scalable Nuxt applications",
-        "tags": "Architecture · Nuxt",
-        "date": "September 2026",
-        "min": "[12]"
-      },
-      {
-        "title": "Hybrid rendering in Nuxt, in practice",
-        "tags": "Rendering · Nuxt",
-        "date": "[Month YYYY]",
-        "min": "[8]"
-      },
-      {
-        "title": "State that scales: stores, composables, boundaries",
-        "tags": "Vue · State",
-        "date": "[Month YYYY]",
-        "min": "[10]"
-      },
-      {
-        "title": "Motion that respects the reader",
-        "tags": "Motion · A11y",
-        "date": "[Month YYYY]",
-        "min": "[6]"
-      }
-    ]
+    "readPost": "Read post",
+    "draft": "Draft",
+    "search": "Search posts",
+    "searchPlaceholder": "Search posts…",
+    "filter": "Filter by topic",
+    "allTags": "All",
+    "count": "Showing {n} of {total}",
+    "empty": "No posts match that yet.",
+    "clear": "Clear search and filters",
+    "none": "The first posts are on their way.",
+    "back": "Blog",
+    "toc": "On this page",
+    "progress": "{n}% read",
+    "writtenBy": "Written by",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Copied",
+    "newer": "Newer post",
+    "older": "Older post",
+    "copyCode": "Copy",
+    "copiedCode": "Copied",
+    "indexLabel": "Blog / Index"
   },
   "contact": {
-    "label": "06 / Contact",
+    "label": "05 / Contact",
     "caption": "Everything simplifies into one connection",
     "t1": "Let’s build",
     "t2": "something great",

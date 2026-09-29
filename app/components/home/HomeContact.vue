@@ -2,7 +2,8 @@
 import meta from "~/app.meta";
 
 const { t } = useI18n();
-const { copy, copied, isSupported } = useClipboard({ source: meta.contactEmail, copiedDuring: 1600 });
+// `legacy` falls back to execCommand, so the button can render on the server too (no hydration mismatch).
+const { copy, copied } = useClipboard({ source: meta.contactEmail, copiedDuring: 1600, legacy: true });
 </script>
 
 <template>
@@ -47,7 +48,6 @@ const { copy, copied, isSupported } = useClipboard({ source: meta.contactEmail, 
                     <span class="text-[1.2em] md:text-[0.72em] md:text-gold rtl:-scale-x-100">↗</span>
                 </a>
                 <button
-                    v-if="isSupported"
                     type="button"
                     class="eyebrow h-11 self-start rounded-lg border border-hairline-strong px-4 text-subtle transition-colors hover:border-gold-line hover:text-foreground md:self-auto"
                     @click="copy()"

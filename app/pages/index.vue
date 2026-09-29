@@ -34,8 +34,7 @@ function useSchemaOrgPerson() {
         <HomeAbout />
         <HomeStack />
         <HomeExperience />
-        <HomeWork />
-        <HomeNotes />
+        <HomeBlog />
         <HomeContact />
     </div>
 </template>
