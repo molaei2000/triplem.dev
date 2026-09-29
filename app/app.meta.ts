@@ -20,6 +20,8 @@ const meta = {
     url: "https://github.com/molaei2000",
     icon: "/favicon.ico",
     contactEmail: "mahdi.molaei2000@gmail.com",
+    /** A CV in public/ (e.g. "/cv.pdf"). /about shows a download button when this is set. */
+    cv: "" as string,
 };
 
 export default meta;

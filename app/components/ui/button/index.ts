@@ -14,6 +14,8 @@ export const buttonVariants = cva(
           "bg-primary text-primary-foreground hover:bg-primary/90",
         ink:
           "bg-foreground text-background hover:opacity-90",
+        gold:
+          "bg-gold text-on-gold hover:opacity-90",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:

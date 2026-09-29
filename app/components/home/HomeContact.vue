@@ -24,7 +24,7 @@ const { t } = useI18n();
                     :to="`mailto:${meta.contactEmail}`"
                     class="flex items-baseline justify-between gap-4 rounded-[10px] bg-foreground px-5 py-5 font-display text-lg font-medium text-background no-underline md:rounded-none md:border-b md:border-gold md:bg-transparent md:px-0 md:pt-0 md:pb-2.5 md:text-[3.75rem] md:leading-none md:tracking-[-0.04em] md:text-foreground"
                 >
-                    <span dir="ltr">{{ meta.contactEmail }}</span>
+                    <span dir="ltr" class="latin-display">{{ meta.contactEmail }}</span>
                     <SiteArrow direction="external" class="text-[1.2em] md:text-[0.72em] md:text-gold" />
                 </NuxtLink>
                 <SiteCopyButton
@@ -37,7 +37,11 @@ const { t } = useI18n();
                 />
             </div>
 
-            <div class="mt-6 flex flex-wrap gap-x-8 md:mt-10">
+            <UiButton as-child variant="link" size="inline" class="mt-8 md:mt-10 md:text-[17px]">
+                <NuxtLinkLocale to="/contact">{{ t("contact.form") }} <SiteArrow /></NuxtLinkLocale>
+            </UiButton>
+
+            <div class="mt-6 flex flex-wrap gap-x-8 md:mt-8">
                 <UiButton v-for="l in socialLinks" :key="l.label" as-child variant="ghost" size="inline" class="py-3 text-base">
                     <NuxtLink :to="l.href" target="_blank">{{ l.label }} <SiteArrow direction="external" /></NuxtLink>
                 </UiButton>

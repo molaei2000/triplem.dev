@@ -23,7 +23,7 @@ const linkClass = "flex items-baseline justify-between py-4 font-display text-[3
             {{ t(`nav.${l.key}`) }}
             <span class="eyebrow text-faint">0{{ i + 1 }}</span>
         </NuxtLinkLocale>
-        <NuxtLinkLocale :to="{ path: '/', hash: '#contact' }" :class="linkClass">
+        <NuxtLinkLocale to="/contact" :class="linkClass">
             {{ t("nav.contact") }}<SiteArrow class="text-[0.8em] text-gold" />
         </NuxtLinkLocale>
         <SiteLocaleSwitch class="mt-2 w-fit" />

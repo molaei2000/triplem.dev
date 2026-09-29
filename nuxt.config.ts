@@ -40,6 +40,19 @@ export default defineNuxtConfig({
         provider: "local",
     },
 
+    // Server-only secrets for the contact form; set via NUXT_SMTP_* / NUXT_CONTACT_TO (see .env.example).
+    runtimeConfig: {
+        smtp: {
+            host: "smtp.gmail.com",
+            port: 465,
+            user: "",
+            pass: "",
+        },
+        contact: {
+            to: "",
+        },
+    },
+
     icon: {
         // Every icon is a local SVG in app/assets/icons (`tm:<file>`), bundled into
         // the client so a static build never has to fetch one at runtime.

@@ -43,7 +43,7 @@ onKeyStroke("Escape", () => (open.value = false));
                     <SiteLocaleSwitch class="hidden md:flex" />
                     <SiteThemeToggle />
                     <UiButton as-child variant="ink" class="hidden md:inline-flex">
-                        <NuxtLinkLocale :to="{ path: '/', hash: '#contact' }">{{ t("nav.contact") }}</NuxtLinkLocale>
+                        <NuxtLinkLocale to="/contact">{{ t("nav.contact") }}</NuxtLinkLocale>
                     </UiButton>
                     <UiButton
                         variant="ghost"

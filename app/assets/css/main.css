@@ -89,8 +89,10 @@
  * Light — editorial ivory (the site defaults to dark via html.dark)
  * ------------------------------------------------------------------ */
 :root {
-  --font-headline: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-headline-latin: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body-latin: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-headline: var(--font-headline-latin);
+  --font-body: var(--font-body-latin);
   --font-code: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 
   --radius: 0.5rem;
@@ -170,6 +172,15 @@
 [dir="rtl"] {
   --font-headline: "Kalameh", "IRANSans", Tahoma, sans-serif;
   --font-body: "IRANSans", Tahoma, sans-serif;
+}
+
+/* LTR islands in Persian pages (emails, URLs, handles) keep the Latin faces:
+   IRANSans FaNum would otherwise render their digits as Persian. */
+@utility latin {
+  font-family: var(--font-body-latin);
+}
+@utility latin-display {
+  font-family: var(--font-headline-latin);
 }
 
 @layer base {

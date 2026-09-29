@@ -77,11 +77,13 @@
             "primary": "Primary",
             "primaryV": "Vue / Nuxt",
             "also": "Also",
-            "alsoV": "React / Next.js"
+            "alsoV": "React / Next.js",
+            "languages": "Languages",
+            "languagesV": "English · فارسی"
         },
         "p1a": "I’m a senior front-end engineer working mostly in Vue and Nuxt, and comfortably in React and Next.js.",
         "p1b": "I care about the parts users never see — boundaries, state, rendering strategy — because they decide how the parts users do see will feel.",
-        "p2": "[One or two sentences on the teams and products you work with — industries, scale, what people rely on you for.]",
+        "p2": "I’ve been building front ends since 2020: a learning management system for Smart-Sino UK, an ERP for inspection companies at NCT, and most recently Tarazoo, a server-rendered legal platform on Next.js.",
         "method": "Method — three stages, one system",
         "m": [
             {
@@ -99,7 +101,33 @@
                 "t": "Experience",
                 "d": "Ship interfaces that feel fast, accessible and considered — on every device."
             }
-        ]
+        ],
+        "more": "More about me"
+    },
+    "aboutPage": {
+        "label": "About",
+        "caption": "The person behind the system",
+        "metaTitle": "About",
+        "metaDescription": "Mohammad Mahdi Molaei is a senior front-end engineer who has been building with Vue, Nuxt, React and Next.js since 2020.",
+        "figcaption": "Fig. 01 — Mohammad Mahdi Molaei",
+        "portraitAlt": "Portrait of Mohammad Mahdi Molaei in a dark three-piece suit and burgundy shirt",
+        "role": "Senior front-end engineer.",
+        "p2": "I’ve been building front ends since 2020: a learning management system for Smart-Sino UK, an ERP for inspection companies at NCT, and most recently Tarazoo, a server-rendered legal platform on Next.js.",
+        "p3": "I work in English and Persian, and I care that an interface holds up in both directions, left-to-right and right-to-left.",
+        "cta": "Get in touch",
+        "cv": "Download CV",
+        "methodLabel": "01 / Method",
+        "methodCaption": "Three slashes, one system",
+        "toolboxLabel": "02 / Toolbox",
+        "toolboxCaption": "What I reach for",
+        "pathLabel": "03 / Path",
+        "pathCaption": "Where it has shipped",
+        "pathLink": "See the full timeline",
+        "nowLabel": "Now",
+        "nowUpdated": "Updated {date}",
+        "nowDate": "September 2026",
+        "now": "Building triplem.dev in the open (Nuxt 4, a WebGL hero and a bilingual blog) and writing about front-end architecture.",
+        "nowCta": "Start a conversation"
     },
     "stack": {
         "label": "02 / Stack",
@@ -234,7 +262,49 @@
         "copy": "Copy",
         "copied": "Copied",
         "converge": "3 → 1 · connection",
-        "email": "Email"
+        "email": "Email",
+        "form": "Or send a message"
+    },
+    "contactPage": {
+        "label": "Contact",
+        "metaTitle": "Contact",
+        "metaDescription": "Get in touch with Mohammad Mahdi Molaei by email, Telegram, LinkedIn or the contact form.",
+        "title": "Let’s talk",
+        "lead": "Have a product idea, a technical challenge, or an interesting opportunity? Pick whichever channel suits you.",
+        "channels": "Channels",
+        "form": {
+            "title": "Send a message",
+            "name": "Name",
+            "namePh": "Your name",
+            "email": "Email",
+            "emailPh": "you{'@'}company.com",
+            "topic": "What’s it about?",
+            "message": "Message",
+            "messagePh": "A few lines about the product, the problem, or the role.",
+            "required": "All fields are required.",
+            "send": "Send message",
+            "sending": "Sending…",
+            "errors": {
+                "name": "Please add your name.",
+                "email": "That email doesn’t look right.",
+                "topic": "Pick a topic.",
+                "message": "A little more detail helps: a sentence or two at least."
+            },
+            "failTitle": "Your message wasn’t sent",
+            "fail": "Something went wrong on my side. Try again, or email me directly at {email}.",
+            "limited": "That’s a lot of messages in a short time. Try again in a few minutes, or email me directly at {email}."
+        },
+        "sent": {
+            "title": "Message sent",
+            "body": "Thanks. I’ll reply to {email} soon.",
+            "again": "Send another"
+        },
+        "topics": {
+            "project": "Project",
+            "role": "Role",
+            "collaboration": "Collaboration",
+            "other": "Something else"
+        }
     },
     "footer": {
         "role": "Senior Front-End Developer",
