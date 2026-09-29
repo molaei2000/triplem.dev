@@ -73,6 +73,12 @@
       "skillPath": "skills/improve-animations/SKILL.md",
       "computedHash": "b913ec7ef2b1aa900060eb6e5dbdccc94b6ea631059ec3474c4b61e2ffefeeb4"
     },
+    "inspira-ui": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/inspira-ui/skills/inspira-ui/SKILL.md",
+      "computedHash": "490208ad3f3f47caf3eca04bfc49bf0446d408d6748363fec3a338d056dd201c"
+    },
     "mobile-native": {
       "source": "emilkowalski/skills",
       "sourceType": "github",
@@ -180,6 +186,12 @@
       "sourceType": "github",
       "skillPath": "skills/review-animations/SKILL.md",
       "computedHash": "8c2befeb28bb484bf2de7b2fc228774857e266d32a65d76895e78651a536d8cf"
+    },
+    "shadcn-vue": {
+      "source": "unovue/shadcn-vue",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn-vue/SKILL.md",
+      "computedHash": "7037ba3c62e72d5324dbe0bfebe21d4fb8cb7aba5a2200dce96a797e948dc368"
     },
     "t3-code-continue-thread": {
       "source": "onmax/nuxt-skills",
