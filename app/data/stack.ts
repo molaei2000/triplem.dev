@@ -23,7 +23,14 @@ export const STACK_NODES: StackNode[] = [
     { id: "js", label: "JavaScript", x: 170, y: 146, group: "language" },
     { id: "html", label: "HTML & CSS", x: 470, y: 146, group: "language" },
     { id: "vue", label: "Vue", x: 80, y: 292, group: "framework" },
-    { id: "nuxt", label: "Nuxt", x: 240, y: 292, group: "framework", primary: true },
+    {
+        id: "nuxt",
+        label: "Nuxt.js",
+        x: 240,
+        y: 292,
+        group: "framework",
+        primary: true,
+    },
     { id: "react", label: "React", x: 392, y: 292, group: "framework" },
     { id: "next", label: "Next.js", x: 548, y: 292, group: "framework" },
     { id: "tw", label: "Tailwind", x: 200, y: 452, group: "craft" },
@@ -31,11 +38,25 @@ export const STACK_NODES: StackNode[] = [
 ];
 
 export const STACK_EDGES: [string, string][] = [
-    ["ts", "js"], ["ts", "html"], ["ts", "nuxt"], ["ts", "next"], ["js", "vue"], ["js", "react"], ["vue", "nuxt"],
-    ["react", "next"], ["nuxt", "tw"], ["next", "tw"], ["nuxt", "arch"], ["next", "arch"], ["html", "tw"], ["ts", "arch"],
+    ["ts", "js"],
+    ["ts", "html"],
+    ["ts", "nuxt"],
+    ["ts", "next"],
+    ["js", "vue"],
+    ["js", "react"],
+    ["vue", "nuxt"],
+    ["react", "next"],
+    ["nuxt", "tw"],
+    ["next", "tw"],
+    ["nuxt", "arch"],
+    ["next", "arch"],
+    ["html", "tw"],
+    ["ts", "arch"],
 ];
 
-export const STACK_BY_ID = Object.fromEntries(STACK_NODES.map(n => [n.id, n])) as Record<string, StackNode>;
+export const STACK_BY_ID = Object.fromEntries(
+    STACK_NODES.map((n) => [n.id, n]),
+) as Record<string, StackNode>;
 
 /** Ids directly connected to `id`. */
 export function stackNeighbours(id: string) {

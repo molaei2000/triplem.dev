@@ -35,21 +35,20 @@ const facts = ["basedIn", "focus", "primary", "also", "languages"] as const;
 
 <template>
     <div>
-        <section class="shell pt-32 pb-32 md:pt-44 md:pb-40" aria-labelledby="about-page-title">
+        <section class="shell pt-32 pb-32 md:pt-28 md:pb-40" aria-labelledby="about-page-title">
             <SiteSectionHeader :label="t('aboutPage.label')" :caption="t('aboutPage.caption')" coord="p · 03" />
 
             <div class="mt-10 grid-12 items-start gap-y-12 md:mt-16">
                 <AboutPortrait class="col-span-4 md:col-span-5" />
 
                 <div class="col-span-4 flex flex-col gap-8 md:col-span-6 md:col-start-7 md:pt-4">
-                    <h1
-                        id="about-page-title"
-                        class="font-display text-[3.5rem] leading-[0.9] font-semibold tracking-[-0.045em] text-balance md:text-[4.5rem] md:leading-[0.88] xl:text-[6rem] md:tracking-[-0.05em] rtl:leading-[1.2]"
-                    >
+                    <h1 id="about-page-title"
+                        class="font-display text-[3.5rem] leading-[0.9] font-semibold tracking-[-0.045em] text-balance md:text-[4.5rem] md:leading-[0.88] xl:text-[6rem] md:tracking-[-0.05em] rtl:leading-[1.2]">
                         {{ t("hero.name") }}<span class="text-gold">.</span>
                     </h1>
                     <p class="font-display text-2xl leading-snug tracking-[-0.015em] md:text-[2rem]">
-                        {{ t("aboutPage.role") }} {{ t("about.s1") }} <span class="text-subtle">{{ t("about.pixels") }}</span> {{ t("about.s2") }}<span class="text-gold">.</span>
+                        {{ t("aboutPage.role") }} {{ t("about.s1") }} <span class="text-subtle">{{ t("about.pixels")
+                        }}</span> {{ t("about.s2") }}<span class="text-gold">.</span>
                     </p>
                     <div class="flex flex-col gap-5 text-[17px] leading-relaxed text-subtle md:text-[19px]">
                         <p><span class="text-foreground">{{ t("about.p1a") }}</span> {{ t("about.p1b") }}</p>
@@ -58,10 +57,14 @@ const facts = ["basedIn", "focus", "primary", "also", "languages"] as const;
                     </div>
                     <div class="flex flex-wrap items-center gap-3">
                         <UiButton as-child variant="gold" size="lg">
-                            <NuxtLinkLocale to="/contact">{{ t("aboutPage.cta") }} <SiteArrow /></NuxtLinkLocale>
+                            <NuxtLinkLocale to="/contact">{{ t("aboutPage.cta") }}
+                                <SiteArrow />
+                            </NuxtLinkLocale>
                         </UiButton>
                         <UiButton v-if="meta.cv" as-child variant="outline" size="label" class="md:h-11">
-                            <NuxtLink :to="meta.cv" target="_blank">{{ t("aboutPage.cv") }} <Icon name="tm:arrow-down" /></NuxtLink>
+                            <NuxtLink :to="meta.cv" target="_blank">{{ t("aboutPage.cv") }}
+                                <Icon name="tm:arrow-down" />
+                            </NuxtLink>
                         </UiButton>
                     </div>
                 </div>
@@ -70,21 +73,24 @@ const facts = ["basedIn", "focus", "primary", "also", "languages"] as const;
             <AboutFacts :keys="facts" class="mt-16 md:mt-24 md:grid-cols-5" />
         </section>
 
-        <SiteSection id="method" :label="t('aboutPage.methodLabel')" :caption="t('aboutPage.methodCaption')" coord="///">
+        <SiteSection id="method" :label="t('aboutPage.methodLabel')" :caption="t('aboutPage.methodCaption')"
+            coord="///">
             <template #default="{ titleId }">
                 <h2 :id="titleId" class="sr-only">{{ t("aboutPage.methodCaption") }}</h2>
                 <AboutMethod class="mt-10 md:mt-14" />
             </template>
         </SiteSection>
 
-        <SiteSection id="toolbox" :label="t('aboutPage.toolboxLabel')" :caption="t('aboutPage.toolboxCaption')" coord="lang · fw · craft">
+        <SiteSection id="toolbox" :label="t('aboutPage.toolboxLabel')" :caption="t('aboutPage.toolboxCaption')"
+            coord="lang · fw · craft">
             <template #default="{ titleId }">
                 <h2 :id="titleId" class="sr-only">{{ t("aboutPage.toolboxCaption") }}</h2>
                 <AboutToolbox class="mt-10 md:mt-14" />
             </template>
         </SiteSection>
 
-        <SiteSection id="path" :label="t('aboutPage.pathLabel')" :caption="t('aboutPage.pathCaption')" coord="2020 → now">
+        <SiteSection id="path" :label="t('aboutPage.pathLabel')" :caption="t('aboutPage.pathCaption')"
+            coord="from 2020 to now">
             <template #default="{ titleId }">
                 <h2 :id="titleId" class="sr-only">{{ t("aboutPage.pathCaption") }}</h2>
                 <AboutPath class="mt-4 md:mt-8" />

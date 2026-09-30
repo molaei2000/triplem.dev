@@ -9,7 +9,11 @@ export interface NavLink {
 export function useNavLinks() {
     const route = useRoute();
     const localePath = useLocalePath();
-    const at = (path: string) => (route.path === localePath(path) || route.path.startsWith(`${localePath(path)}/`) ? "page" : undefined);
+    const at = (path: string) =>
+        route.path === localePath(path) ||
+        route.path.startsWith(`${localePath(path)}/`)
+            ? "page"
+            : undefined;
 
     return computed<NavLink[]>(() => [
         { key: "experience", to: { path: "/", hash: "#experience" } },

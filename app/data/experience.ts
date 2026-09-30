@@ -28,15 +28,19 @@ export const experience: ExperienceEntry[] = [
         link: "https://etarazoo.com/",
         stack: [
             "Next.js",
+            "React",
+            "TypeScript",
             "TanStack Query",
             "Redux Toolkit",
             "NextAuth",
-            "Tailwind CSS 4",
+            "Tailwind",
             "Radix UI",
             "React Hook Form",
             "Zod",
             "Docker",
             "Sentry",
+            "HTML & CSS",
+            "Architecture",
         ],
         highlights: 3,
         shots: [
@@ -46,7 +50,16 @@ export const experience: ExperienceEntry[] = [
     {
         id: "nct",
         host: "IKA",
-        stack: ["Nuxt.js", "Vuetify", "Nuxt Layers"],
+        stack: [
+            "Nuxt.js",
+            "Vue",
+            "Vuetify",
+            "Nuxt Layers",
+            "TypeScript",
+            "HTML & CSS",
+            "Tailwind",
+            "Architecture",
+        ],
         highlights: 3,
         shots: [
             {
@@ -60,7 +73,14 @@ export const experience: ExperienceEntry[] = [
     {
         id: "smartsino",
         host: "Smart-Sino UK",
-        stack: ["Nuxt.js", "Vuetify"],
+        stack: [
+            "Nuxt.js",
+            "Vue",
+            "Vuetify",
+            "TypeScript",
+            "HTML & CSS",
+            "Architecture",
+        ],
         highlights: 2,
         shots: [
             { src: "/images/work/smartsino-lms.webp", width: 821, height: 381 },

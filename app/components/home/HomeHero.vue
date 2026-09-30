@@ -39,45 +39,40 @@ function reset() {
 
 <template>
     <section class="relative pt-24 md:min-h-[940px] md:pt-0" aria-labelledby="hero-title">
-        <div
-            aria-hidden="true"
-            class="pointer-events-none absolute -top-32 end-0 size-[1000px] max-w-full rounded-full bg-[radial-gradient(circle,var(--glow)_0%,transparent_62%)]"
-        />
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -top-32 end-0 size-[1000px] max-w-full rounded-full bg-[radial-gradient(circle,var(--glow)_0%,transparent_62%)]" />
         <div class="shell relative md:h-[940px]">
-            <span aria-hidden="true" class="eyebrow absolute top-34 hidden text-faint md:block">{{ t("hero.index") }}</span>
-            <span aria-hidden="true" class="eyebrow absolute end-4 top-34 hidden text-faint md:end-10 md:block xl:end-20">x 0080 · y 0000</span>
+            <span aria-hidden="true" class="eyebrow absolute top-34 hidden text-faint md:block">{{ t("hero.index")
+            }}</span>
+            <span aria-hidden="true"
+                class="eyebrow absolute end-4 top-34 hidden text-faint md:end-10 md:block xl:end-20">x 0080 · y
+                0000</span>
 
-            <div class="relative z-10 flex flex-col gap-2 pt-4 md:absolute md:top-49">
-                <p class="font-display text-[19px] font-medium tracking-[-0.015em] md:text-[26px]">{{ t("hero.name") }}</p>
+            <div class="relative z-10 flex flex-col gap-2 pt-4 md:absolute md:top-40">
+                <p class="font-display text-[19px] font-medium tracking-[-0.015em] md:text-[26px]">{{ t("hero.name") }}
+                </p>
                 <p class="text-sm text-subtle md:text-base">{{ t("hero.role") }}</p>
             </div>
 
-            <h1
-                id="hero-title"
-                class="tracking-display relative z-10 mt-9 font-display text-[clamp(3.9rem,15vw,8rem)] leading-[0.9] font-semibold tracking-[-0.045em] md:absolute md:top-93 md:mt-0 md:-ms-2 rtl:leading-[1.12]"
-            >
+            <h1 id="hero-title"
+                class="tracking-display relative z-10 mt-9 font-display text-[clamp(3.9rem,15vw,8rem)] leading-[0.9] font-semibold tracking-[-0.045em] md:absolute md:top-64 md:mt-0 md:-ms-2 rtl:leading-[1.12]">
                 <span v-for="l in lines" :key="l.key" class="line">
-                    <span :style="{ '--d': `${l.delay}ms` }" :class="l.muted && 'text-subtle'">{{ t(`hero.${l.key}`) }}<span v-if="l.stop" class="text-gold">.</span></span>
+                    <span :style="{ '--d': `${l.delay}ms` }" :class="l.muted && 'text-subtle'">{{ t(`hero.${l.key}`)
+                    }}<span v-if="l.stop" class="text-gold">.</span></span>
                 </span>
             </h1>
             <p class="sr-only">{{ t("hero.srSummary") }}</p>
 
             <!-- 3D stage: full-bleed on mobile, right half on desktop -->
-            <div
-                aria-hidden="true"
-                class="stage-in relative -mx-4 mt-6 h-[400px] md:absolute md:end-0 md:top-22 md:mx-0 md:mt-0 md:h-[760px] md:w-[min(700px,52%)]"
-            >
+            <div aria-hidden="true"
+                class="stage-in relative -mx-4 mt-6 h-[400px] md:absolute md:end-0 md:top-22 md:mx-0 md:mt-0 md:h-[760px] md:w-[min(700px,52%)]">
                 <ClientOnly>
-                    <HeroStage
-                        ref="stage"
-                        :split="split"
-                        :selected="selected"
-                        :distance="isDesktop ? 9 : 10"
-                        @hover="hover = $event"
-                        @tap="onTap"
-                    />
+                    <HeroStage ref="stage" :split="split" :selected="selected" :distance="isDesktop ? 9 : 10"
+                        @hover="hover = $event" @tap="onTap" />
                     <template #fallback>
-                        <div class="grid size-full place-items-center"><SiteMark :size="isDesktop ? 280 : 200" /></div>
+                        <div class="grid size-full place-items-center">
+                            <SiteMark :size="isDesktop ? 280 : 200" />
+                        </div>
                     </template>
                 </ClientOnly>
                 <span class="eyebrow pointer-events-none absolute start-4 top-3 text-faint md:start-8 md:top-12">
@@ -86,12 +81,17 @@ function reset() {
             </div>
 
             <!-- bottom row: CTA · live readout · controls -->
-            <div class="relative z-10 mt-2 grid-12 items-end gap-y-6 md:absolute md:inset-x-10 md:top-[862px] md:mt-0 xl:inset-x-20">
-                <HeroReadout :state="readout" class="col-span-4 min-h-23 md:order-2 md:col-span-4 md:col-start-7 md:min-h-0" />
-                <HeroControls v-model:split="split" class="col-span-4 md:order-3 md:col-span-2 md:justify-self-end" @reset="reset" />
-                <UiButton as-child variant="link" size="inline" class="col-span-4 justify-self-start py-2 md:order-1 md:col-span-3">
+            <div
+                class="relative z-10 mt-2 grid-12 items-end gap-y-6 md:absolute md:inset-x-10 md:top-[862px] md:mt-0 xl:inset-x-20">
+                <HeroReadout :state="readout"
+                    class="col-span-4 min-h-23 md:order-2 md:col-span-4 md:col-start-7 md:min-h-0" />
+                <HeroControls v-model:split="split" class="col-span-4 md:order-3 md:col-span-2 md:justify-self-end"
+                    @reset="reset" />
+                <UiButton as-child variant="link" size="inline"
+                    class="col-span-4 justify-self-start py-2 md:order-1 md:col-span-3">
                     <NuxtLinkLocale :to="{ path: '/', hash: '#experience' }">
-                        {{ t("hero.cta") }} <SiteArrow direction="down" />
+                        {{ t("hero.cta") }}
+                        <SiteArrow direction="down" />
                     </NuxtLinkLocale>
                 </UiButton>
             </div>
@@ -105,19 +105,35 @@ function reset() {
     overflow: hidden;
     padding-bottom: 0.06em;
 }
-.line > span {
+
+.line>span {
     display: inline-block;
     animation: rise 900ms var(--ease-out-expo) var(--d) both;
 }
+
 @keyframes rise {
-    from { transform: translateY(105%); }
-    to { transform: none; }
+    from {
+        transform: translateY(105%);
+    }
+
+    to {
+        transform: none;
+    }
 }
+
 .stage-in {
     animation: stage-in 1200ms var(--ease-out-expo) 250ms both;
 }
+
 @keyframes stage-in {
-    from { opacity: 0; filter: blur(6px); }
-    to { opacity: 1; filter: none; }
+    from {
+        opacity: 0;
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        filter: none;
+    }
 }
 </style>

@@ -25,13 +25,34 @@ export default defineNuxtConfig({
     app: {
         head: {
             meta: [
-                { name: "theme-color", content: "#0B0B0A", media: "(prefers-color-scheme: dark)" },
-                { name: "theme-color", content: "#F3EFE7", media: "(prefers-color-scheme: light)" },
+                {
+                    name: "theme-color",
+                    content: "#0B0B0A",
+                    media: "(prefers-color-scheme: dark)",
+                },
+                {
+                    name: "theme-color",
+                    content: "#F3EFE7",
+                    media: "(prefers-color-scheme: light)",
+                },
             ],
             link: [
+                { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
                 // above-the-fold faces; the rest load on demand (font-display: swap)
-                { rel: "preload", as: "font", type: "font/woff2", crossorigin: "", href: "/fonts/FamiljenGrotesk/familjen-grotesk-latin-600-normal.woff2" },
-                { rel: "preload", as: "font", type: "font/woff2", crossorigin: "", href: "/fonts/InstrumentSans/instrument-sans-latin-400-normal.woff2" },
+                {
+                    rel: "preload",
+                    as: "font",
+                    type: "font/woff2",
+                    crossorigin: "",
+                    href: "/fonts/FamiljenGrotesk/familjen-grotesk-latin-600-normal.woff2",
+                },
+                {
+                    rel: "preload",
+                    as: "font",
+                    type: "font/woff2",
+                    crossorigin: "",
+                    href: "/fonts/InstrumentSans/instrument-sans-latin-400-normal.woff2",
+                },
             ],
         },
     },
@@ -53,6 +74,12 @@ export default defineNuxtConfig({
         },
     },
 
+    router: {
+        options: {
+            scrollBehaviorType: "smooth",
+        },
+    },
+
     icon: {
         // Every icon is a local SVG in app/assets/icons (`tm:<file>`), bundled into
         // the client so a static build never has to fetch one at runtime.
@@ -71,7 +98,17 @@ export default defineNuxtConfig({
                 highlight: {
                     // code blocks stay dark in both themes (see ProsePre)
                     theme: "vitesse-dark",
-                    langs: ["ts", "tsx", "js", "vue", "html", "css", "json", "bash", "md"],
+                    langs: [
+                        "ts",
+                        "tsx",
+                        "js",
+                        "vue",
+                        "html",
+                        "css",
+                        "json",
+                        "bash",
+                        "md",
+                    ],
                 },
             },
         },
@@ -80,11 +117,20 @@ export default defineNuxtConfig({
     hooks: {
         // Reading time for blog posts (~200 wpm; fenced code counts as a third).
         "content:file:afterParse"({ file, content, collection }) {
-            if (!collection.name.startsWith("blog_") || typeof file.body !== "string") return;
+            if (
+                !collection.name.startsWith("blog_") ||
+                typeof file.body !== "string"
+            )
+                return;
             const count = (s: string) => s.split(/\s+/).filter(Boolean).length;
-            const code = [...file.body.matchAll(/```[\s\S]*?```/g)].map(m => m[0]).join(" ");
+            const code = [...file.body.matchAll(/```[\s\S]*?```/g)]
+                .map((m) => m[0])
+                .join(" ");
             const prose = file.body.replace(/```[\s\S]*?```/g, " ");
-            content.minutes = Math.max(1, Math.round((count(prose) + count(code) / 3) / 200));
+            content.minutes = Math.max(
+                1,
+                Math.round((count(prose) + count(code) / 3) / 200),
+            );
         },
     },
 
@@ -94,8 +140,20 @@ export default defineNuxtConfig({
         strategy: "prefix_except_default",
         detectBrowserLanguage: false,
         locales: [
-            { code: "en", language: "en-US", name: "English", file: "en.json", dir: "ltr" },
-            { code: "fa", language: "fa-IR", name: "فارسی", file: "fa.json", dir: "rtl" },
+            {
+                code: "en",
+                language: "en-US",
+                name: "English",
+                file: "en.json",
+                dir: "ltr",
+            },
+            {
+                code: "fa",
+                language: "fa-IR",
+                name: "فارسی",
+                file: "fa.json",
+                dir: "rtl",
+            },
         ],
     },
 
