@@ -16,7 +16,7 @@ useSeoMeta({
 
 <template>
     <div>
-        <section class="shell pt-32 md:pt-28">
+        <section class="shell pt-20 md:pt-28">
             <SiteSectionHeader :label="t('blog.indexLabel')" :caption="t('blog.caption')" coord="p · 02" />
             <div class="mt-4 flex flex-col gap-6 md:mt-0 md:flex-row md:items-end md:justify-between">
                 <SiteOutlineTitle as="h1">{{ t("blog.title") }}</SiteOutlineTitle>

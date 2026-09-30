@@ -26,7 +26,7 @@ useJsonLd(() => ({
 </script>
 
 <template>
-    <section class="shell pt-32 pb-32 md:pt-28 md:pb-40" aria-labelledby="contact-page-title">
+    <section class="shell pt-20 pb-20 md:pt-28 md:pb-40" aria-labelledby="contact-page-title">
         <SiteSectionHeader :label="t('contactPage.label')" :caption="t('contact.caption')" coord="p · 04" />
 
         <div class="mt-10 grid-12 items-start gap-y-16 md:mt-20">

@@ -35,7 +35,7 @@ const facts = ["basedIn", "focus", "primary", "also", "languages"] as const;
 
 <template>
     <div>
-        <section class="shell pt-32 pb-32 md:pt-28 md:pb-40" aria-labelledby="about-page-title">
+        <section class="shell pt-20 pb-20 md:pt-28 md:pb-40" aria-labelledby="about-page-title">
             <SiteSectionHeader :label="t('aboutPage.label')" :caption="t('aboutPage.caption')" coord="p · 03" />
 
             <div class="mt-10 grid-12 items-start gap-y-12 md:mt-8">
@@ -48,7 +48,7 @@ const facts = ["basedIn", "focus", "primary", "also", "languages"] as const;
                     </h1>
                     <p class="font-display text-2xl leading-snug tracking-[-0.015em] md:text-[2rem]">
                         {{ t("aboutPage.role") }} {{ t("about.s1") }} <span class="text-subtle">{{ t("about.pixels")
-                            }}</span> {{ t("about.s2") }}<span class="text-gold">.</span>
+                        }}</span> {{ t("about.s2") }}<span class="text-gold">.</span>
                     </p>
                     <div class="flex flex-col gap-5 text-[17px] leading-relaxed text-subtle md:text-[19px]">
                         <p><span class="text-foreground">{{ t("about.p1a") }}</span> {{ t("about.p1b") }}</p>
