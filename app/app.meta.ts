@@ -1,14 +1,16 @@
 const meta = {
     id: "triplem",
     name: "triplem.dev",
-    description: "Mohammad Mahdi Molaei — senior front-end engineer building scalable digital experiences with Vue, Nuxt, React and Next.js.",
+    description:
+        "Mohammad Mahdi Molaei — senior front-end engineer building scalable digital experiences with Vue, Nuxt, React and Next.js.",
     siteUrl: "https://triplem.dev",
     author: {
         name: "Mohammad Mahdi Molaei",
         url: "https://triplem.dev",
         image: "https://avatars.githubusercontent.com/u/56272245?v=4",
         email: "mahdi.molaei2000@gmail.com",
-        description: "Senior front-end engineer. I build interfaces that scale from pixels to products.",
+        description:
+            "Senior front-end engineer. I build interfaces that scale from pixels to products.",
         jobTitle: "Senior Front-End Developer",
     },
     social: {

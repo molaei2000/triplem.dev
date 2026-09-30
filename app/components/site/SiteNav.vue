@@ -6,7 +6,10 @@ const { y } = useWindowScroll();
 const scrolled = computed(() => y.value > 24);
 const open = shallowRef(false);
 
-watch(() => route.fullPath, () => (open.value = false));
+watch(
+    () => route.fullPath,
+    () => (open.value = false),
+);
 onKeyStroke("Escape", () => (open.value = false));
 </script>
 
@@ -18,13 +21,21 @@ onKeyStroke("Escape", () => (open.value = false));
         <div class="shell">
             <div
                 class="flex items-center justify-between rounded-xl border ps-4 pe-2 backdrop-blur-[18px] transition-all duration-500 ease-out-expo md:ps-5 md:pe-3"
-                :class="scrolled
-                    ? 'h-13 border-hairline-strong bg-surface/85 md:mx-10'
-                    : 'h-14 border-hairline bg-glass md:h-16'"
+                :class="
+                    scrolled
+                        ? 'h-13 border-hairline-strong bg-surface/85 md:mx-10'
+                        : 'h-14 border-hairline bg-glass md:h-16'
+                "
             >
-                <NuxtLinkLocale to="/" class="flex items-center gap-3 no-underline" :aria-label="t('nav.homeLabel')">
+                <NuxtLinkLocale
+                    to="/"
+                    class="flex items-center gap-3 no-underline"
+                    :aria-label="t('nav.homeLabel')"
+                >
                     <SiteMark :size="24" />
-                    <span class="font-display text-[17px] font-semibold tracking-[-0.01em]">triplem<span class="text-gold">.</span>dev</span>
+                    <span class="font-display text-[17px] font-semibold tracking-[-0.01em]"
+                        >triplem<span class="text-gold">.</span>dev</span
+                    >
                 </NuxtLinkLocale>
 
                 <nav :aria-label="t('nav.primary')" class="hidden gap-1 md:flex">
@@ -35,7 +46,9 @@ onKeyStroke("Escape", () => (open.value = false));
                         variant="ghost"
                         class="px-3.5 font-normal aria-[current=page]:text-foreground"
                     >
-                        <NuxtLinkLocale :to="l.to" :aria-current="l.current">{{ t(`nav.${l.key}`) }}</NuxtLinkLocale>
+                        <NuxtLinkLocale :to="l.to" :aria-current="l.current">{{
+                            t(`nav.${l.key}`)
+                        }}</NuxtLinkLocale>
                     </UiButton>
                 </nav>
 

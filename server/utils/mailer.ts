@@ -11,8 +11,7 @@ import { createTransport } from "nodemailer";
 async function ipv4(host: string) {
     try {
         return (await lookup(host, { family: 4 })).address;
-    }
-    catch {
+    } catch {
         return host;
     }
 }
@@ -41,7 +40,10 @@ const TOPIC_LABELS: Record<ContactMessage["topic"], string> = {
 };
 
 function escapeHtml(s: string) {
-    return s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" })[c]!);
+    return s.replace(
+        /[&<>"']/g,
+        (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+    );
 }
 
 /**
@@ -49,7 +51,10 @@ function escapeHtml(s: string) {
  * Nothing is ever sent to the visitor's address, so the form can't be used
  * to relay mail to third parties.
  */
-export async function sendContactMail(msg: ContactMessage, meta: { ip: string; userAgent?: string }) {
+export async function sendContactMail(
+    msg: ContactMessage,
+    meta: { ip: string; userAgent?: string },
+) {
     const { smtp, contact } = useRuntimeConfig();
     const topic = TOPIC_LABELS[msg.topic];
     const subject = `[triplem.dev] ${topic} — ${msg.name}`;
@@ -66,10 +71,15 @@ export async function sendContactMail(msg: ContactMessage, meta: { ip: string; u
 
     if (!smtp.user || !smtp.pass) {
         if (import.meta.dev) {
-            console.info(`[contact] SMTP is not configured; logging instead of sending.\n${subject}\n${text}`);
+            console.info(
+                `[contact] SMTP is not configured; logging instead of sending.\n${subject}\n${text}`,
+            );
             return;
         }
-        throw createError({ statusCode: 503, statusMessage: "The contact form is not configured." });
+        throw createError({
+            statusCode: 503,
+            statusMessage: "The contact form is not configured.",
+        });
     }
 
     const html = `<div style="font:15px/1.6 system-ui,sans-serif;color:#1b1a17">

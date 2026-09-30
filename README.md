@@ -13,14 +13,14 @@ pnpm install    # also runs `nuxt prepare` (types + ESLint config)
 pnpm dev        # http://localhost:3000
 ```
 
-| Script           | What it does                          |
-| ---------------- | ------------------------------------- |
-| `pnpm dev`       | Dev server with HMR (drafts visible)  |
-| `pnpm build`     | Production server build (`.output/`)  |
-| `pnpm generate`  | Static site (`.output/public/`)       |
-| `pnpm preview`   | Serve the production build locally    |
-| `pnpm lint`      | ESLint                                |
-| `pnpm typecheck` | `vue-tsc` via `nuxt typecheck`        |
+| Script           | What it does                         |
+| ---------------- | ------------------------------------ |
+| `pnpm dev`       | Dev server with HMR (drafts visible) |
+| `pnpm build`     | Production server build (`.output/`) |
+| `pnpm generate`  | Static site (`.output/public/`)      |
+| `pnpm preview`   | Serve the production build locally   |
+| `pnpm lint`      | ESLint                               |
+| `pnpm typecheck` | `vue-tsc` via `nuxt typecheck`       |
 
 ## Project structure
 
@@ -63,7 +63,7 @@ title: Post title
 description: One-sentence summary used on cards and in meta tags.
 date: 2026-09-12
 tags: [Architecture, React]
-draft: true   # visible in `pnpm dev` only
+draft: true # visible in `pnpm dev` only
 ---
 ```
 

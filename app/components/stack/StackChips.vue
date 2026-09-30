@@ -6,7 +6,10 @@ defineProps<{ related: Set<string> }>();
 const selected = defineModel<string>({ required: true });
 const { t } = useI18n();
 
-const bands = STACK_GROUPS.map(group => ({ group, nodes: STACK_NODES.filter(n => n.group === group) }));
+const bands = STACK_GROUPS.map((group) => ({
+    group,
+    nodes: STACK_NODES.filter((n) => n.group === group),
+}));
 
 function select(id: unknown) {
     if (typeof id === "string" && id) selected.value = id;
@@ -16,7 +19,9 @@ function select(id: unknown) {
 <template>
     <div class="flex flex-col gap-5">
         <div v-for="b in bands" :key="b.group" class="flex flex-col gap-2.5">
-            <span :id="`stack-band-${b.group}`" class="eyebrow text-faint">{{ t(`stack.groups.${b.group}`) }}</span>
+            <span :id="`stack-band-${b.group}`" class="eyebrow text-faint">{{
+                t(`stack.groups.${b.group}`)
+            }}</span>
             <UiToggleGroup
                 type="single"
                 variant="node"

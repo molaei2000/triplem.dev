@@ -5,15 +5,18 @@
  * CSS variables. Stroke weight scales inversely with size so it survives
  * favicon sizes.
  */
-const props = withDefaults(defineProps<{
-    size?: number;
-    /** Explicit stroke width in the 48-unit box; derived from `size` if omitted. */
-    stroke?: number;
-    /** Which slash is gold (0 = left). */
-    accent?: 0 | 1 | 2;
-    /** `default`: ink strokes · `muted`: secondary text · `ghost`: hairlines only. */
-    tone?: "default" | "muted" | "ghost";
-}>(), { size: 24, stroke: undefined, accent: 1, tone: "default" });
+const props = withDefaults(
+    defineProps<{
+        size?: number;
+        /** Explicit stroke width in the 48-unit box; derived from `size` if omitted. */
+        stroke?: number;
+        /** Which slash is gold (0 = left). */
+        accent?: 0 | 1 | 2;
+        /** `default`: ink strokes · `muted`: secondary text · `ghost`: hairlines only. */
+        tone?: "default" | "muted" | "ghost";
+    }>(),
+    { size: 24, stroke: undefined, accent: 1, tone: "default" },
+);
 
 const strokeWidth = computed(() => {
     if (props.stroke) return props.stroke;

@@ -38,14 +38,22 @@ export function useActiveHeading(root: Readonly<Ref<HTMLElement | null | undefin
     return active;
 }
 
-export interface TocItem { id: string; text: string; sub: boolean }
+export interface TocItem {
+    id: string;
+    text: string;
+    sub: boolean;
+}
 
-interface TocLink { id: string; text: string; children?: TocLink[] }
+interface TocLink {
+    id: string;
+    text: string;
+    children?: TocLink[];
+}
 
 /** Flattens Nuxt Content's toc (h2s with nested h3s) into one list. */
 export function flattenToc(links: TocLink[] = []): TocItem[] {
-    return links.flatMap(l => [
+    return links.flatMap((l) => [
         { id: l.id, text: l.text, sub: false },
-        ...(l.children ?? []).map(c => ({ id: c.id, text: c.text, sub: true })),
+        ...(l.children ?? []).map((c) => ({ id: c.id, text: c.text, sub: true })),
     ]);
 }

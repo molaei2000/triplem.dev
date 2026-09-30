@@ -10,11 +10,11 @@ useSeoMeta({
 
 useJsonLd({
     "@type": "Person",
-    "name": meta.author.name,
-    "jobTitle": meta.author.jobTitle,
-    "url": meta.siteUrl,
-    "email": `mailto:${meta.contactEmail}`,
-    "sameAs": socialLinks.map(l => l.href),
+    name: meta.author.name,
+    jobTitle: meta.author.jobTitle,
+    url: meta.siteUrl,
+    email: `mailto:${meta.contactEmail}`,
+    sameAs: socialLinks.map((l) => l.href),
 });
 </script>
 

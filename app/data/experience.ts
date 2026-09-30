@@ -43,9 +43,7 @@ export const experience: ExperienceEntry[] = [
             "Architecture",
         ],
         highlights: 3,
-        shots: [
-            { src: "/images/work/tarazoo-home.webp", width: 1511, height: 913 },
-        ],
+        shots: [{ src: "/images/work/tarazoo-home.webp", width: 1511, height: 913 }],
     },
     {
         id: "nct",
@@ -73,17 +71,8 @@ export const experience: ExperienceEntry[] = [
     {
         id: "smartsino",
         host: "Smart-Sino UK",
-        stack: [
-            "Nuxt.js",
-            "Vue",
-            "Vuetify",
-            "TypeScript",
-            "HTML & CSS",
-            "Architecture",
-        ],
+        stack: ["Nuxt.js", "Vue", "Vuetify", "TypeScript", "HTML & CSS", "Architecture"],
         highlights: 2,
-        shots: [
-            { src: "/images/work/smartsino-lms.webp", width: 821, height: 381 },
-        ],
+        shots: [{ src: "/images/work/smartsino-lms.webp", width: 821, height: 381 }],
     },
 ];

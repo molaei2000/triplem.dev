@@ -1,263 +1,263 @@
 {
-  "version": 1,
-  "skills": {
-    "animate": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/animate/SKILL.md",
-      "computedHash": "fb0a18403891238d4ce4fc80f891689678766c29092de1e3aadc0c917133ee5d"
-    },
-    "animate-expo": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/animate-expo/SKILL.md",
-      "computedHash": "3e914b8abdff154a289dcabc63817b6b5d649272a0d054e7e799f37e4bb1c471"
-    },
-    "animation-vocabulary": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/animation-vocabulary/SKILL.md",
-      "computedHash": "9aaad861dd54dab7c9bb3fb5bd4c539078d8d06c14530d92d49cdb1509bfa937"
-    },
-    "apple-design": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/apple-design/SKILL.md",
-      "computedHash": "f3f1d2cbc8f3e79ccddff05f4e42d34d995f057fb30ff670e4edf8c87d568b69"
-    },
-    "arkenv": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/arkenv/SKILL.md",
-      "computedHash": "fbd2859237add184b8259f45f4528450233278f075e529ad97f4238cc6e36f43"
-    },
-    "ask-sonner": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/ask-sonner/SKILL.md",
-      "computedHash": "0168a6a129ba0a3561ccbda3a3d8d0dc0af1d556f373e315e9479e3364420dd3"
-    },
-    "comark": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/comark/SKILL.md",
-      "computedHash": "94a546232eb6f8d840217c5ef0d193f6dee83c6fcdb522406e493bc3d6a5b5b6"
-    },
-    "emil-design-eng": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/emil-design-eng/SKILL.md",
-      "computedHash": "77853cec799207f80868c611374c6ed5fdf34a55355c5ab544b59e791c63ad98"
-    },
-    "find-animation-opportunities": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/find-animation-opportunities/SKILL.md",
-      "computedHash": "c6673fadf179233cc0a52c978ea9acc9b82a210665c749307a571a86ed4c092e"
-    },
-    "find-skills": {
-      "source": "vercel-labs/skills",
-      "sourceType": "github",
-      "skillPath": "skills/find-skills/SKILL.md",
-      "computedHash": "b146008599c31057cef1c145774cea5d5afb30e8f43fa802e47a4b461419aaaf"
-    },
-    "frontend-design": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/frontend-design/SKILL.md",
-      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
-    },
-    "improve-animations": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/improve-animations/SKILL.md",
-      "computedHash": "b913ec7ef2b1aa900060eb6e5dbdccc94b6ea631059ec3474c4b61e2ffefeeb4"
-    },
-    "inspira-ui": {
-      "source": "secondsky/claude-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/inspira-ui/skills/inspira-ui/SKILL.md",
-      "computedHash": "490208ad3f3f47caf3eca04bfc49bf0446d408d6748363fec3a338d056dd201c"
-    },
-    "mobile-native": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/mobile-native/SKILL.md",
-      "computedHash": "8d77850a34ec20f745aed3215aa0d587e90438599bb09dc72d9d09ce896a5765"
-    },
-    "nitro": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nitro/SKILL.md",
-      "computedHash": "2e7b4b75855f34ecce48492870fa9229750a3a0ec02ac21f9c0700bbcf1b17b0"
-    },
-    "nuxt": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt/SKILL.md",
-      "computedHash": "748962b963506cdfe0584a4d1c8324f6e3340bdb14b6c7f0921d86a1bbe20cbf"
-    },
-    "nuxt-better-auth": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-better-auth/SKILL.md",
-      "computedHash": "ed93017378d835debcf933916e47274118288e7fcb20e3f67a88c8c0659532c3"
-    },
-    "nuxt-content": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-content/SKILL.md",
-      "computedHash": "64ff455cd74e53454f4c2c9eab857d870e3b23530c930fce9c6c24aea55b8c36"
-    },
-    "nuxt-i18n": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-i18n/SKILL.md",
-      "computedHash": "7337fa28627a5a8191879bd750311c1f3e7cb9075179164f812a5851544a4d09"
-    },
-    "nuxt-modules": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-modules/SKILL.md",
-      "computedHash": "f7ae266745c7b11396afea8ab7d2f0443e11764c5592f0d7f6385b9249864324"
-    },
-    "nuxt-seo": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-seo/SKILL.md",
-      "computedHash": "73d86e3943532f91de4c583186e559a463fc572e601899fbbe7b5515eac4e0c9"
-    },
-    "nuxt-studio": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-studio/SKILL.md",
-      "computedHash": "f511599aa4d26b093425b360287db2b7066863340c7823123e109c0297dbb066"
-    },
-    "nuxt-ui": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-ui/SKILL.md",
-      "computedHash": "c5de79a204cdba4aef14e03b8030e2652ea00165a9ee778293654856405e1faa"
-    },
-    "nuxt-users": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxt-users/SKILL.md",
-      "computedHash": "27779ecc99397f942395359c30440c90e8fd274c8695196ccae6cd130daa03de"
-    },
-    "nuxthub": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/nuxthub/SKILL.md",
-      "computedHash": "02803c96d0c62b5dbcb7dcb5ee4ab110365f0843033432f44d22681bedce110d"
-    },
-    "pick-ui-library": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/pick-ui-library/SKILL.md",
-      "computedHash": "95f37cddc1c5f7cf5c60c8f8f07c938f2ddd1a70dd45f50c37e7e522fcde5bb9"
-    },
-    "pinia": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/pinia/SKILL.md",
-      "computedHash": "8b3835f284dbbec55047596b1b3bb6256752f128349865febb9540ef3948be68"
-    },
-    "prototype": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/prototype/SKILL.md",
-      "computedHash": "165c803775adbe0df600b961167747b6ba6577e6e1dc9ae1b87fcf5dee800645"
-    },
-    "regle": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/regle/SKILL.md",
-      "computedHash": "ab4a406d2f3ccb694de9493088f3bd9c273339e5013e5eb717a3371662ee9b0e"
-    },
-    "reka-ui": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/reka-ui/SKILL.md",
-      "computedHash": "1aa186a264f788a4cb5af9c9fabadbf4ffc33af77ee4a31ccf106d36b0f38f49"
-    },
-    "review-animations": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/review-animations/SKILL.md",
-      "computedHash": "8c2befeb28bb484bf2de7b2fc228774857e266d32a65d76895e78651a536d8cf"
-    },
-    "shadcn-vue": {
-      "source": "unovue/shadcn-vue",
-      "sourceType": "github",
-      "skillPath": "skills/shadcn-vue/SKILL.md",
-      "computedHash": "7037ba3c62e72d5324dbe0bfebe21d4fb8cb7aba5a2200dce96a797e948dc368"
-    },
-    "t3-code-continue-thread": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/t3-code-continue-thread/SKILL.md",
-      "computedHash": "e4fceafef1f00f77b59e744adc6635ce97855b797903dc61ec907778efbca3b7"
-    },
-    "unocss": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/unocss/SKILL.md",
-      "computedHash": "bdbcb789b3ee9d7bf1341f19b288607617fd3f9a938eb2ef16a658293f3c731c"
-    },
-    "vite": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vite/SKILL.md",
-      "computedHash": "2502b777232efffbbdbf35bbed6a3da3173df360efd8170e004efd087d3b9e60"
-    },
-    "vitest": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vitest/SKILL.md",
-      "computedHash": "1c1fe0a9d5c1af7a1d033b267fe57eb892ef6cdf1a641b9c88dd35c1feb59dc0"
-    },
-    "vue": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vue/SKILL.md",
-      "computedHash": "4b223cfc438874eb1623836e290bf47f7eeddc211955ded061826f2d4fa889da"
-    },
-    "vue-best-practices": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vue-best-practices/SKILL.md",
-      "computedHash": "b351805318e59615cbf4c62a457b950d5847ebc71a293fbdac87b52efca3364f"
-    },
-    "vue-debug-guides": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vue-debug-guides/SKILL.md",
-      "computedHash": "9bad4a4edac4d038aa84dd6c44318b8eb7ef1a9a087bcfa29f9234984c147dfc"
-    },
-    "vue-router-best-practices": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vue-router-best-practices/SKILL.md",
-      "computedHash": "060d8314363d7fbf68d946db307b5281769634900af97b9d65445e5dd2711553"
-    },
-    "vue-testing-best-practices": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vue-testing-best-practices/SKILL.md",
-      "computedHash": "78896ea352ef53d021b391f5bea50f43b2111e374e91256c12c18c1cd9ffdbb3"
-    },
-    "vueuse-functions": {
-      "source": "onmax/nuxt-skills",
-      "sourceType": "github",
-      "skillPath": "skills/vueuse-functions/SKILL.md",
-      "computedHash": "424230ab33853c56c08a0077f50a728dd9023422c00bdfbcf32c169d175622ff"
-    },
-    "write-swift": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/write-swift/SKILL.md",
-      "computedHash": "3c4854221f2c654172c3532e71dcb4ece25ef62057d97bec1c26c3ab17eca191"
+    "version": 1,
+    "skills": {
+        "animate": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/animate/SKILL.md",
+            "computedHash": "fb0a18403891238d4ce4fc80f891689678766c29092de1e3aadc0c917133ee5d"
+        },
+        "animate-expo": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/animate-expo/SKILL.md",
+            "computedHash": "3e914b8abdff154a289dcabc63817b6b5d649272a0d054e7e799f37e4bb1c471"
+        },
+        "animation-vocabulary": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/animation-vocabulary/SKILL.md",
+            "computedHash": "9aaad861dd54dab7c9bb3fb5bd4c539078d8d06c14530d92d49cdb1509bfa937"
+        },
+        "apple-design": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/apple-design/SKILL.md",
+            "computedHash": "f3f1d2cbc8f3e79ccddff05f4e42d34d995f057fb30ff670e4edf8c87d568b69"
+        },
+        "arkenv": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/arkenv/SKILL.md",
+            "computedHash": "fbd2859237add184b8259f45f4528450233278f075e529ad97f4238cc6e36f43"
+        },
+        "ask-sonner": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/ask-sonner/SKILL.md",
+            "computedHash": "0168a6a129ba0a3561ccbda3a3d8d0dc0af1d556f373e315e9479e3364420dd3"
+        },
+        "comark": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/comark/SKILL.md",
+            "computedHash": "94a546232eb6f8d840217c5ef0d193f6dee83c6fcdb522406e493bc3d6a5b5b6"
+        },
+        "emil-design-eng": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/emil-design-eng/SKILL.md",
+            "computedHash": "77853cec799207f80868c611374c6ed5fdf34a55355c5ab544b59e791c63ad98"
+        },
+        "find-animation-opportunities": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/find-animation-opportunities/SKILL.md",
+            "computedHash": "c6673fadf179233cc0a52c978ea9acc9b82a210665c749307a571a86ed4c092e"
+        },
+        "find-skills": {
+            "source": "vercel-labs/skills",
+            "sourceType": "github",
+            "skillPath": "skills/find-skills/SKILL.md",
+            "computedHash": "b146008599c31057cef1c145774cea5d5afb30e8f43fa802e47a4b461419aaaf"
+        },
+        "frontend-design": {
+            "source": "anthropics/skills",
+            "sourceType": "github",
+            "skillPath": "skills/frontend-design/SKILL.md",
+            "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+        },
+        "improve-animations": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/improve-animations/SKILL.md",
+            "computedHash": "b913ec7ef2b1aa900060eb6e5dbdccc94b6ea631059ec3474c4b61e2ffefeeb4"
+        },
+        "inspira-ui": {
+            "source": "secondsky/claude-skills",
+            "sourceType": "github",
+            "skillPath": "plugins/inspira-ui/skills/inspira-ui/SKILL.md",
+            "computedHash": "490208ad3f3f47caf3eca04bfc49bf0446d408d6748363fec3a338d056dd201c"
+        },
+        "mobile-native": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/mobile-native/SKILL.md",
+            "computedHash": "8d77850a34ec20f745aed3215aa0d587e90438599bb09dc72d9d09ce896a5765"
+        },
+        "nitro": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nitro/SKILL.md",
+            "computedHash": "2e7b4b75855f34ecce48492870fa9229750a3a0ec02ac21f9c0700bbcf1b17b0"
+        },
+        "nuxt": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt/SKILL.md",
+            "computedHash": "748962b963506cdfe0584a4d1c8324f6e3340bdb14b6c7f0921d86a1bbe20cbf"
+        },
+        "nuxt-better-auth": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-better-auth/SKILL.md",
+            "computedHash": "ed93017378d835debcf933916e47274118288e7fcb20e3f67a88c8c0659532c3"
+        },
+        "nuxt-content": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-content/SKILL.md",
+            "computedHash": "64ff455cd74e53454f4c2c9eab857d870e3b23530c930fce9c6c24aea55b8c36"
+        },
+        "nuxt-i18n": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-i18n/SKILL.md",
+            "computedHash": "7337fa28627a5a8191879bd750311c1f3e7cb9075179164f812a5851544a4d09"
+        },
+        "nuxt-modules": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-modules/SKILL.md",
+            "computedHash": "f7ae266745c7b11396afea8ab7d2f0443e11764c5592f0d7f6385b9249864324"
+        },
+        "nuxt-seo": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-seo/SKILL.md",
+            "computedHash": "73d86e3943532f91de4c583186e559a463fc572e601899fbbe7b5515eac4e0c9"
+        },
+        "nuxt-studio": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-studio/SKILL.md",
+            "computedHash": "f511599aa4d26b093425b360287db2b7066863340c7823123e109c0297dbb066"
+        },
+        "nuxt-ui": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-ui/SKILL.md",
+            "computedHash": "c5de79a204cdba4aef14e03b8030e2652ea00165a9ee778293654856405e1faa"
+        },
+        "nuxt-users": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxt-users/SKILL.md",
+            "computedHash": "27779ecc99397f942395359c30440c90e8fd274c8695196ccae6cd130daa03de"
+        },
+        "nuxthub": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/nuxthub/SKILL.md",
+            "computedHash": "02803c96d0c62b5dbcb7dcb5ee4ab110365f0843033432f44d22681bedce110d"
+        },
+        "pick-ui-library": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/pick-ui-library/SKILL.md",
+            "computedHash": "95f37cddc1c5f7cf5c60c8f8f07c938f2ddd1a70dd45f50c37e7e522fcde5bb9"
+        },
+        "pinia": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/pinia/SKILL.md",
+            "computedHash": "8b3835f284dbbec55047596b1b3bb6256752f128349865febb9540ef3948be68"
+        },
+        "prototype": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/prototype/SKILL.md",
+            "computedHash": "165c803775adbe0df600b961167747b6ba6577e6e1dc9ae1b87fcf5dee800645"
+        },
+        "regle": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/regle/SKILL.md",
+            "computedHash": "ab4a406d2f3ccb694de9493088f3bd9c273339e5013e5eb717a3371662ee9b0e"
+        },
+        "reka-ui": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/reka-ui/SKILL.md",
+            "computedHash": "1aa186a264f788a4cb5af9c9fabadbf4ffc33af77ee4a31ccf106d36b0f38f49"
+        },
+        "review-animations": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/review-animations/SKILL.md",
+            "computedHash": "8c2befeb28bb484bf2de7b2fc228774857e266d32a65d76895e78651a536d8cf"
+        },
+        "shadcn-vue": {
+            "source": "unovue/shadcn-vue",
+            "sourceType": "github",
+            "skillPath": "skills/shadcn-vue/SKILL.md",
+            "computedHash": "7037ba3c62e72d5324dbe0bfebe21d4fb8cb7aba5a2200dce96a797e948dc368"
+        },
+        "t3-code-continue-thread": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/t3-code-continue-thread/SKILL.md",
+            "computedHash": "e4fceafef1f00f77b59e744adc6635ce97855b797903dc61ec907778efbca3b7"
+        },
+        "unocss": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/unocss/SKILL.md",
+            "computedHash": "bdbcb789b3ee9d7bf1341f19b288607617fd3f9a938eb2ef16a658293f3c731c"
+        },
+        "vite": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vite/SKILL.md",
+            "computedHash": "2502b777232efffbbdbf35bbed6a3da3173df360efd8170e004efd087d3b9e60"
+        },
+        "vitest": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vitest/SKILL.md",
+            "computedHash": "1c1fe0a9d5c1af7a1d033b267fe57eb892ef6cdf1a641b9c88dd35c1feb59dc0"
+        },
+        "vue": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vue/SKILL.md",
+            "computedHash": "4b223cfc438874eb1623836e290bf47f7eeddc211955ded061826f2d4fa889da"
+        },
+        "vue-best-practices": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vue-best-practices/SKILL.md",
+            "computedHash": "b351805318e59615cbf4c62a457b950d5847ebc71a293fbdac87b52efca3364f"
+        },
+        "vue-debug-guides": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vue-debug-guides/SKILL.md",
+            "computedHash": "9bad4a4edac4d038aa84dd6c44318b8eb7ef1a9a087bcfa29f9234984c147dfc"
+        },
+        "vue-router-best-practices": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vue-router-best-practices/SKILL.md",
+            "computedHash": "060d8314363d7fbf68d946db307b5281769634900af97b9d65445e5dd2711553"
+        },
+        "vue-testing-best-practices": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vue-testing-best-practices/SKILL.md",
+            "computedHash": "78896ea352ef53d021b391f5bea50f43b2111e374e91256c12c18c1cd9ffdbb3"
+        },
+        "vueuse-functions": {
+            "source": "onmax/nuxt-skills",
+            "sourceType": "github",
+            "skillPath": "skills/vueuse-functions/SKILL.md",
+            "computedHash": "424230ab33853c56c08a0077f50a728dd9023422c00bdfbcf32c169d175622ff"
+        },
+        "write-swift": {
+            "source": "emilkowalski/skills",
+            "sourceType": "github",
+            "skillPath": "skills/write-swift/SKILL.md",
+            "computedHash": "3c4854221f2c654172c3532e71dcb4ece25ef62057d97bec1c26c3ab17eca191"
+        }
     }
-  }
 }

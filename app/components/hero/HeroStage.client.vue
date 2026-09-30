@@ -72,9 +72,9 @@ function onMove(e: PointerEvent) {
         moved += Math.abs(dx) + Math.abs(dy);
         input.dragYaw += dx * 0.012;
         input.velocity = dx * 0.012;
-        if (e.pointerType === "mouse") input.dragPitch = Math.max(-0.5, Math.min(0.5, input.dragPitch + dy * 0.006));
-    }
-    else if (e.pointerType === "mouse") {
+        if (e.pointerType === "mouse")
+            input.dragPitch = Math.max(-0.5, Math.min(0.5, input.dragPitch + dy * 0.006));
+    } else if (e.pointerType === "mouse") {
         input.pick = true;
     }
 }
@@ -133,7 +133,13 @@ defineExpose({
             :tone-mapping-exposure="1"
             power-preference="high-performance"
         >
-            <HeroSlashScene :input="input" :dark="isDark" :reduced="reduced" :active="visible" @hover="onHover" />
+            <HeroSlashScene
+                :input="input"
+                :dark="isDark"
+                :reduced="reduced"
+                :active="visible"
+                @hover="onHover"
+            />
         </TresCanvas>
         <div v-else class="grid size-full place-items-center">
             <SiteMark :size="240" />

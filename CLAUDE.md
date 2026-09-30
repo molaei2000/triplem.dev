@@ -17,12 +17,16 @@ pnpm build          # production build
 pnpm generate       # static generation
 pnpm preview        # preview production build
 pnpm lint           # eslint (cached)
+pnpm lint:fix       # eslint --fix
+pnpm format         # prettier --write .
+pnpm format:check   # prettier --check .
 pnpm typecheck      # nuxt typecheck (vue-tsc)
+pnpm check          # lint + format:check + typecheck
 ```
 
 There is no test runner configured. `tsconfig.json` and `eslint.config.mjs` depend on files generated into `.nuxt/`, so run `pnpm install` or `nuxt prepare` first in a fresh checkout. ESLint ignores `.agents/` and `.claude/` (vendored skills).
 
-Code style: 4-space indent, double quotes, semicolons.
+Code style: 4-space indent, double quotes, semicolons, 100 columns. Prettier (`.prettierrc.json`) owns formatting; ESLint checks code quality, and `eslint-config-prettier` (last entry in `eslint.config.mjs`) turns off its formatting rules so the two never conflict. `content/` is excluded from Prettier.
 
 ## Architecture
 

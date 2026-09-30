@@ -5,7 +5,8 @@ import type { NavLink } from "~/composables/useNavLinks";
 defineProps<{ links: NavLink[] }>();
 const { t } = useI18n();
 
-const linkClass = "flex items-baseline justify-between py-4 font-display text-[34px] font-medium tracking-[-0.03em] no-underline";
+const linkClass =
+    "flex items-baseline justify-between py-4 font-display text-[34px] font-medium tracking-[-0.03em] no-underline";
 </script>
 
 <template>

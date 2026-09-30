@@ -98,17 +98,7 @@ export default defineNuxtConfig({
                 highlight: {
                     // code blocks stay dark in both themes (see ProsePre)
                     theme: "vitesse-dark",
-                    langs: [
-                        "ts",
-                        "tsx",
-                        "js",
-                        "vue",
-                        "html",
-                        "css",
-                        "json",
-                        "bash",
-                        "md",
-                    ],
+                    langs: ["ts", "tsx", "js", "vue", "html", "css", "json", "bash", "md"],
                 },
             },
         },
@@ -117,20 +107,11 @@ export default defineNuxtConfig({
     hooks: {
         // Reading time for blog posts (~200 wpm; fenced code counts as a third).
         "content:file:afterParse"({ file, content, collection }) {
-            if (
-                !collection.name.startsWith("blog_") ||
-                typeof file.body !== "string"
-            )
-                return;
+            if (!collection.name.startsWith("blog_") || typeof file.body !== "string") return;
             const count = (s: string) => s.split(/\s+/).filter(Boolean).length;
-            const code = [...file.body.matchAll(/```[\s\S]*?```/g)]
-                .map((m) => m[0])
-                .join(" ");
+            const code = [...file.body.matchAll(/```[\s\S]*?```/g)].map((m) => m[0]).join(" ");
             const prose = file.body.replace(/```[\s\S]*?```/g, " ");
-            content.minutes = Math.max(
-                1,
-                Math.round((count(prose) + count(code) / 3) / 200),
-            );
+            content.minutes = Math.max(1, Math.round((count(prose) + count(code) / 3) / 200));
         },
     },
 

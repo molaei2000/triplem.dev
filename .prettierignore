@@ -1,0 +1,16 @@
+# Generated / build output
+.nuxt
+.output
+.data
+.nitro
+.cache
+dist
+node_modules
+pnpm-lock.yaml
+
+# Vendored agent skills
+.agents
+.claude
+
+# Blog posts are authored prose; format them by hand
+content

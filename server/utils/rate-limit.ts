@@ -27,7 +27,10 @@ export function enforceRateLimit(event: H3Event, key: string, limit: number, win
 
     if (bucket.count > limit) {
         setResponseHeader(event, "Retry-After", Math.ceil((bucket.resetAt - now) / 1000));
-        throw createError({ statusCode: 429, statusMessage: "Too many messages. Try again later." });
+        throw createError({
+            statusCode: 429,
+            statusMessage: "Too many messages. Try again later.",
+        });
     }
 }
 

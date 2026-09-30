@@ -22,14 +22,13 @@ export default defineEventHandler(async (event) => {
         throw createError({
             statusCode: 422,
             statusMessage: "Invalid contact message.",
-            data: { fields: [...new Set(parsed.error.issues.map(i => String(i.path[0])))] },
+            data: { fields: [...new Set(parsed.error.issues.map((i) => String(i.path[0])))] },
         });
     }
 
     try {
         await sendContactMail(parsed.data, { ip, userAgent: getHeader(event, "user-agent") });
-    }
-    catch (error) {
+    } catch (error) {
         if (isError(error)) throw error;
         console.error("[contact] send failed", error);
         throw createError({ statusCode: 502, statusMessage: "The message could not be sent." });

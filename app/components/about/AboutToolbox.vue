@@ -3,13 +3,18 @@
 import { STACK_GROUPS, STACK_NODES } from "~/data/stack";
 
 const { t } = useI18n();
-const groups = STACK_GROUPS.map(g => ({ id: g, nodes: STACK_NODES.filter(n => n.group === g) }));
+const groups = STACK_GROUPS.map((g) => ({
+    id: g,
+    nodes: STACK_NODES.filter((n) => n.group === g),
+}));
 </script>
 
 <template>
     <div class="grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-6">
         <div v-for="g in groups" :key="g.id">
-            <h3 class="eyebrow border-b border-hairline-strong pb-3.5 text-gold">{{ t(`stack.groups.${g.id}`) }}</h3>
+            <h3 class="eyebrow border-b border-hairline-strong pb-3.5 text-gold">
+                {{ t(`stack.groups.${g.id}`) }}
+            </h3>
             <ul>
                 <li
                     v-for="n in g.nodes"

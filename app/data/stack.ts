@@ -57,9 +57,10 @@ export const STACK_EDGES: [string, string][] = [
     ["vuetify", "nuxt"],
 ];
 
-export const STACK_BY_ID = Object.fromEntries(
-    STACK_NODES.map((n) => [n.id, n]),
-) as Record<string, StackNode>;
+export const STACK_BY_ID = Object.fromEntries(STACK_NODES.map((n) => [n.id, n])) as Record<
+    string,
+    StackNode
+>;
 
 /** Ids directly connected to `id`. */
 export function stackNeighbours(id: string) {

@@ -12,7 +12,8 @@ useHead(() => ({
     },
     link: [...(i18nHead.value.link ?? [])],
     meta: [...(i18nHead.value.meta ?? [])],
-    titleTemplate: (title?: string) => (title ? `${title} — ${meta.name}` : `${meta.author.name} — ${meta.author.jobTitle}`),
+    titleTemplate: (title?: string) =>
+        title ? `${title} — ${meta.name}` : `${meta.author.name} — ${meta.author.jobTitle}`,
 }));
 
 useSeoMeta({

@@ -31,7 +31,12 @@ withDefaults(defineProps<{ variant?: "stacked" | "edge" }>(), { variant: "stacke
     animation: pulse 3.2s ease-in-out infinite;
 }
 @keyframes pulse {
-    0%, 100% { opacity: 0.25; }
-    50% { opacity: 0.9; }
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.9;
+    }
 }
 </style>

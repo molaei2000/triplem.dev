@@ -260,6 +260,12 @@ importers:
       '@vueuse/nuxt':
         specifier: ^15.0.0
         version: 15.0.0(438ee971fd28b5511f74575800106758)
+      eslint-config-prettier:
+        specifier: ^10.1.8
+        version: 10.1.8(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))
+      prettier:
+        specifier: 3.9.9
+        version: 3.9.9
       shadcn-nuxt:
         specifier: ^2.8.2
         version: 2.8.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(magicast@0.5.5)
@@ -4308,6 +4314,12 @@ packages:
     resolution: {integrity: sha512-JhYC+V7qEDiCDsbJcVP8fxNc62fk4+i91YLP/YvmVHlkaQ8Xo99olYN8MO5COdxl7onGlsrfZVONe5NYsZP1UA==}
     peerDependencies:
       eslint: ^9.5.0 || ^10.0.0
+
+  eslint-config-prettier@10.1.8:
+    resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
 
   eslint-flat-config-utils@3.2.0:
     resolution: {integrity: sha512-PHgo1X5uqIorJONLVD9BIaOSdoYFD3z/AeJljdqDPlWVRpeCYkDbK9k0AXoYVqqNJr6FEYIEr5Rm2TSktLQcHw==}
@@ -11906,6 +11918,10 @@ snapshots:
   eslint-config-flat-gitignore@2.4.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
       '@eslint/compat': 2.1.1(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))
+      eslint: 10.11.0(jiti@2.7.0)(supports-color@10.2.2)
+
+  eslint-config-prettier@10.1.8(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2)):
+    dependencies:
       eslint: 10.11.0(jiti@2.7.0)(supports-color@10.2.2)
 
   eslint-flat-config-utils@3.2.0:

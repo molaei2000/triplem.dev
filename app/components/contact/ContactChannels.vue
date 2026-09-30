@@ -7,18 +7,26 @@ const { t } = useI18n();
 /** "https://www.linkedin.com/in/x/" → "linkedin.com/in/x" */
 const display = (href: string) => href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-const profiles = computed(() => socialLinks.map(l => ({
-    label: l.label,
-    href: l.href,
-    text: l.href === meta.social.telegram ? meta.social.telegramHandle : display(l.href),
-})));
+const profiles = computed(() =>
+    socialLinks.map((l) => ({
+        label: l.label,
+        href: l.href,
+        text: l.href === meta.social.telegram ? meta.social.telegramHandle : display(l.href),
+    })),
+);
 </script>
 
 <template>
     <ul :aria-label="t('contactPage.channels')" class="border-b border-hairline">
-        <li class="grid grid-cols-[88px_1fr_auto] items-center gap-4 border-t border-hairline-strong py-4 md:grid-cols-[112px_1fr_auto]">
+        <li
+            class="grid grid-cols-[88px_1fr_auto] items-center gap-4 border-t border-hairline-strong py-4 md:grid-cols-[112px_1fr_auto]"
+        >
             <span class="eyebrow text-subtle">{{ t("contact.email") }}</span>
-            <NuxtLink :to="`mailto:${meta.contactEmail}`" dir="ltr" class="latin min-w-0 text-start text-[15px] [overflow-wrap:anywhere] no-underline hover:text-gold md:text-[17px] rtl:text-end">
+            <NuxtLink
+                :to="`mailto:${meta.contactEmail}`"
+                dir="ltr"
+                class="latin min-w-0 text-start text-[15px] [overflow-wrap:anywhere] no-underline hover:text-gold md:text-[17px] rtl:text-end"
+            >
                 {{ meta.contactEmail }}
             </NuxtLink>
             <SiteCopyButton
@@ -36,7 +44,12 @@ const profiles = computed(() => socialLinks.map(l => ({
             class="grid grid-cols-[88px_1fr_auto] items-center gap-4 border-t border-hairline py-4 md:grid-cols-[112px_1fr_auto]"
         >
             <span class="eyebrow text-subtle">{{ p.label }}</span>
-            <NuxtLink :to="p.href" target="_blank" dir="ltr" class="latin min-w-0 text-start text-[15px] [overflow-wrap:anywhere] no-underline hover:text-gold md:text-[17px] rtl:text-end">
+            <NuxtLink
+                :to="p.href"
+                target="_blank"
+                dir="ltr"
+                class="latin min-w-0 text-start text-[15px] [overflow-wrap:anywhere] no-underline hover:text-gold md:text-[17px] rtl:text-end"
+            >
                 {{ p.text }}
             </NuxtLink>
             <SiteArrow direction="external" class="text-gold" />

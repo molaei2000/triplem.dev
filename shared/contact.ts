@@ -20,7 +20,12 @@ export const CONTACT_MIN_ELAPSED = 2000;
 
 export const contactSchema = z.object({
     // Single line: the name ends up in the email's Reply-To and Subject.
-    name: z.string().trim().min(1).max(CONTACT_LIMITS.name).regex(/^[^\r\n]*$/),
+    name: z
+        .string()
+        .trim()
+        .min(1)
+        .max(CONTACT_LIMITS.name)
+        .regex(/^[^\r\n]*$/),
     email: z.string().trim().max(CONTACT_LIMITS.email).pipe(z.email()),
     topic: z.enum(CONTACT_TOPICS),
     message: z.string().trim().min(CONTACT_LIMITS.message.min).max(CONTACT_LIMITS.message.max),

@@ -27,7 +27,11 @@ const { t } = useI18n();
             <div v-if="highlights.length">
                 <span class="eyebrow text-faint">{{ t("experience.highlights") }}</span>
                 <ul class="mt-3 flex flex-col gap-3">
-                    <li v-for="(h, i) in highlights" :key="i" class="flex gap-3 text-[15px] leading-relaxed text-subtle md:text-base">
+                    <li
+                        v-for="(h, i) in highlights"
+                        :key="i"
+                        class="flex gap-3 text-[15px] leading-relaxed text-subtle md:text-base"
+                    >
                         <span aria-hidden="true" class="mt-[0.8em] h-px w-3 shrink-0 bg-gold" />
                         <span>{{ h }}</span>
                     </li>
@@ -38,20 +42,30 @@ const { t } = useI18n();
 </template>
 
 <style scoped>
-.xp summary::-webkit-details-marker { display: none; }
+.xp summary::-webkit-details-marker {
+    display: none;
+}
 
 /* Animate the disclosure where the platform can size to `auto`. */
 @supports (interpolate-size: allow-keywords) {
-    .xp { interpolate-size: allow-keywords; }
+    .xp {
+        interpolate-size: allow-keywords;
+    }
     .xp::details-content {
         height: 0;
         overflow: clip;
-        transition: height 0.5s var(--ease-out-expo), content-visibility 0.5s allow-discrete;
+        transition:
+            height 0.5s var(--ease-out-expo),
+            content-visibility 0.5s allow-discrete;
     }
-    .xp[open]::details-content { height: auto; }
+    .xp[open]::details-content {
+        height: auto;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .xp::details-content { transition: none; }
+    .xp::details-content {
+        transition: none;
+    }
 }
 </style>

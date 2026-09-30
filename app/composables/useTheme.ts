@@ -11,7 +11,9 @@ export function useTheme() {
         sameSite: "lax",
         maxAge: 60 * 60 * 24 * 365,
     });
-    const theme = useState<ThemeName>("tm-theme", () => (cookie.value === "light" ? "light" : "dark"));
+    const theme = useState<ThemeName>("tm-theme", () =>
+        cookie.value === "light" ? "light" : "dark",
+    );
 
     const isDark = computed(() => theme.value !== "light");
 

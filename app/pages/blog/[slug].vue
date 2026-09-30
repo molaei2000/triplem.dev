@@ -17,8 +17,9 @@ if (!post.value || (post.value.draft && !showDrafts)) {
 const { data: around } = await useAsyncData(
     () => `blog-around:${route.path}`,
     () => {
-        const query = queryCollectionItemSurroundings(collection.value, route.path, { fields: ["title", "description"] })
-            .order("date", "DESC");
+        const query = queryCollectionItemSurroundings(collection.value, route.path, {
+            fields: ["title", "description"],
+        }).order("date", "DESC");
         if (!showDrafts) query.where("draft", "=", false);
         return query;
     },
@@ -40,13 +41,13 @@ useSeoMeta({
 });
 useJsonLd(() => ({
     "@type": "BlogPosting",
-    "headline": post.value!.title,
-    "description": post.value!.description,
-    "datePublished": published.value,
-    "inLanguage": locale.value === "fa" ? "fa-IR" : "en-US",
-    "keywords": post.value!.tags.join(", "),
-    "mainEntityOfPage": url.value,
-    "author": { "@type": "Person", "name": meta.author.name, "url": meta.siteUrl },
+    headline: post.value!.title,
+    description: post.value!.description,
+    datePublished: published.value,
+    inLanguage: locale.value === "fa" ? "fa-IR" : "en-US",
+    keywords: post.value!.tags.join(", "),
+    mainEntityOfPage: url.value,
+    author: { "@type": "Person", name: meta.author.name, url: meta.siteUrl },
 }));
 
 const toc = computed(() => flattenToc(post.value?.body?.toc?.links));
@@ -57,10 +58,22 @@ const active = useActiveHeading(article);
 
 <template>
     <div v-if="post">
-        <BlogPostHeader :title="post.title" :date="post.date" :tags="post.tags" :minutes="post.minutes" :draft="post.draft" />
+        <BlogPostHeader
+            :title="post.title"
+            :date="post.date"
+            :tags="post.tags"
+            :minutes="post.minutes"
+            :draft="post.draft"
+        />
 
         <div class="shell grid-12 items-start gap-y-14 pt-14 pb-24 md:pt-20 md:pb-32">
-            <BlogToc v-if="toc.length" :items="toc" :active="active" :progress="progress" class="sticky top-28 hidden md:col-span-2 md:flex" />
+            <BlogToc
+                v-if="toc.length"
+                :items="toc"
+                :active="active"
+                :progress="progress"
+                class="sticky top-28 hidden md:col-span-2 md:flex"
+            />
 
             <article ref="article" class="col-span-4 min-w-0 md:col-span-6 md:col-start-4">
                 <ContentRenderer :value="post" class="prose-tm" />
@@ -73,6 +86,10 @@ const active = useActiveHeading(article);
             />
         </div>
 
-        <BlogPostPager v-if="around?.[0] || around?.[1]" :newer="around?.[0]" :older="around?.[1]" />
+        <BlogPostPager
+            v-if="around?.[0] || around?.[1]"
+            :newer="around?.[0]"
+            :older="around?.[1]"
+        />
     </div>
 </template>

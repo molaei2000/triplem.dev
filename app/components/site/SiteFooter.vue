@@ -17,17 +17,26 @@ const year = new Date().getFullYear();
                 <span>{{ meta.author.name }}</span>
                 <span class="text-subtle">{{ t("footer.role") }}</span>
             </div>
-            <nav :aria-label="t('footer.elsewhere')" class="col-span-4 flex flex-wrap gap-x-6 gap-y-1.5 md:col-span-3 md:flex-col">
+            <nav
+                :aria-label="t('footer.elsewhere')"
+                class="col-span-4 flex flex-wrap gap-x-6 gap-y-1.5 md:col-span-3 md:flex-col"
+            >
                 <NuxtLink
                     v-for="l in links"
                     :key="l.label"
                     :to="l.href"
                     :target="l.href.startsWith('http') ? '_blank' : undefined"
                     class="py-1.5 text-subtle no-underline transition-colors hover:text-foreground md:py-0"
-                >{{ l.label }}</NuxtLink>
+                    >{{ l.label }}</NuxtLink
+                >
             </nav>
-            <div class="col-span-4 flex items-end justify-between gap-1.5 md:col-span-2 md:flex-col">
-                <a href="#top" class="inline-flex items-center gap-1.5 text-subtle no-underline hover:text-foreground">
+            <div
+                class="col-span-4 flex items-end justify-between gap-1.5 md:col-span-2 md:flex-col"
+            >
+                <a
+                    href="#top"
+                    class="inline-flex items-center gap-1.5 text-subtle no-underline hover:text-foreground"
+                >
                     {{ t("footer.top") }} <SiteArrow direction="up" />
                 </a>
                 <span class="eyebrow text-faint">© {{ year }}</span>

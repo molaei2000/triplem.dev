@@ -20,7 +20,12 @@ import {
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { SlashInput } from "~/lib/slash-input";
 
-const props = defineProps<{ input: SlashInput; dark: boolean; reduced: boolean; active: boolean }>();
+const props = defineProps<{
+    input: SlashInput;
+    dark: boolean;
+    reduced: boolean;
+    active: boolean;
+}>();
 const emit = defineEmits<{ hover: [index: number, tap: boolean] }>();
 
 // Warm key, gold rim, cool fill.
@@ -44,8 +49,20 @@ const dim = [0, 0, 0];
 
 // Ivory / charcoal outer slashes, gold middle — per theme.
 const PALETTE = {
-    dark: { outer: new Color("#F2EFE8"), outerRough: 0.45, gold: new Color("#C8A45C"), goldRough: 0.3, env: 1 },
-    light: { outer: new Color("#1B1A17"), outerRough: 0.38, gold: new Color("#8F6F2E"), goldRough: 0.28, env: 1.35 },
+    dark: {
+        outer: new Color("#F2EFE8"),
+        outerRough: 0.45,
+        gold: new Color("#C8A45C"),
+        goldRough: 0.3,
+        env: 1,
+    },
+    light: {
+        outer: new Color("#1B1A17"),
+        outerRough: 0.38,
+        gold: new Color("#8F6F2E"),
+        goldRough: 0.28,
+        env: 1.35,
+    },
 };
 const tmp = new Color();
 
@@ -70,26 +87,33 @@ function setupEnvironment() {
     envReady = true;
 }
 
-watch(state, (gltf) => {
-    if (!gltf?.scene || meshes.length) return;
-    // glTF root "TripleSlash" carries the Blender stand-up rotation; children are Slash_L/M/R.
-    const found = ["Slash_L", "Slash_M", "Slash_R"]
-        .map(n => gltf.scene.getObjectByName(n) as Mesh | undefined)
-        .filter((m): m is Mesh => !!m);
-    found.forEach((mesh) => {
-        const mat = (mesh.material as MeshStandardMaterial).clone();
-        mesh.material = mat;
-        meshes.push(mesh);
-        mats.push(mat);
-        base.push({ y: mesh.position.y, z: mesh.position.z });
-    });
-    root.add(gltf.scene);
-    applyTheme();
-    setupEnvironment();
-}, { immediate: true });
+watch(
+    state,
+    (gltf) => {
+        if (!gltf?.scene || meshes.length) return;
+        // glTF root "TripleSlash" carries the Blender stand-up rotation; children are Slash_L/M/R.
+        const found = ["Slash_L", "Slash_M", "Slash_R"]
+            .map((n) => gltf.scene.getObjectByName(n) as Mesh | undefined)
+            .filter((m): m is Mesh => !!m);
+        found.forEach((mesh) => {
+            const mat = (mesh.material as MeshStandardMaterial).clone();
+            mesh.material = mat;
+            meshes.push(mesh);
+            mats.push(mat);
+            base.push({ y: mesh.position.y, z: mesh.position.z });
+        });
+        root.add(gltf.scene);
+        applyTheme();
+        setupEnvironment();
+    },
+    { immediate: true },
+);
 
 watch(() => props.dark, applyTheme);
-watch(() => props.active, v => (v ? start() : stop()));
+watch(
+    () => props.active,
+    (v) => (v ? start() : stop()),
+);
 
 const ray = new Raycaster();
 const ndc = new Vector2();
@@ -104,7 +128,8 @@ onBeforeRender(({ delta, elapsed }) => {
     if (t0 < 0) t0 = elapsed;
     const inp = props.input;
     const k = Math.min(1, delta * 60); // frame-rate independent easing factor
-    const ease = (a: number, b: number, f: number) => a + (b - a) * (props.reduced ? 1 : Math.min(1, f * k));
+    const ease = (a: number, b: number, f: number) =>
+        a + (b - a) * (props.reduced ? 1 : Math.min(1, f * k));
 
     // Drag momentum, then a slow spring back home.
     if (!inp.dragging) {
@@ -139,7 +164,9 @@ onBeforeRender(({ delta, elapsed }) => {
     const active = inp.selected >= 0 ? inp.selected : hovered;
 
     meshes.forEach((mesh, i) => {
-        const intro = props.reduced ? 1 : Math.min(1, Math.max(0, (elapsed - t0 - 0.35 - i * 0.14) / 0.9));
+        const intro = props.reduced
+            ? 1
+            : Math.min(1, Math.max(0, (elapsed - t0 - 0.35 - i * 0.14) / 0.9));
         const k3 = 1 - (1 - intro) ** 3;
         lift[i] = ease(lift[i]!, active === i ? 1 : 0, 0.12);
         dim[i] = ease(dim[i]!, active >= 0 && active !== i ? 1 : 0, 0.1);
@@ -157,7 +184,7 @@ onBeforeRender(({ delta, elapsed }) => {
 });
 
 onBeforeUnmount(() => {
-    mats.forEach(m => m.dispose());
+    mats.forEach((m) => m.dispose());
     scene.value?.environment?.dispose();
 });
 </script>
@@ -165,6 +192,12 @@ onBeforeUnmount(() => {
 <template>
     <TresPerspectiveCamera :position="cameraPosition" :fov="30" />
     <TresAmbientLight :intensity="0.15" />
-    <TresDirectionalLight v-for="(l, i) in lights" :key="i" :position="l.position" :intensity="l.intensity" :color="l.color" />
+    <TresDirectionalLight
+        v-for="(l, i) in lights"
+        :key="i"
+        :position="l.position"
+        :intensity="l.intensity"
+        :color="l.color"
+    />
     <primitive :object="root" />
 </template>

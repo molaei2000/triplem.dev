@@ -25,9 +25,17 @@ const share = computed(() => {
         <div class="flex flex-col items-start gap-2">
             <span class="eyebrow mb-1 text-faint">{{ t("blog.share") }}</span>
             <UiButton v-for="s in share" :key="s.label" as-child variant="quiet" size="inline">
-                <NuxtLink :to="s.href" target="_blank">{{ s.label }} <SiteArrow direction="external" /></NuxtLink>
+                <NuxtLink :to="s.href" target="_blank"
+                    >{{ s.label }} <SiteArrow direction="external"
+                /></NuxtLink>
             </UiButton>
-            <SiteCopyButton :value="url" :label="t('blog.copyLink')" :copied-label="t('blog.copied')" variant="quiet" size="inline" />
+            <SiteCopyButton
+                :value="url"
+                :label="t('blog.copyLink')"
+                :copied-label="t('blog.copied')"
+                variant="quiet"
+                size="inline"
+            />
         </div>
     </aside>
 </template>
