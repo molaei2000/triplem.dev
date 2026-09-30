@@ -79,7 +79,7 @@
             "also": "Also",
             "alsoV": "React / Next.js",
             "languages": "Languages",
-            "languagesV": "English · فارسی"
+            "languagesV": "English · فارسی · Azari"
         },
         "p1a": "I’m a senior front-end engineer working mostly in Vue and Nuxt, and comfortably in React and Next.js.",
         "p1b": "I care about the parts users never see — boundaries, state, rendering strategy — because they decide how the parts users do see will feel.",
@@ -152,7 +152,8 @@
             "react": "Second home. Hooks, server components and the patterns that transfer between ecosystems.",
             "next": "App Router, streaming and server-first data for React products.",
             "tw": "Utility-first styling backed by design tokens, so themes and systems stay consistent.",
-            "arch": "Boundaries, state ownership, rendering strategy and performance budgets — the decisions that outlive components."
+            "arch": "Boundaries, state ownership, rendering strategy and performance budgets — the decisions that outlive components.",
+            "vuetify": "Material Design component framework for Vue, providing ready-to-use UI components and design consistency."
         }
     },
     "experience": {

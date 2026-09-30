@@ -34,7 +34,8 @@ export const STACK_NODES: StackNode[] = [
     { id: "react", label: "React", x: 392, y: 292, group: "framework" },
     { id: "next", label: "Next.js", x: 548, y: 292, group: "framework" },
     { id: "tw", label: "Tailwind", x: 200, y: 452, group: "craft" },
-    { id: "arch", label: "Architecture", x: 440, y: 452, group: "craft" },
+    { id: "arch", label: "Architecture", x: 460, y: 452, group: "craft" },
+    { id: "vuetify", label: "Vuetify", x: 320, y: 452, group: "craft" },
 ];
 
 export const STACK_EDGES: [string, string][] = [
@@ -52,6 +53,8 @@ export const STACK_EDGES: [string, string][] = [
     ["next", "arch"],
     ["html", "tw"],
     ["ts", "arch"],
+    ["vuetify", "vue"],
+    ["vuetify", "nuxt"],
 ];
 
 export const STACK_BY_ID = Object.fromEntries(
