@@ -1,0 +1,105 @@
+name: Daily Blog Post
+
+on:
+    schedule:
+        - cron: "0 5 * * *" # 05:00 UTC daily, adjust to your timezone
+    workflow_dispatch: # manual trigger for testing
+
+concurrency:
+    group: daily-article
+    cancel-in-progress: false
+
+jobs:
+    write-post:
+        runs-on: ubuntu-latest
+        timeout-minutes: 40
+        permissions:
+            contents: write
+            pull-requests: write
+            id-token: write # Claude GitHub App auth
+        steps:
+            - uses: actions/checkout@v6
+              with:
+                  fetch-depth: 1
+
+            - name: Set date
+              run: echo "TODAY=$(date -u +%F)" >> "$GITHUB_ENV"
+
+            - name: Research and write post
+              uses: anthropics/claude-code-action@v1
+              with:
+                  # Subscription token (from `claude setup-token`), or swap for:
+                  # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+                  claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+                  claude_args: |
+                      --model claude-sonnet-5-5
+                      --max-turns 50
+                      --allowedTools "WebSearch,WebFetch,Read,Write,Glob,Grep"
+                  prompt: |
+                      Today is ${{ env.TODAY }}. You are writing today's post for a bilingual Nuxt Content blog.
+
+                      Context:
+                      - English posts: content/en/blog/<slug>.md, served at /blog/<slug>
+                      - Persian posts: content/fa/blog/<slug>.md, served at /fa/blog/<slug>
+                      - The same slug in both folders is the same post (the language switcher depends on it).
+                      - Read content.config.ts first; frontmatter must match its schema.
+
+                      Steps:
+                      1. Read INTERESTS.md.
+                      2. Grep for "^(title|date|tags):" in content/en/blog to see existing posts.
+                         Do not repeat a topic, announcement, or tip already covered.
+                         Reuse existing tags where they fit instead of inventing near-duplicates.
+                      3. Use WebSearch and WebFetch to find developments from the last 72 hours that
+                         match the interests. Prefer primary sources: official blogs, release notes,
+                         changelogs, RFCs, GitHub releases.
+                      4. Choose ONE post type:
+                         a) News: the most substantive new development you found.
+                         b) Pro tip: only if nothing new is substantive. Write one practical Nuxt or
+                            Next.js pro tip, picking the framework that was NOT used in the most recent
+                            pro-tip post. Fetch the current official docs (nuxt.com/docs, nextjs.org/docs)
+                            and verify every API, option, and default against them. Do not rely on memory;
+                            APIs change between major versions. Mark it with the tag "pro-tip".
+                      5. Choose a short kebab-case English slug that does not already exist in content/en/blog.
+                      6. Write content/en/blog/<slug>.md with this frontmatter (date unquoted):
+                         ---
+                         title: "<title>"
+                         description: "<150-160 characters, written for search results>"
+                         date: ${{ env.TODAY }}
+                         tags: [<lowercase-kebab-tags>]
+                         draft: false
+                         ---
+                         Body: no H1, because the title comes from frontmatter. 800-1200 words covering
+                         what changed or what the tip is, why it matters, concrete code examples,
+                         trade-offs and caveats. End with a "## Sources" section listing every URL you fetched and used.
+                      7. Write content/fa/blog/<slug>.md: a faithful Persian translation of the same post,
+                         with the same slug, date, tags, and draft value. Translate title, description, and
+                         headings (the Sources heading becomes "## منابع"). Keep code blocks, identifiers,
+                         API names, CLI commands, package names, and URLs in English.
+
+                      Rules:
+                      - Never set the `minutes` field; a build hook fills it.
+                      - Every factual claim must come from a page you actually fetched; link it inline.
+                      - Never invent version numbers, APIs, config options, benchmarks, or quotes.
+                      - Summarize in your own words; do not copy passages from sources.
+                      - Create only those two files. Modify nothing else.
+
+            - name: Open pull request
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  if [ -z "$(git status --porcelain content/en/blog content/fa/blog)" ]; then
+                    echo "No post written today; skipping PR."
+                    exit 0
+                  fi
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git checkout -b "blog/${TODAY}"
+                  # Only blog folders are committed; any stray edits elsewhere are discarded.
+                  git add content/en/blog content/fa/blog
+                  NEW_EN=$(git diff --cached --name-only --diff-filter=A -- content/en/blog | head -n1)
+                  TITLE=$(grep -m1 '^title:' "$NEW_EN" | sed 's/^title: *//; s/^"//; s/"$//')
+                  git commit -m "docs(blog): ${TITLE:-daily post ${TODAY}}"
+                  git push -u origin "blog/${TODAY}"
+                  gh pr create \
+                    --title "📰 ${TITLE:-Daily post ${TODAY}}" \
+                    --body "Automated daily post for ${TODAY} (en + fa). Check sources and the Persian translation before merging."

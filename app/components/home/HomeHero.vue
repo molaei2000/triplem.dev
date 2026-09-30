@@ -38,31 +38,34 @@ function reset() {
 </script>
 
 <template>
-    <section class="relative pt-24 md:min-h-[940px] md:pt-0" aria-labelledby="hero-title">
+    <!-- Desktop: one viewport tall (bounded), so the headline, stage and controls sit above the fold -->
+    <section
+        class="relative pt-24 md:h-svh md:max-h-250 md:min-h-160 md:pt-0"
+        aria-labelledby="hero-title"
+    >
         <div
             aria-hidden="true"
             class="pointer-events-none absolute -top-32 end-0 size-[1000px] max-w-full rounded-full bg-[radial-gradient(circle,var(--glow)_0%,transparent_62%)]"
         />
-        <div class="shell relative md:h-[940px]">
-            <span aria-hidden="true" class="eyebrow absolute top-34 hidden text-faint md:block">{{
-                t("hero.index")
-            }}</span>
-            <span
-                aria-hidden="true"
-                class="eyebrow absolute end-4 top-34 hidden text-faint md:end-10 md:block xl:end-20"
-                >x 0080 · y 0000</span
-            >
+        <div
+            class="shell relative md:flex md:h-full md:flex-col md:pt-[clamp(6rem,14svh,8.5rem)] md:pb-[clamp(1.5rem,4svh,3rem)]"
+        >
+            <div aria-hidden="true" class="eyebrow hidden justify-between text-faint md:flex">
+                <span>{{ t("hero.index") }}</span>
+                <span>x 0080 · y 0000</span>
+            </div>
 
-            <div class="relative z-10 flex flex-col gap-2 pt-4 md:absolute md:top-40">
+            <div class="relative z-10 flex flex-col gap-2 pt-4 md:mt-5 md:pt-0">
                 <p class="font-display text-[19px] font-medium tracking-[-0.015em] md:text-[26px]">
                     {{ t("hero.name") }}
                 </p>
                 <p class="text-sm text-subtle md:text-base">{{ t("hero.role") }}</p>
             </div>
 
+            <!-- Desktop size also tracks viewport height, so all four lines and the controls fit on short laptop screens -->
             <h1
                 id="hero-title"
-                class="tracking-display relative z-10 mt-9 font-display text-[clamp(3.9rem,15vw,8rem)] leading-[0.9] font-semibold tracking-[-0.045em] md:absolute md:top-64 md:mt-0 md:-ms-2 rtl:leading-[1.12]"
+                class="tracking-display relative z-10 mt-9 font-display text-[clamp(3.9rem,15vw,8rem)] leading-[0.9] font-semibold tracking-[-0.045em] md:mt-[clamp(0.75rem,2.5svh,2rem)] md:-ms-2 md:text-[clamp(3.5rem,min(15vw,20svh_-_3.5rem),8rem)] rtl:leading-[1.12] md:rtl:text-[clamp(3.5rem,min(15vw,16svh_-_3rem),8rem)]"
             >
                 <span v-for="l in lines" :key="l.key" class="line">
                     <span :style="{ '--d': `${l.delay}ms` }" :class="l.muted && 'text-subtle'"
@@ -76,7 +79,7 @@ function reset() {
             <!-- 3D stage: full-bleed on mobile, right half on desktop -->
             <div
                 aria-hidden="true"
-                class="stage-in relative -mx-4 mt-6 h-[400px] md:absolute md:end-0 md:top-22 md:mx-0 md:mt-0 md:h-[760px] md:w-[min(700px,52%)]"
+                class="stage-in relative -mx-4 mt-6 h-[400px] z-50 md:absolute md:end-0 md:top-22 md:bottom-32 md:mx-0 md:mt-0 md:h-auto md:w-[min(700px,52%)]"
             >
                 <ClientOnly>
                     <HeroStage
@@ -101,9 +104,7 @@ function reset() {
             </div>
 
             <!-- bottom row: CTA · live readout · controls -->
-            <div
-                class="relative z-10 mt-2 grid-12 items-end gap-y-6 md:absolute md:inset-x-10 md:top-[862px] md:mt-0 xl:inset-x-20"
-            >
+            <div class="relative z-10 mt-2 grid-12 items-end gap-y-6 md:mt-auto md:pt-6">
                 <HeroReadout
                     :state="readout"
                     class="col-span-4 min-h-23 md:order-2 md:col-span-4 md:col-start-7 md:min-h-0"
