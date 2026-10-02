@@ -59,20 +59,21 @@ jobs:
                             pro-tip post. Fetch the current official docs (nuxt.com/docs, nextjs.org/docs)
                             and verify every API, option, and default against them. Do not rely on memory;
                             APIs change between major versions. Mark it with the tag "pro-tip".
-                      5. Choose a short kebab-case English slug that does not already exist in content/en/blog.
-                      6. Write content/en/blog/<slug>.md with this frontmatter (date unquoted):
+                      5. Choose a short kebab-case English topic. The slug is ${{ env.TODAY }}-<topic>
+                         (e.g. ${{ env.TODAY }}-nuxt-route-rules). Make sure it does not already exist in content/en/blog.
+                      6. Write content/en/blog/${{ env.TODAY }}-<topic>.md with this frontmatter (date unquoted):
                          ---
                          title: "<title>"
                          description: "<150-160 characters, written for search results>"
                          date: ${{ env.TODAY }}
                          tags: [<lowercase-kebab-tags>]
-                         draft: false
+                         draft: true
                          ---
                          Body: no H1, because the title comes from frontmatter. 800-1200 words covering
                          what changed or what the tip is, why it matters, concrete code examples,
                          trade-offs and caveats. End with a "## Sources" section listing every URL you fetched and used.
-                      7. Write content/fa/blog/<slug>.md: a faithful Persian translation of the same post,
-                         with the same slug, date, tags, and draft value. Translate title, description, and
+                      7. Write content/fa/blog/${{ env.TODAY }}-<topic>.md: a faithful Persian translation of the same post,
+                         with the same filename, date, tags, and draft value. Translate title, description, and
                          headings (the Sources heading becomes "## منابع"). Keep code blocks, identifiers,
                          API names, CLI commands, package names, and URLs in English.
 
@@ -102,4 +103,4 @@ jobs:
                   git push -u origin "blog/${TODAY}"
                   gh pr create \
                     --title "📰 ${TITLE:-Daily post ${TODAY}}" \
-                    --body "Automated daily post for ${TODAY} (en + fa). Check sources and the Persian translation before merging."
+                    --body "Automated daily post for ${TODAY} (en + fa), committed as draft: true. Check sources and the Persian translation, then set draft: false in both files when you want it published."

@@ -4,6 +4,7 @@
         "experience": "Experience",
         "blog": "Blog",
         "about": "About",
+        "team": "Team",
         "contact": "Let’s talk",
         "primary": "Primary",
         "language": "Language",
@@ -128,6 +129,68 @@
         "nowDate": "September 2026",
         "now": "Building triplem.dev in the open (Nuxt 4, a WebGL hero and a bilingual blog) and writing about front-end architecture.",
         "nowCta": "Start a conversation"
+    },
+    "teamPage": {
+        "label": "Team",
+        "caption": "Three Ms, one system",
+        "metaTitle": "Team",
+        "metaDescription": "The people behind triplem: Mohammad Mahdi, Mehran and Mohammad Reza at the core, with the developers and designers we build with.",
+        "title": "Triple M",
+        "lead": "triplem started as the three Ms in my name. It also spells the core of the team: Mohammad Mahdi, Mehran and Mohammad Reza, one slash each.",
+        "fig": "Fig. 05 — /// one slash per person",
+        "readout": {
+            "idle": {
+                "num": "///",
+                "name": "Three slashes, three people",
+                "desc": "Hover a slash, or a card below, to see who it stands for."
+            },
+            "idleTouch": {
+                "num": "///",
+                "name": "Three slashes, three people",
+                "desc": "Tap a slash to see who it stands for."
+            }
+        },
+        "slash": ["/ 01 — Left slash", "/ 02 — Gold slash", "/ 03 — Right slash"],
+        "coreLabel": "01 / Core",
+        "coreCaption": "One slash each",
+        "collabLabel": "02 / Collaborators",
+        "collabCaption": "Developers and designers I build with",
+        "collabIntro": "Beyond the core, a circle of people I bring in when a project needs more hands.",
+        "aboutMe": "More about me",
+        "portraitAlt": "Black-and-white portrait of {name}",
+        "ctaLabel": "Work with the team",
+        "cta": "Building something bigger than one person? Here’s what we cover between us.",
+        "ctaButton": "Talk to the team",
+        "roles": {
+            "frontend": "Front-end",
+            "backend": "Back-end",
+            "fullstack": "Full-stack",
+            "design": "Design",
+            "ai": "AI"
+        },
+        "people": {
+            "mohammadMahdi": {
+                "name": "Mohammad Mahdi"
+            },
+            "mehran": {
+                "name": "Mehran"
+            },
+            "mohammadReza": {
+                "name": "Mohammad Reza"
+            },
+            "arman": {
+                "name": "Arman"
+            },
+            "hesam": {
+                "name": "Hesam"
+            },
+            "amir": {
+                "name": "Amir"
+            },
+            "mehrzad": {
+                "name": "Mehrzad"
+            }
+        }
     },
     "stack": {
         "label": "02 / Stack",

@@ -14,8 +14,16 @@ interface ContactApiError {
 }
 
 const { t, locale } = useI18n();
+const route = useRoute();
 
-const blank = () => ({ name: "", email: "", topic: "project" as ContactTopic, message: "" });
+/** `?topic=collaboration` (e.g. from /team) preselects a topic. */
+const initialTopic = (): ContactTopic => {
+    const q = route.query.topic;
+    return typeof q === "string" && (CONTACT_TOPICS as readonly string[]).includes(q)
+        ? (q as ContactTopic)
+        : "project";
+};
+const blank = () => ({ name: "", email: "", topic: initialTopic(), message: "" });
 const form = reactive(blank());
 const website = shallowRef(""); // honeypot
 const errors = ref<Partial<Record<ContactField, string>>>({});
