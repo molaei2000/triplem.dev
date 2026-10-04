@@ -30,6 +30,7 @@ Senior front-end engineer. Skip beginner explanations; focus on what changed, wh
 - Vue accessibility, forms, validation, and complex UI state
 - Vue DevTools and debugging/profiling workflows
 - Nuxt deployment on Node, serverless, edge, containers, and traditional hosting
+- Monorepo architecture, tooling, and best practices
 
 ### React / Next.js
 
