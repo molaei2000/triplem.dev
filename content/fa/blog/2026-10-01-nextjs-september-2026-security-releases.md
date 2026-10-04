@@ -2,6 +2,7 @@
 title: "دو انتشار امنیتی Next.js در نه روز: چه چیزی را باید به‌روز کنید"
 description: "نسخه 16.3.6 در ۲۲ سپتامبر یک RCE بحرانی در ImageResponse را رفع کرد و 16.3.8 و 15.5.27 در ۳۰ سپتامبر آمدند. ببینید چه کسانی تحت تأثیرند."
 date: 2026-10-01
+cover: /images/blog/2026-10-01-nextjs-september-2026-security-releases.svg
 tags: [Next.js, Security]
 draft: false
 ---

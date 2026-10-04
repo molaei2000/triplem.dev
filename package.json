@@ -22,7 +22,9 @@
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "typecheck": "nuxt typecheck",
-        "check": "pnpm lint && pnpm format:check && pnpm typecheck"
+        "covers": "node scripts/blog-cover.mjs build --all",
+        "covers:check": "node scripts/blog-cover.mjs check --all",
+        "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm covers:check"
     },
     "dependencies": {
         "@lucide/vue": "^1.48.0",
@@ -61,6 +63,7 @@
         "eslint-config-prettier": "^10.1.8",
         "prettier": "3.9.9",
         "shadcn-nuxt": "^2.8.2",
+        "sharp": "0.35.4",
         "typescript": "^5.9.3",
         "vue-tsc": "^3.3.11"
     }

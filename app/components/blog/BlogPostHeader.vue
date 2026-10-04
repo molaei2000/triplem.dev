@@ -5,6 +5,7 @@ const props = defineProps<{
     tags: string[];
     minutes?: number;
     draft?: boolean;
+    cover?: string;
 }>();
 const { t } = useI18n();
 const fmt = useBlogFormat();
@@ -38,5 +39,12 @@ const published = computed(() => new Date(props.date).toISOString());
                 <UiBadge v-for="x in tags" :key="x" variant="outline">{{ x }}</UiBadge>
             </span>
         </div>
+        <BlogCover
+            v-if="cover"
+            :src="cover"
+            eager
+            mark
+            class="col-span-4 mt-10 md:col-span-9 md:col-start-4 md:mt-14"
+        />
     </header>
 </template>

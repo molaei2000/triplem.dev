@@ -2,6 +2,7 @@
 title: "نکتهٔ حرفه‌ای Nuxt: کلیدهای useAsyncData را قرارداد کش مشترک بدانید"
 description: "کلید یکسان در Nuxt یعنی ref های مشترک data، error و status. بدانید کدام گزینه‌ها باید یکسان باشند، کدام می‌توانند فرق کنند و dedupe و کلیدهای واکنشی چه رفتاری دارند."
 date: 2026-10-04
+cover: /images/blog/2026-10-04-nuxt-async-data-shared-keys.svg
 tags: [nuxt, pro-tip, data-fetching]
 draft: true
 ---

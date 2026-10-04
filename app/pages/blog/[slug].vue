@@ -27,6 +27,10 @@ const { data: around } = await useAsyncData(
 
 const url = computed(() => `${meta.siteUrl}${route.path}`);
 const published = computed(() => new Date(post.value!.date).toISOString());
+// Social cards need a raster image: the PNG rendered from the cover.
+const image = computed(() =>
+    post.value?.cover ? `${meta.siteUrl}${blogCover(post.value.cover).png}` : undefined,
+);
 
 useSeoMeta({
     title: () => post.value!.title,
@@ -38,6 +42,17 @@ useSeoMeta({
     articlePublishedTime: () => published.value,
     articleAuthor: [meta.author.name],
     articleTag: () => post.value!.tags,
+    ogImage: () =>
+        image.value
+            ? {
+                  url: image.value,
+                  width: 1200,
+                  height: 630,
+                  type: "image/png",
+                  alt: post.value!.title,
+              }
+            : undefined,
+    twitterCard: () => (image.value ? "summary_large_image" : "summary"),
 });
 useJsonLd(() => ({
     "@type": "BlogPosting",
@@ -46,6 +61,7 @@ useJsonLd(() => ({
     datePublished: published.value,
     inLanguage: locale.value === "fa" ? "fa-IR" : "en-US",
     keywords: post.value!.tags.join(", "),
+    image: image.value,
     mainEntityOfPage: url.value,
     author: { "@type": "Person", name: meta.author.name, url: meta.siteUrl },
 }));
@@ -64,6 +80,7 @@ const active = useActiveHeading(article);
             :tags="post.tags"
             :minutes="post.minutes"
             :draft="post.draft"
+            :cover="post.cover"
         />
 
         <div class="shell grid-12 items-start gap-y-14 pt-14 pb-24 md:pt-20 md:pb-32">

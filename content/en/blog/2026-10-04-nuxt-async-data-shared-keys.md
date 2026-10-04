@@ -2,6 +2,7 @@
 title: "Nuxt pro tip: treat useAsyncData keys as a shared cache contract"
 description: "Same key means shared data, error and status refs in Nuxt. Learn which options must match across calls, which may differ, and how dedupe and reactive keys behave."
 date: 2026-10-04
+cover: /images/blog/2026-10-04-nuxt-async-data-shared-keys.svg
 tags: [nuxt, pro-tip, data-fetching]
 draft: true
 ---

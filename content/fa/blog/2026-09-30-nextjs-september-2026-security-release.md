@@ -2,6 +2,7 @@
 title: "انتشار امنیتی سپتامبر ۲۰۲۶ در Next.js: چه چیزی را باید وصله کنید و چه کسانی در معرض خطرند"
 description: "نسخه‌های Next.js 16.3.8 و 15.5.27 هفت آسیب‌پذیری را از SSRF تصویر تا نشت use cache رفع می‌کنند. کدام‌ها به پروژه شما مربوط‌اند و چگونه سریع بررسی کنید."
 date: 2026-09-30
+cover: /images/blog/2026-09-30-nextjs-september-2026-security-release.svg
 tags: [Next.js, security]
 draft: false
 ---

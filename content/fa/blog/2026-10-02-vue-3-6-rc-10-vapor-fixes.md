@@ -2,6 +2,7 @@
 title: "Vue 3.6.0-rc.10: جریان اصلاحات Vapor چه چیزی را نشان می‌دهد"
 description: "Vue 3.6.0-rc.10 در ۳۰ سپتامبر با دور تازه‌ای از اصلاحات Vapor منتشر شد. چه چیزی تغییر کرد، Vapor هنوز چه چیزهایی را پشتیبانی نمی‌کند و پیش از فعال‌سازی چه چیزی را بررسی کنید."
 date: 2026-10-02
+cover: /images/blog/2026-10-02-vue-3-6-rc-10-vapor-fixes.svg
 tags: [vue, vapor]
 draft: false
 ---

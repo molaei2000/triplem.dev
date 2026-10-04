@@ -13,6 +13,11 @@ const post = z.object({
     draft: z.boolean().default(false),
     /** Filled at build time by the `content:file:afterParse` hook in nuxt.config. */
     minutes: z.number().optional(),
+    /**
+     * Cover art: `/images/blog/<slug>.svg`, drawn in the dark palette. The light twin and the
+     * Open Graph PNG sit next to it (`scripts/blog-cover.mjs`, rules in .github/blog-cover.md).
+     */
+    cover: z.string().optional(),
 });
 
 export default defineContentConfig({

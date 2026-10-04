@@ -2,6 +2,7 @@
 title: "Nuxt pro tip: control client-side caching with getCachedData and explicit keys"
 description: "Nuxt data fetching only reuses cached data during hydration by default. Learn how explicit keys, getCachedData and its cause argument give you a real client cache."
 date: 2026-10-03
+cover: /images/blog/2026-10-03-nuxt-get-cached-data.svg
 tags: [nuxt, data-fetching, pro-tip]
 draft: true
 ---

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#8e887d" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<rect x="140" y="145" width="160" height="70" rx="10" fill="#fbf8f2" stroke="#57534b" stroke-width="2"/><rect x="160" y="166" width="84" height="8" rx="4" fill="#57534b"/><rect x="160" y="186" width="112" height="8" rx="4" fill="#8e887d"/>
+<rect x="140" y="280" width="160" height="70" rx="10" fill="#fbf8f2" stroke="#57534b" stroke-width="2"/><rect x="160" y="301" width="84" height="8" rx="4" fill="#57534b"/><rect x="160" y="321" width="112" height="8" rx="4" fill="#8e887d"/>
+<rect x="140" y="415" width="160" height="70" rx="10" fill="#fbf8f2" stroke="#57534b" stroke-width="2"/><rect x="160" y="436" width="84" height="8" rx="4" fill="#57534b"/><rect x="160" y="456" width="112" height="8" rx="4" fill="#8e887d"/>
+<path d="M300 180C380 180 370 315 448 315M300 315H448M300 450C380 450 370 315 448 315" stroke="#57534b" stroke-width="2"/>
+<g stroke="#8f6f2e" stroke-width="4"><path d="M582 303H790V327H778V356H756V338H734V352H712V327H582" fill="#8f6f2e" fill-opacity="0.1"/><circle cx="520" cy="315" r="64" fill="#eae5da"/><circle cx="520" cy="315" r="64" fill="#8f6f2e" fill-opacity="0.1"/><circle cx="520" cy="315" r="22" stroke-width="3"/></g>
+<path d="M802 315H830M819.4 320.6L830 315L819.4 309.4" stroke="#57534b" stroke-width="2"/>
+<rect x="844" y="190" width="216" height="250" rx="14" fill="#fbf8f2" stroke="#1b1a17" stroke-width="2.5"/>
+<path d="M844 232H1060" stroke="#57534b" stroke-width="1.5" stroke-opacity="0.6"/><rect x="866" y="207" width="70" height="8" rx="4" fill="#57534b"/>
+<circle cx="874" cy="276" r="8" stroke="#57534b" stroke-width="2"/><rect x="896" y="271" width="128" height="10" rx="5" fill="#1b1a17"/>
+<circle cx="874" cy="334" r="8" stroke="#57534b" stroke-width="2"/><rect x="896" y="329" width="96" height="10" rx="5" fill="#8e887d"/>
+<circle cx="874" cy="392" r="8" stroke="#57534b" stroke-width="2"/><rect x="896" y="387" width="112" height="10" rx="5" fill="#8e887d"/>
+</svg>

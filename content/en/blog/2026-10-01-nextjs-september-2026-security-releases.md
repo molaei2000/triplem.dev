@@ -2,6 +2,7 @@
 title: "Next.js shipped two security releases in nine days: what to patch"
 description: "Next.js 16.3.6 fixed a critical ImageResponse RCE on Sept 22, and 16.3.8 / 15.5.27 landed Sept 30. Here is who is affected and how to verify your upgrade."
 date: 2026-10-01
+cover: /images/blog/2026-10-01-nextjs-september-2026-security-releases.svg
 tags: [Next.js, Security]
 draft: false
 ---

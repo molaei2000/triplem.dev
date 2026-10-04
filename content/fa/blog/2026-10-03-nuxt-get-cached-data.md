@@ -2,6 +2,7 @@
 title: "نکته حرفه‌ای Nuxt: کنترل کش سمت کلاینت با getCachedData و کلیدهای صریح"
 description: "Nuxt به‌طور پیش‌فرض داده کش‌شده را فقط هنگام hydration استفاده می‌کند. با کلید صریح، getCachedData و آرگومان cause یک کش واقعی سمت کلاینت بسازید."
 date: 2026-10-03
+cover: /images/blog/2026-10-03-nuxt-get-cached-data.svg
 tags: [nuxt, data-fetching, pro-tip]
 draft: true
 ---

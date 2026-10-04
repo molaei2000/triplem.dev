@@ -12,7 +12,7 @@ concurrency:
 jobs:
     write-post:
         runs-on: ubuntu-latest
-        timeout-minutes: 40
+        timeout-minutes: 50
         permissions:
             contents: write
             pull-requests: write
@@ -25,6 +25,15 @@ jobs:
             - name: Set date
               run: echo "TODAY=$(date -u +%F)" >> "$GITHUB_ENV"
 
+            # The cover script (scripts/blog-cover.mjs) renders PNGs with sharp.
+            - uses: pnpm/action-setup@v6
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 22
+                  cache: pnpm
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile --ignore-scripts
+
             - name: Research and write post
               uses: anthropics/claude-code-action@v1
               with:
@@ -33,8 +42,8 @@ jobs:
                   claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
                   claude_args: |
                       --model claude-sonnet-5-5
-                      --max-turns 50
-                      --allowedTools "WebSearch,WebFetch,Read,Write,Glob,Grep"
+                      --max-turns 70
+                      --allowedTools "WebSearch,WebFetch,Read,Write,Edit,Glob,Grep,Bash(node scripts/blog-cover.mjs:*)"
                   prompt: |
                       Today is ${{ env.TODAY }}. You are writing today's post for a bilingual Nuxt Content blog.
 
@@ -66,6 +75,7 @@ jobs:
                          title: "<title>"
                          description: "<150-160 characters, written for search results>"
                          date: ${{ env.TODAY }}
+                         cover: /images/blog/${{ env.TODAY }}-<topic>.svg
                          tags: [<lowercase-kebab-tags>]
                          draft: true
                          ---
@@ -75,18 +85,50 @@ jobs:
                       7. Write content/fa/blog/${{ env.TODAY }}-<topic>.md: a faithful Persian translation of the same post,
                          with the same filename, date, tags, and draft value. Translate title, description, and
                          headings (the Sources heading becomes "## منابع"). Keep code blocks, identifiers,
-                         API names, CLI commands, package names, and URLs in English.
+                         API names, CLI commands, package names, and URLs in English. Keep the same cover line.
+                      8. Draw the cover. Read .github/blog-cover.md and follow it exactly. Look at one or two
+                         existing covers in public/images/blog/ for the house style (the files without -light).
+                         Write public/images/blog/${{ env.TODAY }}-<topic>.svg by hand: one clear idea from THIS
+                         article, drawn as line art in the site palette, gold on the thing the article is about.
+                         Then loop, at most three rounds:
+                         - node scripts/blog-cover.mjs check <slug>   (fix everything it reports)
+                         - node scripts/blog-cover.mjs build <slug>
+                         - Read public/images/blog/<slug>.png and judge it against the questions in the spec.
+                      9. Run node scripts/blog-cover.mjs ensure <slug>. It writes the light twin and the PNG and
+                         sets `cover:` in both posts.
 
                       Rules:
                       - Never set the `minutes` field; a build hook fills it.
                       - Every factual claim must come from a page you actually fetched; link it inline.
                       - Never invent version numbers, APIs, config options, benchmarks, or quotes.
                       - Summarize in your own words; do not copy passages from sources.
-                      - Create only those two files. Modify nothing else.
+                      - Create only the two posts and the cover files (public/images/blog/<slug>.svg, and the
+                        <slug>-light.svg and <slug>.png the script derives from it). Modify nothing else.
+                      - The cover is your own drawing: no logos, trademarks, text, or images copied from sources.
+
+            # Safety net: validates the drawn cover, swaps in a generated one if it is missing or
+            # invalid, builds the light twin + PNG, and sets `cover:` in both posts.
+            - name: Finalize cover
+              id: cover
+              run: |
+                  NEW_EN=$(git status --porcelain --untracked-files=all -- content/en/blog | sed -n 's/^?? //p' | grep '\.md$' | head -n1)
+                  if [ -z "$NEW_EN" ]; then
+                    echo "No new post; nothing to finalize."
+                    exit 0
+                  fi
+                  SLUG=$(basename "$NEW_EN" .md)
+                  NOTE=$(node scripts/blog-cover.mjs ensure "$SLUG")
+                  echo "$NOTE"
+                  echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+                  if grep -q "fallback" <<< "$NOTE"; then
+                    echo "note=⚠️ The drawn cover was missing or invalid, so a generated fallback cover was used. Replace public/images/blog/$SLUG.svg and run \`node scripts/blog-cover.mjs ensure $SLUG\` if you want a custom one." >> "$GITHUB_OUTPUT"
+                  fi
 
             - name: Open pull request
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  SLUG: ${{ steps.cover.outputs.slug }}
+                  COVER_NOTE: ${{ steps.cover.outputs.note }}
               run: |
                   if [ -z "$(git status --porcelain content/en/blog content/fa/blog)" ]; then
                     echo "No post written today; skipping PR."
@@ -95,12 +137,17 @@ jobs:
                   git config user.name "github-actions[bot]"
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git checkout -b "blog/${TODAY}"
-                  # Only blog folders are committed; any stray edits elsewhere are discarded.
-                  git add content/en/blog content/fa/blog
+                  # Only the posts and their covers are committed; stray edits elsewhere are discarded.
+                  git add content/en/blog content/fa/blog public/images/blog
                   NEW_EN=$(git diff --cached --name-only --diff-filter=A -- content/en/blog | head -n1)
                   TITLE=$(grep -m1 '^title:' "$NEW_EN" | sed 's/^title: *//; s/^"//; s/"$//')
                   git commit -m "docs(blog): ${TITLE:-daily post ${TODAY}}"
                   git push -u origin "blog/${TODAY}"
-                  gh pr create \
-                    --title "📰 ${TITLE:-Daily post ${TODAY}}" \
-                    --body "Automated daily post for ${TODAY} (en + fa), committed as draft: true. Check sources and the Persian translation, then set draft: false in both files when you want it published."
+                  COVER=""
+                  if [ -n "$SLUG" ]; then
+                    COVER="![cover](https://github.com/${GITHUB_REPOSITORY}/blob/blog/${TODAY}/public/images/blog/${SLUG}.png?raw=true)"
+                  fi
+                  BODY=$(printf '%s\n\n%s\n\n%s' \
+                    "Automated daily post for ${TODAY} (en + fa), committed as draft: true. Check the sources, the Persian translation and the cover, then set draft: false in both files when you want it published." \
+                    "$COVER" "$COVER_NOTE")
+                  gh pr create --title "📰 ${TITLE:-Daily post ${TODAY}}" --body "$BODY"

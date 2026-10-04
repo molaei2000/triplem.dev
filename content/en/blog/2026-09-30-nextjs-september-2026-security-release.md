@@ -2,6 +2,7 @@
 title: "Next.js September 2026 security release: what to patch and who is exposed"
 description: "Next.js 16.3.8 and 15.5.27 fix seven vulnerabilities, from image SSRF to use cache leaks. Which ones matter for your setup, and how to check exposure quickly."
 date: 2026-09-30
+cover: /images/blog/2026-09-30-nextjs-september-2026-security-release.svg
 tags: [Next.js, security]
 draft: false
 ---

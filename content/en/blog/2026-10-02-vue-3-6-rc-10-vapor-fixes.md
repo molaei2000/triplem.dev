@@ -2,6 +2,7 @@
 title: "Vue 3.6.0-rc.10: what the Vapor fix stream tells you"
 description: "Vue 3.6.0-rc.10 shipped on Sept 30 with another round of Vapor fixes. What changed, what Vapor still cannot do, and what to check before you opt in."
 date: 2026-10-02
+cover: /images/blog/2026-10-02-vue-3-6-rc-10-vapor-fixes.svg
 tags: [vue, vapor]
 draft: false
 ---

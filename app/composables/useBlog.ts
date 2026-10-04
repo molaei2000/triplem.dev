@@ -3,7 +3,7 @@ import type { Collections } from "@nuxt/content";
 export type BlogCollection = "blog_en" | "blog_fa";
 export type BlogPostItem = Pick<
     Collections["blog_en"],
-    "path" | "title" | "description" | "date" | "tags" | "minutes" | "draft"
+    "path" | "title" | "description" | "date" | "tags" | "minutes" | "draft" | "cover"
 >;
 
 /** Drafts show while writing (`nuxt dev`) and never ship in a build. */
@@ -22,7 +22,7 @@ export function useBlogPosts(limit?: number) {
         () => `blog-list:${collection.value}:${limit ?? "all"}`,
         () => {
             const query = queryCollection(collection.value)
-                .select("path", "title", "description", "date", "tags", "minutes", "draft")
+                .select("path", "title", "description", "date", "tags", "minutes", "draft", "cover")
                 .order("date", "DESC");
             if (!showDrafts) query.where("draft", "=", false);
             if (limit) query.limit(limit);
@@ -30,6 +30,15 @@ export function useBlogPosts(limit?: number) {
         },
         { default: () => [] },
     );
+}
+
+/**
+ * The files derived from a cover by `scripts/blog-cover.mjs`: the dark original, its
+ * light-theme twin and the 1200×630 Open Graph PNG.
+ */
+export function blogCover(cover: string) {
+    const base = cover.replace(/\.svg$/, "");
+    return { dark: cover, light: `${base}-light.svg`, png: `${base}.png` };
 }
 
 /** Client-side search + single-topic filter over a (small) list of posts. */
