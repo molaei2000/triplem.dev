@@ -38,7 +38,7 @@ onKeyStroke("Escape", () => (open.value = false));
                     >
                 </NuxtLinkLocale>
 
-                <nav :aria-label="t('nav.primary')" class="hidden gap-1 md:flex">
+                <nav :aria-label="t('nav.primary')" class="hidden gap-1 lg:flex">
                     <UiButton
                         v-for="l in links"
                         :key="l.key"
@@ -61,7 +61,7 @@ onKeyStroke("Escape", () => (open.value = false));
                     <UiButton
                         variant="ghost"
                         size="icon-lg"
-                        class="text-foreground md:hidden [&_.iconify]:size-5"
+                        class="text-foreground lg:hidden [&_.iconify]:size-5"
                         :aria-label="open ? t('nav.menuClose') : t('nav.menuOpen')"
                         :aria-expanded="open"
                         aria-controls="mobile-menu"

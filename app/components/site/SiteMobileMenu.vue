@@ -1,5 +1,5 @@
 <script setup lang="ts">
-/** The phone-sized navigation panel under the header bar. Visibility is owned by SiteNav. */
+/** The navigation panel under the header bar below `lg`. Visibility is owned by SiteNav. */
 import type { NavLink } from "~/composables/useNavLinks";
 
 defineProps<{ links: NavLink[] }>();
@@ -12,7 +12,7 @@ const linkClass =
 <template>
     <nav
         :aria-label="t('nav.primary')"
-        class="mt-2 rounded-xl border border-hairline-strong bg-elevated px-5 pt-2 pb-5 shadow-(--shadow-lift) md:hidden"
+        class="mt-2 rounded-xl border border-hairline-strong bg-elevated px-5 pt-2 pb-5 shadow-(--shadow-lift) lg:hidden"
     >
         <NuxtLinkLocale
             v-for="(l, i) in links"

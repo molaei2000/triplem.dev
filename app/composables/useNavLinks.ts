@@ -1,11 +1,11 @@
 export interface NavLink {
-    key: "experience" | "blog" | "about" | "team";
+    key: "experience" | "blog" | "about" | "team" | "support";
     to: string | { path: string; hash: string };
     /** `aria-current` value for this link on the current route. */
     current?: "page";
 }
 
-/** Primary navigation. Experience is a home section; Blog, About and Team are pages. */
+/** Primary navigation. Experience is a home section; Blog, About, Team and Support are pages. */
 export function useNavLinks() {
     const route = useRoute();
     const localePath = useLocalePath();
@@ -19,5 +19,6 @@ export function useNavLinks() {
         { key: "blog", to: "/blog", current: at("/blog") },
         { key: "about", to: "/about", current: at("/about") },
         { key: "team", to: "/team", current: at("/team") },
+        { key: "support", to: "/support", current: at("/support") },
     ]);
 }

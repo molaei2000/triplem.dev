@@ -9,9 +9,18 @@ const year = new Date().getFullYear();
 <template>
     <footer class="border-t border-hairline py-12 text-sm">
         <div class="shell grid-12 items-start gap-y-8">
-            <div class="col-span-4 flex items-center gap-2.5 md:col-span-3">
-                <SiteMark :size="18" tone="muted" />
-                <span class="font-display text-base font-semibold">triplem.dev</span>
+            <div class="col-span-4 flex flex-col items-start gap-3 md:col-span-3">
+                <span class="flex items-center gap-2.5">
+                    <SiteMark :size="18" tone="muted" />
+                    <span class="font-display text-base font-semibold">triplem.dev</span>
+                </span>
+                <NuxtLinkLocale
+                    to="/support"
+                    class="inline-flex items-center gap-1.5 text-gold no-underline transition-opacity hover:opacity-80"
+                >
+                    <Icon name="tm:heart-handshake" class="size-4" />
+                    {{ t("footer.support") }}
+                </NuxtLinkLocale>
             </div>
             <div class="col-span-4 flex flex-col gap-1 md:col-span-4">
                 <span>{{ meta.author.name }}</span>

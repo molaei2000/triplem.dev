@@ -5,6 +5,7 @@
         "blog": "Blog",
         "about": "About",
         "team": "Team",
+        "support": "Support",
         "contact": "Let’s talk",
         "primary": "Primary",
         "language": "Language",
@@ -368,9 +369,43 @@
             "other": "Something else"
         }
     },
+    "supportPage": {
+        "label": "Support",
+        "caption": "Ways to support",
+        "metaTitle": "Support",
+        "metaDescription": "Support Mohammad Mahdi Molaei’s blog and open-source work through Reymit or USDT on BEP20 or TRC20.",
+        "title": "Support",
+        "lead": "The daily articles, the open-source work and this site are made in my own time. If something here saved you an hour, you can help keep it going.",
+        "usesLabel": "Where it goes",
+        "uses": [
+            "Research and writing for the daily articles, in English and Persian",
+            "Open-source tools, examples and the code behind this site",
+            "Hosting, the domain and the services the site runs on"
+        ],
+        "free": "Can’t chip in? Sharing a post, or telling me what helped, is support too.",
+        "reymit": {
+            "label": "Reymit",
+            "where": "From Iran",
+            "name": "Reymit",
+            "body": "Pay any amount in rials with an Iranian bank card, through Reymit.",
+            "cta": "Support on Reymit"
+        },
+        "crypto": {
+            "label": "Crypto",
+            "where": "From anywhere",
+            "intro": "USDT only, on one of these two networks. Use the one your wallet or exchange sends on.",
+            "token": "Tether (USDT)",
+            "qr": "QR code for the USDT address on {network}",
+            "copy": "Copy address",
+            "copied": "Copied",
+            "verify": "After pasting, check the first and last six characters.",
+            "warning": "Send only USDT on {network}. Other tokens, or USDT sent on another network, can’t be recovered."
+        }
+    },
     "footer": {
         "role": "Senior Front-End Developer",
         "top": "Back to top",
-        "elsewhere": "Elsewhere"
+        "elsewhere": "Elsewhere",
+        "support": "Support my work"
     }
 }
