@@ -22,6 +22,17 @@ pnpm dev        # http://localhost:3000
 | `pnpm lint`      | ESLint                               |
 | `pnpm typecheck` | `vue-tsc` via `nuxt typecheck`       |
 
+## Deploying with Docker
+
+The `Dockerfile` builds the site and ships only `.output` on a Node Alpine image. Secrets for the contact form are passed at run time, never baked in:
+
+```bash
+docker build -t triplem.dev .
+docker run --rm -p 3000:3000 --env-file .env triplem.dev
+```
+
+Nuxt Content rebuilds its SQLite cache in `/app/.data` on first request; it needs no volume. Prefer this (or any Linux build) over `pnpm build` on Windows, where a Nitro path bug makes the server build crawl for tens of minutes.
+
 ## Project structure
 
 ```

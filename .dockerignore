@@ -1,0 +1,30 @@
+# Build outputs and caches: the image builds from source.
+node_modules
+.output
+.nuxt
+.nitro
+.cache
+.data
+dist
+.eslintcache
+*.log
+
+# Secrets stay out of the image; pass them at run time (`docker run --env-file .env`).
+.env
+.env.*
+!.env.example
+
+# Not needed to build the site.
+.git
+.github
+.vscode
+.idea
+.fleet
+.DS_Store
+.agents
+.claude
+skills-lock.json
+INTERESTS.md
+CLAUDE.md
+Dockerfile
+.dockerignore

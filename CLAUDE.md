@@ -28,6 +28,8 @@ pnpm covers:check   # validate covers; every post must point at one
 
 There is no test runner configured. `tsconfig.json` and `eslint.config.mjs` depend on files generated into `.nuxt/`, so run `pnpm install` or `nuxt prepare` first in a fresh checkout. ESLint ignores `.agents/` and `.claude/` (vendored skills).
 
+**Don't run `pnpm build` on Windows**: Nitro's `node-externals` Rollup plugin (nitropack 2.13.x) compares a `pathe`-normalised id with a backslash path from `fileURLToPath`, so every dependency reached through an absolute id (reka-ui, zod, motion-v, …) is inlined into the server bundle instead of externalised, and Rollup crawls thousands of modules through a slow resolver. The build looks hung at "Building Nuxt Nitro server" and takes tens of minutes. Build in Linux instead: `docker build -t triplem.dev .` uses the `Dockerfile` (multi-stage; `pnpm fetch` layer cached on the lockfile, runtime ships only `.output` on Node Alpine, SQLite cache in `/app/.data`, secrets via `--env-file .env` at run time). The same build finishes in about a minute there.
+
 Code style: 4-space indent, double quotes, semicolons, 100 columns. Prettier (`.prettierrc.json`) owns formatting; ESLint checks code quality, and `eslint-config-prettier` (last entry in `eslint.config.mjs`) turns off its formatting rules so the two never conflict. `content/` is excluded from Prettier.
 
 ## Architecture
