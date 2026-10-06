@@ -1,3 +1,4 @@
+import type { StackId } from "./stack";
 /**
  * Structure for the Experience timeline (most recent first). Everything a
  * reader sees as prose lives in i18n under `experience.items.<id>`; this file
@@ -14,7 +15,7 @@ export interface ExperienceEntry {
     /** Label shown in the frame's address bar. */
     host: string;
     link?: string;
-    stack: string[];
+    stack: StackId[];
     /** Number of `highlights.N` messages for this entry. */
     highlights: number;
     /** First shot is the main frame; a second one overlaps it. `alt.N` in i18n. */
@@ -27,37 +28,30 @@ export const experience: ExperienceEntry[] = [
         host: "etarazoo.com",
         link: "https://etarazoo.com/",
         stack: [
-            "Next.js",
-            "React",
-            "TypeScript",
-            "TanStack Query",
-            "Redux Toolkit",
-            "NextAuth",
-            "Tailwind",
-            "Radix UI",
-            "React Hook Form",
-            "Zod",
-            "Docker",
-            "Sentry",
-            "HTML & CSS",
-            "Architecture",
+            "ts",
+            "js",
+            "next",
+            "react",
+            "ts",
+            "tanstack",
+            "redux",
+            "nextauth",
+            "tw",
+            "radix",
+            "reacthookform",
+            "zod",
+            "docker",
+            "sentry",
+            "html",
+            "arch",
         ],
         highlights: 3,
         shots: [{ src: "/images/work/tarazoo-home.webp", width: 1511, height: 913 }],
     },
     {
-        id: "nct",
+        id: "ika",
         host: "IKA",
-        stack: [
-            "Nuxt.js",
-            "Vue",
-            "Vuetify",
-            "Nuxt Layers",
-            "TypeScript",
-            "HTML & CSS",
-            "Tailwind",
-            "Architecture",
-        ],
+        stack: ["nuxt", "vue", "vuetify", "ts", "html", "tw", "js", "arch"],
         highlights: 3,
         shots: [
             {
@@ -69,9 +63,24 @@ export const experience: ExperienceEntry[] = [
         ],
     },
     {
+        id: "nctevo",
+        host: "NCTEVO",
+        link: "https://nctevo.com/",
+        stack: ["nuxt", "vue", "vuetify", "ts", "html", "tw", "arch"],
+        highlights: 3,
+        shots: [
+            {
+                src: "/images/work/nctevo-landing.webp",
+                width: 1600,
+                height: 742,
+            },
+            { src: "/images/work/nctevo-service.webp", width: 1600, height: 808 },
+        ],
+    },
+    {
         id: "smartsino",
         host: "Smart-Sino UK",
-        stack: ["Nuxt.js", "Vue", "Vuetify", "TypeScript", "HTML & CSS", "Architecture"],
+        stack: ["nuxt", "vue", "vuetify", "ts", "js", "html", "arch"],
         highlights: 2,
         shots: [{ src: "/images/work/smartsino-lms.webp", width: 821, height: 381 }],
     },

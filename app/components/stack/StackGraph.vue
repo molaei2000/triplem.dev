@@ -88,6 +88,7 @@ function select(id: unknown) {
             @focus="selected = n.id"
         >
             <StackDot />{{ n.label }}
+            <Icon :name="`tm:${n.id}`" />
         </UiToggleGroupItem>
     </UiToggleGroup>
 </template>

@@ -26,7 +26,7 @@ const highlights = computed(() =>
         {{ t(k("years")) }}
     </span>
 
-    <div class="flex min-w-0 max-w-[720px] flex-1 flex-col gap-3 md:ms-[72px]">
+    <div class="flex min-w-0 max-w-180 flex-1 flex-col gap-3 md:ms-18">
         <span class="eyebrow text-faint"
             >{{ t("experience.chapter") }} 0{{ chapter }} · {{ t(k("product")) }}</span
         >
@@ -64,7 +64,10 @@ const highlights = computed(() =>
         </SiteReveal>
 
         <div v-if="entry.stack.length || entry.link" class="mt-3 flex flex-wrap items-center gap-2">
-            <UiBadge v-for="s in entry.stack" :key="s" variant="mono">{{ s }}</UiBadge>
+            <UiBadge v-for="s in entry.stack" :key="s" variant="mono">
+                <Icon :name="`tm:${s}`" />
+                {{ t(`stack.${s}`) }}</UiBadge
+            >
             <UiButton v-if="entry.link" as-child variant="link" size="inline" class="ms-auto">
                 <NuxtLink :to="entry.link" target="_blank"
                     >{{ entry.host }} <SiteArrow direction="external"

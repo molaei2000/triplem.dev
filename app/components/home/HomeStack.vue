@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { STACK_BY_ID, stackNeighbours } from "~/data/stack";
+import { STACK_BY_ID, stackNeighbours, type StackId } from "~/data/stack";
 
 const { t } = useI18n();
-const selected = shallowRef("nuxt");
+const selected = shallowRef<StackId>("nuxt");
 const related = computed(() => stackNeighbours(selected.value));
 const current = computed(() => STACK_BY_ID[selected.value]!);
 </script>

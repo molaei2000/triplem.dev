@@ -4,9 +4,29 @@
  * i18n under `stack.d.<id>`.
  */
 export type StackGroup = "language" | "framework" | "craft";
+export type StackId =
+    | "ts"
+    | "js"
+    | "html"
+    | "vue"
+    | "nuxt"
+    | "react"
+    | "next"
+    | "tw"
+    | "arch"
+    | "vuetify"
+    | "redux"
+    | "tanstack"
+    | "nextauth"
+    | "radix"
+    | "reacthookform"
+    | "zod"
+    | "docker"
+    | "arch"
+    | "sentry";
 
 export interface StackNode {
-    id: string;
+    id: StackId;
     label: string;
     x: number;
     y: number;
@@ -33,12 +53,12 @@ export const STACK_NODES: StackNode[] = [
     },
     { id: "react", label: "React", x: 392, y: 292, group: "framework" },
     { id: "next", label: "Next.js", x: 548, y: 292, group: "framework" },
-    { id: "tw", label: "Tailwind", x: 200, y: 452, group: "craft" },
+    { id: "tw", label: "Tailwind", x: 150, y: 452, group: "craft" },
     { id: "arch", label: "Architecture", x: 460, y: 452, group: "craft" },
-    { id: "vuetify", label: "Vuetify", x: 320, y: 452, group: "craft" },
+    { id: "vuetify", label: "Vuetify", x: 300, y: 452, group: "craft" },
 ];
 
-export const STACK_EDGES: [string, string][] = [
+export const STACK_EDGES: [StackId, StackId][] = [
     ["ts", "js"],
     ["ts", "html"],
     ["ts", "nuxt"],
@@ -58,13 +78,13 @@ export const STACK_EDGES: [string, string][] = [
 ];
 
 export const STACK_BY_ID = Object.fromEntries(STACK_NODES.map((n) => [n.id, n])) as Record<
-    string,
+    StackId,
     StackNode
 >;
 
 /** Ids directly connected to `id`. */
-export function stackNeighbours(id: string) {
-    const out = new Set<string>();
+export function stackNeighbours(id: StackId) {
+    const out = new Set<StackId>();
     for (const [a, b] of STACK_EDGES) {
         if (a === id) out.add(b);
         if (b === id) out.add(a);

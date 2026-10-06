@@ -17,9 +17,7 @@ const relatedLabels = computed(() =>
 );
 const shippedInExperience = computed(() =>
     experience
-        .filter((e) =>
-            e.stack?.map((s) => s.toLowerCase()).includes(props.node.label.toLowerCase()),
-        )
+        .filter((e) => e.stack?.map((s) => s).includes(props.node.id))
         .map((e) => e.id)
         .join(" · "),
 );

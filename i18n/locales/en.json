@@ -19,7 +19,7 @@
         "index": "00 / Index",
         "name": "Mohammad Mahdi Molaei",
         "role": "Senior Front-End Developer — Vue / Nuxt, React / Next.js",
-        "l1": "I build",
+        "l1": "We build",
         "l2": "scalable",
         "l3": "digital",
         "l4": "experiences",
@@ -218,7 +218,25 @@
             "tw": "Utility-first styling backed by design tokens, so themes and systems stay consistent.",
             "arch": "Boundaries, state ownership, rendering strategy and performance budgets — the decisions that outlive components.",
             "vuetify": "Material Design component framework for Vue, providing ready-to-use UI components and design consistency."
-        }
+        },
+        "ts": "TypeScript",
+        "js": "JavaScript",
+        "html": "HTML & CSS",
+        "vue": "Vue",
+        "nuxt": "Nuxt.js",
+        "react": "React",
+        "next": "Next.js",
+        "tw": "Tailwind",
+        "arch": "Architecture",
+        "vuetify": "Vuetify",
+        "redux": "Redux",
+        "tanstack": "TanStack Query",
+        "nextauth": "NextAuth",
+        "radix": "Radix UI",
+        "reacthookform": "React Hook Form",
+        "zod": "Zod",
+        "docker": "Docker",
+        "sentry": "Sentry"
     },
     "experience": {
         "label": "03 / Experience",
@@ -246,11 +264,28 @@
                     "Tarazoo home page: the legal platform introduction next to the AI legal assistant card"
                 ]
             },
-            "nct": {
+            "nctevo": {
                 "years": "2024",
                 "role": "Front-End Developer",
-                "company": "NCT",
+                "company": "NCTEVO",
                 "where": "China",
+                "product": "Inspection ERP",
+                "summary": "An ERP for inspection companies: one workspace for the people and inspections behind every job.",
+                "body": "The app is organised around the inspection business itself: customers, coordinators and inspectors, with nested sections for inspections.",
+                "highlights": [
+                    "Management screens for users, customers, coordinators and inspectors, plus nested inspection sections.",
+                    "Light and dark themes, a language switch and live notifications across the whole app."
+                ],
+                "alt": [
+                    "IKA dashboard: sidebar with users, coordinators, inspectors and inspections",
+                    "IKA sign-in screen with theme and language switches"
+                ]
+            },
+            "ika": {
+                "years": "2024",
+                "role": "Front-End Developer",
+                "company": "IKA Engineering Co",
+                "where": "Iran · Tehran",
                 "product": "IKA · Inspection ERP",
                 "summary": "IKA, an ERP for inspection companies: one workspace for the people, contracts and inspections behind every job.",
                 "body": "The app is organised around the inspection business itself: users, customers, coordinators and inspectors, with nested sections for contracts and inspections. It also runs the office around the work (correspondence, a file manager, the monthly menu and staff food reservation), so teams stay in one tool instead of five.",
