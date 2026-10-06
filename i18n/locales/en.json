@@ -7,6 +7,8 @@
         "team": "Team",
         "support": "Support",
         "contact": "Let’s talk",
+        "cv": "CV",
+        "cvLabel": "Download CV (PDF)",
         "primary": "Primary",
         "language": "Language",
         "theme": "Switch colour theme",

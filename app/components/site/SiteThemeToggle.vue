@@ -12,6 +12,6 @@ const { isDark, toggle } = useTheme();
         :aria-pressed="!isDark"
         @click="toggle"
     >
-        <Icon name="tm:theme" />
+        <Icon :name="isDark ? 'tm:sun-loop' : 'tm:moon-loop'" />
     </UiButton>
 </template>

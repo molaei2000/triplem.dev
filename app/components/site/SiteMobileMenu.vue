@@ -10,9 +10,10 @@ const linkClass =
 </script>
 
 <template>
+    <!-- Page scroll is locked while open, so the panel scrolls itself on short (landscape) screens -->
     <nav
         :aria-label="t('nav.primary')"
-        class="mt-2 rounded-xl border border-hairline-strong bg-elevated px-5 pt-2 pb-5 shadow-(--shadow-lift) lg:hidden"
+        class="mt-2 max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-xl border border-hairline-strong bg-elevated px-5 pt-2 pb-5 shadow-(--shadow-lift) lg:hidden"
     >
         <NuxtLinkLocale
             v-for="(l, i) in links"
@@ -27,6 +28,9 @@ const linkClass =
         <NuxtLinkLocale to="/contact" :class="linkClass">
             {{ t("nav.contact") }}<SiteArrow class="text-[0.8em] text-gold" />
         </NuxtLinkLocale>
-        <SiteLocaleSwitch class="mt-2 w-fit" />
+        <div class="mt-2 flex items-center justify-between gap-3">
+            <SiteLocaleSwitch />
+            <SiteCvButton class="text-foreground" />
+        </div>
     </nav>
 </template>

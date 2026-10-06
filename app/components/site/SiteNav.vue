@@ -5,11 +5,18 @@ const links = useNavLinks();
 const { y } = useWindowScroll();
 const scrolled = computed(() => y.value > 24);
 const open = shallowRef(false);
+const isLg = useMediaQuery("(min-width: 1024px)");
+const scrollLocked = useScrollLock(import.meta.client ? document.body : null);
 
 watch(
     () => route.fullPath,
     () => (open.value = false),
 );
+// The menu only exists below lg; closing it there also releases the scroll lock.
+watch(isLg, (lg) => {
+    if (lg) open.value = false;
+});
+watch(open, (isOpen) => (scrollLocked.value = isOpen));
 onKeyStroke("Escape", () => (open.value = false));
 </script>
 
@@ -55,6 +62,7 @@ onKeyStroke("Escape", () => (open.value = false));
                 <div class="flex items-center gap-2">
                     <SiteLocaleSwitch class="hidden md:flex" />
                     <SiteThemeToggle />
+                    <SiteCvButton class="hidden border-hairline text-foreground md:inline-flex" />
                     <UiButton as-child variant="ink" class="hidden md:inline-flex">
                         <NuxtLinkLocale to="/contact">{{ t("nav.contact") }}</NuxtLinkLocale>
                     </UiButton>

@@ -2,7 +2,10 @@
 import meta, { socialLinks } from "~/app.meta";
 
 const { t } = useI18n();
-const links = [...socialLinks, { label: "Email", href: `mailto:${meta.contactEmail}` }];
+const links = [
+    ...socialLinks,
+    { label: "Email", href: `mailto:${meta.contactEmail}`, icon: "tm:email" },
+];
 const year = new Date().getFullYear();
 </script>
 
@@ -35,8 +38,10 @@ const year = new Date().getFullYear();
                     :key="l.label"
                     :to="l.href"
                     :target="l.href.startsWith('http') ? '_blank' : undefined"
-                    class="py-1.5 text-subtle no-underline transition-colors hover:text-foreground md:py-0"
-                    >{{ l.label }}</NuxtLink
+                    class="py-1.5 text-subtle no-underline flex items-center gap-1.5 transition-colors hover:text-foreground md:py-0"
+                >
+                    <Icon :name="l.icon" class="size-5" />
+                    {{ l.label }}</NuxtLink
                 >
             </nav>
             <div

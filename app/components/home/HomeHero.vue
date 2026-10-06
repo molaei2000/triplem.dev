@@ -76,10 +76,11 @@ function reset() {
             </h1>
             <p class="sr-only">{{ t("hero.srSummary") }}</p>
 
-            <!-- 3D stage: full-bleed on mobile, right half on desktop -->
+            <!-- 3D stage: full-bleed on mobile, right half on desktop. z-20 keeps it above the
+                 z-10 headline and controls but below the z-50 fixed header and its menu. -->
             <div
                 aria-hidden="true"
-                class="stage-in relative -mx-4 mt-6 h-[400px] z-50 md:absolute md:end-0 md:top-22 md:bottom-32 md:mx-0 md:mt-0 md:h-auto md:w-[min(700px,52%)]"
+                class="stage-in relative z-20 -mx-4 mt-6 h-[400px] md:absolute md:end-0 md:top-22 md:bottom-32 md:mx-0 md:mt-0 md:h-auto md:w-[min(700px,52%)]"
             >
                 <ClientOnly>
                     <HeroStage
