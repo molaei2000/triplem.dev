@@ -9,7 +9,7 @@ const { t } = useI18n();
         id="experience"
         :label="t('experience.label')"
         :caption="t('experience.caption')"
-        coord="y · 3250"
+        coord="y · 4780"
     >
         <template #default="{ titleId }">
             <div class="mt-12 grid-12 gap-y-10 md:mt-18">

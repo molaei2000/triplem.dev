@@ -240,8 +240,70 @@
         "docker": "Docker",
         "sentry": "Sentry"
     },
+    "ai": {
+        "label": "03 / AI",
+        "caption": "Specs become code",
+        "t1": "Vibe to explore.",
+        "t2": "Specs to ship",
+        "p1a": "I build with AI every day, from the first sketch to the last review.",
+        "p1b": "The tools change every few months. What lasts is knowing which mode a problem needs.",
+        "p2": "This site is built the same way: a CLAUDE.md that explains the codebase to agents, project skills for Nuxt, Vue and i18n, and a daily workflow where Claude Code drafts a post, draws its cover and opens a pull request for me to review.",
+        "modes": {
+            "vibe": {
+                "k": "Explore",
+                "t": "Vibe coding",
+                "d": "For prototypes, experiments and side projects. I describe what I want, run it, react and keep the loop tight. The point is to find out quickly what’s worth building."
+            },
+            "spec": {
+                "k": "Ship",
+                "t": "Spec-driven development",
+                "d": "For anything that goes to production. Requirements, a plan and a task list are written first and kept in the repo. Agents build against them, and the spec becomes the review checklist."
+            }
+        },
+        "fig": "Fig. 03 — One feature through the loop: this site’s contact form",
+        "loop": {
+            "label": "Stages of spec-driven development",
+            "tools": "Tools at this stage"
+        },
+        "stages": {
+            "specify": {
+                "n": "01",
+                "t": "Specify",
+                "d": "What we’re building and why, with acceptance criteria anyone can check."
+            },
+            "plan": {
+                "n": "02",
+                "t": "Plan",
+                "d": "The spec becomes architecture: files, contracts, data flow, and the decisions written down."
+            },
+            "tasks": {
+                "n": "03",
+                "t": "Tasks",
+                "d": "The plan splits into small steps, each one a diff I can review in minutes."
+            },
+            "build": {
+                "n": "04",
+                "t": "Build",
+                "d": "An agent implements one task at a time, and I read every diff before the next one starts."
+            },
+            "verify": {
+                "n": "05",
+                "t": "Verify",
+                "d": "Lint, formatting and types pass, then every acceptance criterion is ticked off in the spec."
+            }
+        },
+        "toolkit": "Five tools, each with a job",
+        "usedIn": "Used in",
+        "tools": {
+            "chatgpt": "A thinking partner: research, comparing options and pressure-testing an idea before it becomes a spec.",
+            "claude": "Long, careful reading and writing: specs, plans and a second opinion on big changes.",
+            "claudeCode": "The agent in my terminal. It reads the repo and CLAUDE.md, plans, then works through tasks one by one.",
+            "copilot": "In the editor all day: completions and inline edits, plus a reviewer on pull requests.",
+            "opencode": "An open-source terminal agent for running the same loop with whichever model fits the job."
+        }
+    },
     "experience": {
-        "label": "03 / Experience",
+        "label": "04 / Experience",
         "caption": "Skills become architecture",
         "title": "Chapters",
         "sub": "Most recent first",
@@ -318,7 +380,7 @@
         }
     },
     "blog": {
-        "label": "04 / Blog",
+        "label": "05 / Blog",
         "caption": "Products become writing",
         "title": "Blog",
         "intro": "Engineering notes on architecture, rendering and interface craft.",
@@ -353,7 +415,7 @@
         "indexLabel": "Blog / Index"
     },
     "contact": {
-        "label": "05 / Contact",
+        "label": "06 / Contact",
         "caption": "Everything simplifies into one connection",
         "t1": "Let’s build",
         "t2": "something great",

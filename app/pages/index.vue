@@ -23,6 +23,7 @@ useJsonLd({
         <HomeHero />
         <HomeAbout />
         <HomeStack />
+        <HomeAi />
         <HomeExperience />
         <HomeBlog />
         <HomeContact />

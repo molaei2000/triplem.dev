@@ -45,12 +45,12 @@ app/
 ├─ components/
 │  ├─ ui/                 # shadcn-vue components (generated, brand-tuned variants) → <UiButton> …
 │  ├─ site/               # shell & shared building blocks: nav, footer, SiteSection, SiteMark, SiteArrow …
-│  ├─ home/               # homepage sections (Hero, About, Stack, Experience, Blog, Contact)
-│  ├─ hero/ stack/ experience/ blog/   # pieces used by those sections and the blog pages
+│  ├─ home/               # homepage sections (Hero, About, Stack, AI, Experience, Blog, Contact)
+│  ├─ hero/ stack/ ai/ experience/ blog/   # pieces used by those sections and the blog pages
 │  ├─ art/                # decorative, data-shaped illustrations that can't be icons
 │  └─ content/            # Nuxt Content prose overrides (ProsePre)
 ├─ composables/           # useTheme, useBlog*, useCopy, useJsonLd, useNavLinks, useArticleScroll
-├─ data/                  # untranslatable structured data (experience, stack graph)
+├─ data/                  # untranslatable structured data (experience, stack graph, AI loop)
 ├─ pages/                 # index, blog/index, blog/[slug]
 └─ lib/                   # cn(), 3D input bag
 content/{en,fa}/blog/     # posts, one collection per locale
