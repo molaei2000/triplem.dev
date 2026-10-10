@@ -4,7 +4,7 @@ description: "Since Nuxt 4.5, enabled gates the initial fetch, refresh and watch
 date: 2026-10-09
 cover: /images/blog/2026-10-09-nuxt-enabled-option.svg
 tags: [nuxt, pro-tip, data-fetching]
-draft: true
+draft: false
 ---
 
 Nothing substantive shipped in the last 72 hours that earlier posts hadn't covered, so today is a pro tip. The topic is a small option that removes a whole family of conditional-fetch hacks: `enabled`. Everything below is checked against the current Nuxt 4 docs for [`useAsyncData`](https://nuxt.com/docs/4.x/api/composables/use-async-data) and [`useFetch`](https://nuxt.com/docs/4.x/api/composables/use-fetch). The docs mark `enabled` as available from v4.5, so check your version first.

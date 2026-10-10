@@ -4,7 +4,7 @@ description: "With Cache Components, where you await params, cookies() or fetch 
 date: 2026-10-05
 cover: /images/blog/2026-10-05-nextjs-push-awaits-down-static-shell.svg
 tags: [next.js, pro-tip, caching]
-draft: true
+draft: false
 ---
 
 Nothing substantive shipped in the last 72 hours that we haven't already covered, so today is a pro tip, and this time it's Next.js. Everything below is checked against the current Next.js 16.3.x docs for [caching](https://nextjs.org/docs/app/getting-started/caching) and [`use cache`](https://nextjs.org/docs/app/api-reference/directives/use-cache).

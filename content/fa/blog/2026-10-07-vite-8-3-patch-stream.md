@@ -4,7 +4,7 @@ description: "Vite 8.3.3 در ۶ اکتبر پس از 8.3.0 پرقابلیت م�
 date: 2026-10-07
 cover: /images/blog/2026-10-07-vite-8-3-patch-stream.svg
 tags: [vite, tooling, rolldown]
-draft: true
+draft: false
 ---
 
 Vite 8.3.3 در ۶ اکتبر منتشر شد. به‌تنهایی فقط یک پچ با چهار اصلاح است، اما پایان ماهی است که در آن خط 8.3 از یک انتشار پرقابلیت (8.3.0 در ۱۰ سپتامبر) به سه پچ رسید. اگر [changelog](https://raw.githubusercontent.com/vitejs/vite/main/packages/vite/CHANGELOG.md) را کنار هم بخوانید، نشان می‌دهد Vite مبتنی بر Rolldown هنوز کجاها ناهموار است: ادغام کانفیگ، حالت تجربی bundled dev و optimizer وابستگی‌ها.

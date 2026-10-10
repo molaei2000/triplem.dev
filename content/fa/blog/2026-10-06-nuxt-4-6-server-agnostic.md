@@ -4,7 +4,7 @@ description: "Nuxt 4.6 سطح import به نام nuxt/server، سشن با کو�
 date: 2026-10-06
 cover: /images/blog/2026-10-06-nuxt-4-6-server-agnostic.svg
 tags: [nuxt, nitro, typescript, vapor]
-draft: true
+draft: false
 ---
 
 Nuxt 4.6 بیشتر یک آماده‌سازی برای Nuxt 5 است تا یک انتشار پر از قابلیت. [اعلامیهٔ رسمی](https://nuxt.com/blog/v4-6) آن را حول یک ایده روایت می‌کند: کد سرور نباید به جزئیات h3 و Nitro وابسته بماند. در کنار این ایده، سشن‌ها، بازنویسی `$fetch` تایپ‌شده، سازگاری با Vue Vapor و یک CLI جدید آمده است. صفحهٔ انتشار در GitHub تاریخ ۵ اکتبر را نشان می‌دهد؛ خود پست وبلاگ تاریخ مشخصی ندارد، پس من هم تاریخ دقیقی تثبیت نمی‌کنم.

@@ -4,7 +4,7 @@ description: "از Nuxt 4.5 گزینهٔ enabled واکشی اولیه، refresh
 date: 2026-10-09
 cover: /images/blog/2026-10-09-nuxt-enabled-option.svg
 tags: [nuxt, pro-tip, data-fetching]
-draft: true
+draft: false
 ---
 
 در ۷۲ ساعت گذشته چیز مهمی منتشر نشد که پست‌های قبلی پوشش نداده باشند، پس امروز یک نکتهٔ حرفه‌ای داریم. موضوع گزینه‌ای کوچک است که یک خانواده از ترفندهای واکشی شرطی را حذف می‌کند: `enabled`. همهٔ مطالب زیر با مستندات فعلی Nuxt 4 برای [`useAsyncData`](https://nuxt.com/docs/4.x/api/composables/use-async-data) و [`useFetch`](https://nuxt.com/docs/4.x/api/composables/use-fetch) تطبیق داده شده است. مستندات `enabled` را از نسخهٔ v4.5 علامت زده‌اند، پس اول نسخهٔ خود را بررسی کنید.

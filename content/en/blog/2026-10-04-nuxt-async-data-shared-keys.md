@@ -4,7 +4,7 @@ description: "Same key means shared data, error and status refs in Nuxt. Learn w
 date: 2026-10-04
 cover: /images/blog/2026-10-04-nuxt-async-data-shared-keys.svg
 tags: [nuxt, pro-tip, data-fetching]
-draft: true
+draft: false
 ---
 
 Nothing substantive shipped in the last 72 hours that we hadn't already covered, so today is a pro tip. It concerns the one thing in Nuxt data fetching that bites teams only after the app grows: **a key is not a label, it is an identity**. Every call with the same key is the same piece of state.

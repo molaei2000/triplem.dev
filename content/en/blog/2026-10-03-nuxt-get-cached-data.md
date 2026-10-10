@@ -4,7 +4,7 @@ description: "Nuxt data fetching only reuses cached data during hydration by def
 date: 2026-10-03
 cover: /images/blog/2026-10-03-nuxt-get-cached-data.svg
 tags: [nuxt, data-fetching, pro-tip]
-draft: true
+draft: false
 ---
 
 Nothing substantive landed in the last 72 hours that fit this blog's focus, so today is a pro tip. The topic is a common surprise in Nuxt data fetching: you call `useFetch` for the same resource in two places, or navigate away and back, and the request fires again. Whether it does depends on three things you control: the key, the `getCachedData` option, and the `dedupe` policy.

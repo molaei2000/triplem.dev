@@ -4,7 +4,7 @@ description: "Node.js 26.11.0 گزینه‌ی --process-timeout و http.isValidH
 date: 2026-10-10
 cover: /images/blog/2026-10-10-node-26-11-process-timeout.svg
 tags: [node, tooling, ci]
-draft: true
+draft: false
 ---
 
 Node.js 26.11.0 در ۷ اکتبر روی خط Current منتشر شد. این یک انتشار minor است و قابلیت شاخص واحدی ندارد، اما سه تغییرش به چیزهایی مربوط است که تیم‌های فرانت‌اند هر روز اجرا می‌کنند: یک محدودیت زمانی سخت برای کل پروسه، اعتبارسنج‌های هدر که به‌جای پرتاب خطا مقدار boolean برمی‌گردانند، و `process.ref()`/`process.unref()` پایدار. نسخه‌ی 26.11.1 هم همان روز آمد. طبق فهرست commitهایش فقط یک تغییر بیلد مربوط به بازطراحی مستندات و دو commit ابزاری را برمی‌گرداند، پس خود runtime مثل 26.11.0 است ([یادداشت 26.11.1](https://nodejs.org/en/blog/release/v26.11.1)).

@@ -4,7 +4,7 @@ description: "در Cache Components جای await روی params، cookies() یا 
 date: 2026-10-05
 cover: /images/blog/2026-10-05-nextjs-push-awaits-down-static-shell.svg
 tags: [next.js, pro-tip, caching]
-draft: true
+draft: false
 ---
 
 در ۷۲ ساعت گذشته چیز مهمی منتشر نشد که قبلاً پوشش نداده باشیم، پس امروز یک نکتهٔ حرفه‌ای داریم و این بار نوبت Next.js است. همهٔ مطالب زیر با مستندات فعلی Next.js 16.3.x دربارهٔ [caching](https://nextjs.org/docs/app/getting-started/caching) و [`use cache`](https://nextjs.org/docs/app/api-reference/directives/use-cache) تطبیق داده شده است.

@@ -77,7 +77,7 @@ jobs:
                          date: ${{ env.TODAY }}
                          cover: /images/blog/${{ env.TODAY }}-<topic>.svg
                          tags: [<lowercase-kebab-tags>]
-                         draft: true
+                         draft: false
                          ---
                          Body: no H1, because the title comes from frontmatter. 800-1200 words covering
                          what changed or what the tip is, why it matters, concrete code examples,
@@ -148,6 +148,6 @@ jobs:
                     COVER="![cover](https://github.com/${GITHUB_REPOSITORY}/blob/blog/${TODAY}/public/images/blog/${SLUG}.png?raw=true)"
                   fi
                   BODY=$(printf '%s\n\n%s\n\n%s' \
-                    "Automated daily post for ${TODAY} (en + fa), committed as draft: true. Check the sources, the Persian translation and the cover, then set draft: false in both files when you want it published." \
+                    "Automated daily post for ${TODAY} (en + fa), committed as draft: false. Check the sources, the Persian translation and the cover, then set draft: false in both files when you want it published." \
                     "$COVER" "$COVER_NOTE")
                   gh pr create --title "📰 ${TITLE:-Daily post ${TODAY}}" --body "$BODY"

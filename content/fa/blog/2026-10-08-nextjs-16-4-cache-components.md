@@ -4,7 +4,7 @@ description: "Next.js 16.4 استفاده از Cache Components را برای ه
 date: 2026-10-08
 cover: /images/blog/2026-10-08-nextjs-16-4-cache-components.svg
 tags: [next.js, caching, turbopack]
-draft: true
+draft: false
 ---
 
 [Next.js 16.4](https://nextjs.org/blog/next-16-4) در ۶ اکتبر منتشر شد. نکتهٔ اصلی آن یک قابلیت تکی نیست، بلکه تغییر موضع است: تیم Next.js اکنون Cache Components را برای همهٔ اپ‌ها توصیه می‌کند، می‌گوید در Next.js 17 پیش‌فرض می‌شود و برای هر پروژه‌ای که با `create-next-app` ساخته شود از همین حالا فعال است. این نسخه همچنین مواردی را اضافه می‌کند که به گفتهٔ خودشان پیش از این، مانع توصیهٔ همگانی بودند.

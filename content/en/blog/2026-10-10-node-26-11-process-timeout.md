@@ -4,7 +4,7 @@ description: "Node.js 26.11.0 adds --process-timeout, http.isValidHeaderName and
 date: 2026-10-10
 cover: /images/blog/2026-10-10-node-26-11-process-timeout.svg
 tags: [node, tooling, ci]
-draft: true
+draft: false
 ---
 
 Node.js 26.11.0 landed on October 7 on the Current line. It is a minor release, so there is no single headline feature, but three of its changes touch things front-end teams run every day: a hard wall-clock limit for the whole process, header validators that return booleans instead of throwing, and a stable `process.ref()`/`process.unref()`. A follow-up 26.11.1 shipped the same day. By its commit list it only reverts a documentation-redesign build change and two tooling commits, so the runtime is the same as in 26.11.0 ([26.11.1 notes](https://nodejs.org/en/blog/release/v26.11.1)).

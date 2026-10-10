@@ -4,7 +4,7 @@ description: "Vite 8.3.3 shipped on October 6 after a feature-rich 8.3.0. What c
 date: 2026-10-07
 cover: /images/blog/2026-10-07-vite-8-3-patch-stream.svg
 tags: [vite, tooling, rolldown]
-draft: true
+draft: false
 ---
 
 Vite 8.3.3 landed on October 6. On its own it is a four-fix patch, but it closes a month in which the 8.3 line went from a feature release (8.3.0, September 10) through three patches. Read together, the [changelog](https://raw.githubusercontent.com/vitejs/vite/main/packages/vite/CHANGELOG.md) shows where a Rolldown-based Vite still has rough edges: config merging, the experimental bundled dev mode, and the dependency optimizer.

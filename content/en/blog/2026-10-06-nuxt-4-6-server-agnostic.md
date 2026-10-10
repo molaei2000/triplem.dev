@@ -4,7 +4,7 @@ description: "Nuxt 4.6 adds the nuxt/server import surface, sealed-cookie sessio
 date: 2026-10-06
 cover: /images/blog/2026-10-06-nuxt-4-6-server-agnostic.svg
 tags: [nuxt, nitro, typescript, vapor]
-draft: true
+draft: false
 ---
 
 Nuxt 4.6 is less a feature release than a preparation for Nuxt 5. The [official announcement](https://nuxt.com/blog/v4-6) frames it around one idea: server code should stop depending on h3 and Nitro specifics. Around that sit sessions, a rebuilt typed `$fetch`, Vue Vapor interop and a new CLI. The GitHub release page lists it with a date of October 5; the blog post itself doesn't state a date, so I'm not pinning one down here.
