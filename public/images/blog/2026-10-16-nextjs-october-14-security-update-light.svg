@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#8e887d" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<path d="M170 315H300" stroke="#57534b" stroke-width="2.5"/>
+<path d="M288 303L300 315L288 327" stroke="#57534b" stroke-width="2.5"/>
+<rect x="140" y="285" width="30" height="60" rx="8" fill="#fbf8f2" stroke="#57534b" stroke-width="2"/>
+<rect x="300" y="150" width="130" height="330" rx="14" fill="#fbf8f2" stroke="#1b1a17" stroke-width="2.5"/>
+<rect x="470" y="150" width="130" height="330" rx="14" fill="#fbf8f2" stroke="#1b1a17" stroke-width="2.5"/>
+<rect x="640" y="150" width="130" height="330" rx="14" fill="#fbf8f2" stroke="#8f6f2e" stroke-width="3"/>
+<rect x="810" y="150" width="130" height="330" rx="14" fill="#fbf8f2" stroke="#1b1a17" stroke-width="2.5"/>
+<g fill="#8e887d"><rect x="326" y="185" width="78" height="8" rx="4"/><rect x="326" y="205" width="48" height="8" rx="4"/><rect x="496" y="185" width="78" height="8" rx="4"/><rect x="496" y="205" width="56" height="8" rx="4"/><rect x="666" y="185" width="78" height="8" rx="4"/><rect x="666" y="205" width="40" height="8" rx="4"/><rect x="836" y="185" width="78" height="8" rx="4"/><rect x="836" y="205" width="52" height="8" rx="4"/></g>
+<path d="M430 315H470M600 315H640" stroke="#57534b" stroke-width="2.5" stroke-dasharray="3 6"/>
+<path d="M705 245V385M670 315H740" stroke="#8f6f2e" stroke-width="4"/>
+<path d="M770 315H810" stroke="#57534b" stroke-width="2.5"/>
+<path d="M940 315H1010" stroke="#57534b" stroke-width="2.5" stroke-dasharray="3 6"/>
+<circle cx="1040" cy="315" r="30" stroke="#57534b" stroke-width="2.5"/>
+<path d="M1026 315L1036 325L1054 303" stroke="#57534b" stroke-width="2.5"/>
+<path d="M300 520H1070M300 514V526M470 514V526M640 514V526M810 514V526M940 514V526" stroke="#8e887d" stroke-width="1.5"/>
+<path d="M150 110H260M150 110V140" stroke="#8e887d" stroke-width="1.5"/>
+</svg>
