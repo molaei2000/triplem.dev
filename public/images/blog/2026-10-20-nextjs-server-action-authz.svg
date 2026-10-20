@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#6f6b63" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<rect x="160" y="150" width="320" height="330" rx="14" fill="#191916" stroke="#a6a298" stroke-width="2.5"/>
+<rect x="190" y="180" width="140" height="22" rx="8" fill="#6f6b63" fill-opacity="0.5"/>
+<rect x="190" y="230" width="260" height="22" rx="8" fill="#6f6b63" fill-opacity="0.35"/>
+<rect x="190" y="400" width="120" height="44" rx="10" stroke="#f2efe8" stroke-width="2.5"/>
+<path d="M480 380H560" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="4 6"/>
+<path d="M480 300H640" stroke="#f2efe8" stroke-width="3"/>
+<path d="M630 290L640 300L630 310" stroke="#f2efe8" stroke-width="3"/>
+<path d="M740 230V370" stroke="#c8a45c" stroke-width="4"/>
+<rect x="700" y="250" width="80" height="100" rx="12" fill="#121210" stroke="#c8a45c" stroke-width="4"/>
+<circle cx="740" cy="290" r="9" stroke="#c8a45c" stroke-width="3"/>
+<path d="M740 299V320" stroke="#c8a45c" stroke-width="3"/>
+<path d="M780 300H900" stroke="#f2efe8" stroke-width="3"/>
+<ellipse cx="960" cy="260" rx="60" ry="20" fill="#191916" stroke="#a6a298" stroke-width="2.5"/>
+<path d="M900 260V340C900 351 927 360 960 360S1020 351 1020 340V260" stroke="#a6a298" stroke-width="2.5"/>
+<path d="M900 300C900 311 927 320 960 320S1020 311 1020 300" stroke="#a6a298" stroke-width="2" opacity="0.6"/>
+</svg>
