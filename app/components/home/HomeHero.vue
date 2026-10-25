@@ -35,6 +35,14 @@ function reset() {
     selected.value = -1;
     stage.value?.reset();
 }
+
+// Mobile shows the mark as an ambient wave with no controls, so drop any desktop state.
+watch(isDesktop, (desktop) => {
+    if (!desktop) {
+        hover.value = -1;
+        reset();
+    }
+});
 </script>
 
 <template>
@@ -76,7 +84,8 @@ function reset() {
             </h1>
             <p class="sr-only">{{ t("hero.srSummary") }}</p>
 
-            <!-- 3D stage: full-bleed on mobile, right half on desktop. z-20 keeps it above the
+            <!-- 3D stage: full-bleed ambient wave on mobile (touches scroll the page), interactive
+                 right half on desktop. z-20 keeps it above the
                  z-10 headline and controls but below the z-50 fixed header and its menu. -->
             <div
                 aria-hidden="true"
@@ -88,6 +97,7 @@ function reset() {
                         :split="split"
                         :selected="selected"
                         :distance="isDesktop ? 9 : 10"
+                        :ambient="!isDesktop"
                         @hover="hover = $event"
                         @tap="onTap"
                     />
@@ -112,7 +122,7 @@ function reset() {
                 />
                 <HeroControls
                     v-model:split="split"
-                    class="col-span-4 md:order-3 md:col-span-2 md:justify-self-end"
+                    class="col-span-4 max-md:hidden md:order-3 md:col-span-2 md:justify-self-end"
                     @reset="reset"
                 />
                 <UiButton

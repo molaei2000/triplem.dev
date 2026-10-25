@@ -122,6 +122,7 @@ let hovered = -1;
 let yaw = 0;
 let pitch = 0;
 let split = 0;
+let wave = 0;
 
 onBeforeRender(({ delta, elapsed }) => {
     if (!meshes.length) return;
@@ -139,6 +140,7 @@ onBeforeRender(({ delta, elapsed }) => {
         inp.dragPitch *= 0.97;
     }
     split = ease(split, inp.split ? 1 : 0, 0.07);
+    wave = ease(wave, inp.wave && !props.reduced ? 1 : 0, 0.03);
     const sway = props.reduced || !inp.touch ? 0 : Math.sin(elapsed * 0.35) * 0.22;
     yaw = ease(yaw, sway + inp.px * 0.3 + inp.dragYaw + split * 0.7, 0.08);
     pitch = ease(pitch, -inp.py * 0.18 + inp.dragPitch + split * 0.14, 0.08);
@@ -171,15 +173,18 @@ onBeforeRender(({ delta, elapsed }) => {
         lift[i] = ease(lift[i]!, active === i ? 1 : 0, 0.12);
         dim[i] = ease(dim[i]!, active >= 0 && active !== i ? 1 : 0, 0.1);
         const float = props.reduced ? 0 : Math.sin(elapsed * 0.9 + i * 1.7) * 0.045;
+        // Ambient wave: a crest travels left to right, each slash a beat behind the last.
+        const phase = Math.sin(elapsed * 1.5 - i * 0.9);
+        const crest = wave * k3 * Math.max(0, phase) ** 2;
         // Parent is rotated +90° on X: world +z (toward camera) = local +y, world +y = local -z.
-        const towardCamera = (i - 1) * 1.35 * split + lift[i]! * 0.4;
-        const up = float - (1 - k3) * 1.4;
+        const towardCamera = (i - 1) * 1.35 * split + lift[i]! * 0.4 + crest * 0.35;
+        const up = float * (1 - wave) + wave * k3 * phase * 0.3 - (1 - k3) * 1.4;
         mesh.position.y = base[i]!.y + towardCamera;
         mesh.position.z = base[i]!.z - up;
         const m = mats[i]!;
         tmp.copy(m.userData.base as Color).multiplyScalar(1 - 0.45 * dim[i]! - 0.4 * (1 - k3));
         m.color.copy(tmp);
-        m.emissive.copy(m.userData.base as Color).multiplyScalar(0.06 * lift[i]!);
+        m.emissive.copy(m.userData.base as Color).multiplyScalar(0.06 * lift[i]! + 0.08 * crest);
     });
 });
 

@@ -21,6 +21,8 @@ export interface SlashInput {
     selected: number;
     /** coarse pointer: enables idle sway */
     touch: boolean;
+    /** ambient mode (no pointer input): the slashes ride a slow wave */
+    wave: boolean;
     distance: number;
 }
 
@@ -38,6 +40,7 @@ export function createSlashInput(distance = 9): SlashInput {
         split: false,
         selected: -1,
         touch: false,
+        wave: false,
         distance,
     };
 }

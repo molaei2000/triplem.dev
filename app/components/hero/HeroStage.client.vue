@@ -2,14 +2,21 @@
 /**
  * DOM side of the 3D hero: owns the canvas, translates pointer/touch into the
  * shared input bag, pauses rendering off-screen, and falls back to the static
- * mark when WebGL is unavailable. The scene itself is decorative (aria-hidden);
+ * mark when WebGL is unavailable. With `ambient` it ignores the pointer entirely
+ * (touches fall through, so the page scrolls) and the slashes ride a wave
+ * instead. The scene itself is decorative (aria-hidden);
  * the readout and buttons in HomeHero carry the meaning for assistive tech.
  */
 import { TresCanvas } from "@tresjs/core";
 import { ACESFilmicToneMapping } from "three";
 import { createSlashInput } from "~/lib/slash-input";
 
-const props = defineProps<{ split: boolean; selected: number; distance?: number }>();
+const props = defineProps<{
+    split: boolean;
+    selected: number;
+    distance?: number;
+    ambient?: boolean;
+}>();
 const emit = defineEmits<{ hover: [index: number]; tap: [index: number] }>();
 
 const { isDark } = useTheme();
@@ -24,6 +31,13 @@ input.touch = import.meta.client && matchMedia("(pointer: coarse)").matches;
 watchEffect(() => {
     input.split = props.split;
     input.selected = props.selected;
+    input.wave = props.ambient;
+    if (props.ambient) {
+        input.inside = false;
+        input.dragging = false;
+        input.px = 0;
+        input.py = 0;
+    }
 });
 
 const webgl = shallowRef(true);
@@ -116,7 +130,12 @@ defineExpose({
 <template>
     <div
         ref="el"
-        class="relative size-full cursor-grab touch-pan-y select-none active:cursor-grabbing"
+        class="relative size-full select-none"
+        :class="
+            ambient
+                ? 'pointer-events-none *:pointer-events-none!'
+                : 'cursor-grab touch-pan-y active:cursor-grabbing'
+        "
         @pointerenter="onEnter"
         @pointerleave="onLeave"
         @pointerdown="onDown"
