@@ -263,6 +263,7 @@ Senior front-end engineer. Skip beginner explanations; focus on what changed, wh
 - Listicles, SEO content farms, "top 10" posts
 - Generic productivity advice
 - Framework hype without technical substance
+- Release candidates (RC): don't write an article about an RC; wait for the stable release
 - Pure funding, acquisition, or company news without engineering relevance
 - AI hype without concrete workflow or technical evidence
 - Benchmarks without methodology
