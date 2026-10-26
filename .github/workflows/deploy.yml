@@ -1,0 +1,72 @@
+name: Deploy
+
+# Every push to Main (merged PRs included) builds the production image on the runner and ships it
+# to the server with scripts/deploy.sh. The server can't build or pull anything itself (see
+# CLAUDE.md), so the runner plays the part of the local machine.
+#
+# Repository secrets:
+#   DEPLOY_SSH_KEY      private key the server accepts for root (the contents of ~/.ssh/triplem-dev)
+#   DEPLOY_KNOWN_HOSTS  the server's host key line(s), from `ssh-keygen -F 94.184.41.181`
+#
+# /opt/triplem/.env must already exist on the server: the runner has no .env to upload.
+
+on:
+    push:
+        branches: [Main]
+        paths-ignore:
+            - "CLAUDE.md"
+            - "README.md"
+            - ".github/blog-cover.md"
+            - ".github/workflows/daily-article.yml"
+            - ".claude/**"
+            - ".agents/**"
+    workflow_dispatch:
+
+# One deploy at a time; a newer push waits for the running one instead of cancelling it halfway
+# through a container restart.
+concurrency:
+    group: deploy
+    cancel-in-progress: false
+
+permissions:
+    contents: read
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        environment:
+            name: production
+            url: https://triplem.dev
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: docker/setup-buildx-action@v3
+
+            - name: Build image
+              uses: docker/build-push-action@v6
+              with:
+                  context: .
+                  tags: triplem.dev:latest
+                  load: true
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max
+
+            - name: Configure SSH
+              env:
+                  DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+                  DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+              run: |
+                  install -d -m 700 ~/.ssh
+                  printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/triplem-dev
+                  chmod 600 ~/.ssh/triplem-dev
+                  printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+            - name: Ship to server
+              env:
+                  SKIP_BUILD: "1"
+              run: bash scripts/deploy.sh
+
+            - name: Remove SSH key
+              if: always()
+              run: rm -f ~/.ssh/triplem-dev
