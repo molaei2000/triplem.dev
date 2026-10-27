@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#8e887d"/>
+    </pattern>
+  </defs>
+  <rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.4"/>
+  <rect x="400" y="130" width="400" height="80" rx="10" fill="#fbf8f2" stroke="#57534b" stroke-width="2.5"/>
+  <rect x="360" y="250" width="480" height="80" rx="10" fill="#fbf8f2" stroke="#57534b" stroke-width="2.5"/>
+  <rect x="320" y="370" width="560" height="80" rx="10" fill="#fbf8f2" stroke="#1b1a17" stroke-width="2.5"/>
+  <path d="M430 170h100M390 290h140M350 410h160" stroke="#57534b" stroke-width="3" opacity="0.7"/>
+  <path d="M160 300H300M300 300L345 290" stroke="#8e887d" stroke-width="2"/>
+  <path d="M160 340H1040" stroke="#8e887d" stroke-width="1.5" stroke-dasharray="6 10" opacity="0.6"/>
+  <path d="M600 110V250" stroke="#1b1a17" stroke-width="2.5"/>
+  <circle cx="600" cy="290" r="26" fill="#eae5da" stroke="#8f6f2e" stroke-width="4"/>
+  <path d="M588 290l9 9 16-18" stroke="#8f6f2e" stroke-width="4"/>
+  <path d="M600 330V370M600 450V520" stroke="#1b1a17" stroke-width="2.5"/>
+  <path d="M940 160H1040M940 200H1020M940 240H1040" stroke="#8e887d" stroke-width="2" opacity="0.7"/>
+</svg>
