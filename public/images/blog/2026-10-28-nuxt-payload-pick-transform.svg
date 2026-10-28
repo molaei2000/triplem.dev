@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#6f6b63" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<rect x="160" y="140" width="380" height="350" rx="14" fill="#191916" stroke="#f2efe8" stroke-width="2.5"/>
+<rect x="190" y="175" width="200" height="12" rx="6" fill="#c8a45c"/>
+<rect x="190" y="215" width="260" height="12" rx="6" fill="#c8a45c"/>
+<rect x="190" y="255" width="300" height="10" rx="5" fill="#6f6b63"/>
+<rect x="190" y="290" width="240" height="10" rx="5" fill="#6f6b63"/>
+<rect x="190" y="325" width="310" height="10" rx="5" fill="#6f6b63"/>
+<rect x="190" y="360" width="180" height="10" rx="5" fill="#6f6b63"/>
+<rect x="190" y="395" width="280" height="10" rx="5" fill="#6f6b63"/>
+<rect x="190" y="430" width="220" height="10" rx="5" fill="#6f6b63"/>
+<path d="M560 181L760 221M560 221L760 261" stroke="#c8a45c" stroke-width="3"/>
+<path d="M560 260L640 300M560 330L640 310M560 400L640 320" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="6 8"/>
+<path d="M640 285V345" stroke="#a6a298" stroke-width="2.5"/>
+<rect x="760" y="185" width="260" height="130" rx="14" fill="#191916" stroke="#f2efe8" stroke-width="2.5"/>
+<rect x="790" y="215" width="140" height="12" rx="6" fill="#c8a45c"/>
+<rect x="790" y="255" width="190" height="12" rx="6" fill="#c8a45c"/>
+<path d="M760 385H1020M760 375V395M890 375V395M1020 375V395" stroke="#a6a298" stroke-width="1.5"/>
+</svg>
