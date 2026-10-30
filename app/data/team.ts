@@ -39,13 +39,13 @@ export const CORE_TEAM: TeamMember[] = [
     {
         id: "mohammadMahdi",
         role: "frontend",
-        photo: { src: "/images/about/portrait.webp", width: 1200, height: 1500 },
+        photo: { src: "/images/team/mohammad-mahdi.webp", width: 600, height: 800 },
         page: "/about",
     },
     {
         id: "mohammadReza",
         role: "fullstack",
-        photo: { src: "/images/team/mohammad-reza.webp", width: 303, height: 404 },
+        photo: { src: "/images/team/mohammad-reza.webp", width: 600, height: 800 },
     },
 ];
 
