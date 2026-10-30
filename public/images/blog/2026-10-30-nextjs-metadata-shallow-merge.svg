@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#6f6b63" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<rect x="150" y="150" width="320" height="330" rx="16" fill="#191916" stroke="#f2efe8" stroke-width="3"/>
+<rect x="190" y="195" width="240" height="22" rx="11" fill="#a6a298" fill-opacity="0.7"/>
+<rect x="190" y="250" width="180" height="22" rx="11" fill="#a6a298" fill-opacity="0.7"/>
+<rect x="190" y="305" width="220" height="22" rx="11" fill="#a6a298" fill-opacity="0.7"/>
+<rect x="190" y="360" width="140" height="22" rx="11" fill="#a6a298" fill-opacity="0.7"/>
+<rect x="190" y="415" width="200" height="22" rx="11" fill="#a6a298" fill-opacity="0.7"/>
+<path d="M500 315H700" stroke="#6f6b63" stroke-width="2" stroke-dasharray="4 8"/>
+<path d="M670 290L700 315L670 340" stroke="#a6a298" stroke-width="2.5"/>
+<rect x="730" y="150" width="320" height="330" rx="16" fill="#191916" stroke="#f2efe8" stroke-width="3"/>
+<rect x="770" y="195" width="240" height="22" rx="11" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+<rect x="770" y="250" width="180" height="22" rx="11" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+<rect x="770" y="305" width="220" height="22" rx="11" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+<rect x="770" y="360" width="140" height="22" rx="11" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+<rect x="770" y="415" width="200" height="22" rx="11" fill="#c8a45c" stroke="#c8a45c" stroke-width="4"/>
+</svg>
