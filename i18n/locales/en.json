@@ -150,7 +150,7 @@
             "idleTouch": {
                 "num": "///",
                 "name": "Three slashes, three people",
-                "desc": "Tap a slash to see who it stands for."
+                "desc": "One slash per person. The cards below show who."
             }
         },
         "slash": ["/ 01 — Left slash", "/ 02 — Gold slash", "/ 03 — Right slash"],

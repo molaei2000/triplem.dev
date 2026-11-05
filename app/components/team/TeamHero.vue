@@ -3,8 +3,9 @@
  * Team header: the 3D /// mark, where each slash is one of the three Ms.
  * `active` (a slash index, -1 for none) drives the readout; `selected` lights
  * a slash in the scene (the parent sets it while a core card is hovered or a
- * slash was tapped). The scene is decorative: the readout and the cards below
- * carry the content.
+ * slash was tapped). On mobile the mark is an ambient wave that ignores touch,
+ * so the page scrolls over it. The scene is decorative: the readout and the
+ * cards below carry the content.
  */
 import { CORE_TEAM } from "~/data/team";
 
@@ -65,6 +66,7 @@ const readout = computed(() => {
                         :split="false"
                         :selected="selected"
                         :distance="isDesktop ? 9 : 10"
+                        :ambient="!isDesktop"
                         @hover="emit('hover', $event)"
                         @tap="emit('tap', $event)"
                     />
