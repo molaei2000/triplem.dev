@@ -264,6 +264,7 @@ Senior front-end engineer. Skip beginner explanations; focus on what changed, wh
 - Generic productivity advice
 - Framework hype without technical substance
 - Release candidates (RC): don't write an article about an RC; wait for the stable release
+- Patch releases: don't write an article about a patch release; focus on the stable minor/major release instead
 - Pure funding, acquisition, or company news without engineering relevance
 - AI hype without concrete workflow or technical evidence
 - Benchmarks without methodology
