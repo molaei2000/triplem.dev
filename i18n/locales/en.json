@@ -398,6 +398,7 @@
         "filter": "Filter by topic",
         "allTags": "All",
         "count": "Showing {n} of {total}",
+        "countRange": "Showing {from}–{to} of {total}",
         "empty": "No posts match that yet.",
         "clear": "Clear search and filters",
         "none": "The first posts are on their way.",
@@ -412,7 +413,18 @@
         "older": "Older post",
         "copyCode": "Copy",
         "copiedCode": "Copied",
-        "indexLabel": "Blog / Index"
+        "indexLabel": "Blog / Index",
+        "pagination": {
+            "label": "Blog pages",
+            "newer": "Newer",
+            "older": "Older",
+            "newerPosts": "Newer posts",
+            "olderPosts": "Older posts",
+            "page": "Page {n}",
+            "status": "Page {n} of {total}",
+            "more": "More pages",
+            "title": "{title} · Page {n}"
+        }
     },
     "contact": {
         "label": "06 / Contact",

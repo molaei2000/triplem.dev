@@ -32,6 +32,32 @@ export function useBlogPosts(limit?: number) {
     );
 }
 
+/** Posts per page on the blog index. */
+export const BLOG_PAGE_SIZE = 10;
+
+/**
+ * Pages a list of posts by the `?page=` query, so every page has its own URL: it renders on
+ * the server, gets its own canonical link and history entry, and crawlers can follow it.
+ * A missing, invalid or out-of-range page falls back to the nearest real one.
+ */
+export function useBlogPagination(posts: Ref<BlogPostItem[]>, size = BLOG_PAGE_SIZE) {
+    const route = useRoute();
+    const pages = computed(() => Math.max(1, Math.ceil(posts.value.length / size)));
+    const page = computed(() => {
+        const n = Number(route.query.page);
+        return Number.isInteger(n) ? Math.min(Math.max(n, 1), pages.value) : 1;
+    });
+    const start = computed(() => (page.value - 1) * size);
+    const items = computed(() => posts.value.slice(start.value, start.value + size));
+
+    /** The route for page `n`; page 1 drops the query so it stays plain `/blog`. */
+    function pageRoute(n: number) {
+        return { query: { ...route.query, page: n > 1 ? String(n) : undefined } };
+    }
+
+    return { page, pages, start, items, size, pageRoute };
+}
+
 /**
  * The files derived from a cover by `scripts/blog-cover.mjs`: the dark original, its
  * light-theme twin and the 1200×630 Open Graph PNG.

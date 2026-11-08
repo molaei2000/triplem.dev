@@ -3,7 +3,8 @@ import { MotionConfig } from "motion-v";
 import meta from "~/app.meta";
 
 const { isDark } = useTheme();
-const i18nHead = useLocaleHead({ seo: true });
+// `page` stays in canonical/alternate links so each /blog?page=N is indexed as its own page.
+const i18nHead = useLocaleHead({ seo: { canonicalQueries: ["page"] } });
 
 useHead(() => ({
     htmlAttrs: {

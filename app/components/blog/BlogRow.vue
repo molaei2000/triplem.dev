@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { BlogPostItem } from "~/composables/useBlog";
 
-const props = defineProps<{ post: BlogPostItem; index: number; full?: boolean }>();
+/** `index` is the post's position in the whole list (its number); `first` marks the top row. */
+const props = defineProps<{ post: BlogPostItem; index: number; first?: boolean; full?: boolean }>();
 const { t } = useI18n();
 const fmt = useBlogFormat();
-const first = computed(() => props.index === 0);
 const number = computed(() => String(props.index + 1).padStart(2, "0"));
+const published = computed(() => new Date(props.post.date).toISOString());
 </script>
 
 <template>
@@ -18,7 +19,10 @@ const number = computed(() => String(props.index + 1).padStart(2, "0"));
             class="eyebrow col-span-4 md:col-span-1"
             :class="first ? 'text-gold' : 'text-subtle group-hover:text-gold'"
         >
-            {{ number }}<span class="md:hidden"> · {{ fmt.date(post.date) }}</span>
+            {{ number
+            }}<span class="md:hidden">
+                · <time :datetime="published">{{ fmt.date(post.date, true) }}</time></span
+            >
         </span>
         <BlogCover
             :src="post.cover"
@@ -46,7 +50,7 @@ const number = computed(() => String(props.index + 1).padStart(2, "0"));
             }}</span>
         </span>
         <span class="hidden flex-col gap-1 text-[15px] text-subtle md:col-span-2 md:flex">
-            <span>{{ fmt.date(post.date) }}</span>
+            <time :datetime="published">{{ fmt.date(post.date, true) }}</time>
             <span>{{ fmt.read(post.minutes) }}</span>
         </span>
         <SiteArrow
