@@ -6,7 +6,7 @@ Built with [Nuxt 4](https://nuxt.com), [Nuxt Content](https://content.nuxt.com),
 
 ## Getting started
 
-Requirements: Node `^22.21.1` and pnpm (version pinned in `package.json` → `packageManager`).
+Requirements: Node `^22.22.3 || ^24.15.0 || >=26.0.0` (Nuxt 4.6's floor) and pnpm (version pinned in `package.json` → `packageManager`).
 
 ```bash
 pnpm install    # also runs `nuxt prepare` (types + ESLint config)

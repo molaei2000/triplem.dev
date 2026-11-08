@@ -8,7 +8,7 @@ Personal website for Mohammad Mahdi Molaei (triplem.dev), built on Nuxt 4. Bilin
 
 ## Commands
 
-Package manager is **pnpm** (see `packageManager` in `package.json`); Node `^22.21.1`.
+Package manager is **pnpm** (see `packageManager` in `package.json`); Node `^22.22.3 || ^24.15.0 || >=26.0.0` (the floor set by Nuxt 4.6).
 
 ```bash
 pnpm install        # also runs `nuxt prepare` (generates .nuxt/ types and eslint config)
