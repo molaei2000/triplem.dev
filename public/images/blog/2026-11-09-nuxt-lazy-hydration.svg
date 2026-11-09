@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#6f6b63" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<rect x="400" y="130" width="400" height="370" rx="16" fill="#191916" stroke="#a6a298" stroke-width="2.5"/>
+<path d="M400 290H800" stroke="#c8a45c" stroke-width="3" stroke-dasharray="3 12"/>
+<rect x="430" y="160" width="340" height="40" rx="8" fill="#121210" stroke="#f2efe8" stroke-width="2.5"/>
+<rect x="430" y="220" width="340" height="40" rx="8" fill="#121210" stroke="#f2efe8" stroke-width="2.5"/>
+<rect x="430" y="320" width="340" height="50" rx="8" fill="#121210" stroke="#c8a45c" stroke-width="4"/>
+<rect x="430" y="390" width="340" height="40" rx="8" fill="#121210" stroke="#6f6b63" stroke-width="2" stroke-dasharray="6 8"/>
+<rect x="450" y="175" width="120" height="10" rx="5" fill="#f2efe8"/>
+<rect x="450" y="235" width="170" height="10" rx="5" fill="#f2efe8"/>
+<rect x="450" y="338" width="150" height="10" rx="5" fill="#c8a45c"/>
+<rect x="450" y="405" width="110" height="10" rx="5" fill="#6f6b63"/>
+<path d="M850 160V470M835 175L850 160L865 175" stroke="#a6a298" stroke-width="2"/>
+<circle cx="850" cy="290" r="9" fill="#c8a45c" stroke="#c8a45c" stroke-width="2"/>
+<path d="M190 180H370M190 240H370M190 345H370M190 410H370" stroke="#6f6b63" stroke-width="1.5" stroke-dasharray="6 8"/>
+<path d="M370 180L410 180M370 240L410 240" stroke="#f2efe8" stroke-width="2.5"/>
+<path d="M370 345L410 345" stroke="#c8a45c" stroke-width="3"/>
+</svg>
