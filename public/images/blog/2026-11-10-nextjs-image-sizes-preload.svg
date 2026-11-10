@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#6f6b63"/>
+    </pattern>
+  </defs>
+  <rect x="120" y="90" width="960" height="450" fill="url(#dots)" opacity="0.4"/>
+
+  <!-- viewport with three columns -->
+  <rect x="140" y="150" width="440" height="320" rx="10" fill="#191916" stroke="#f2efe8" stroke-width="3"/>
+  <line x1="140" y1="190" x2="580" y2="190" stroke="#a6a298" stroke-width="1.5"/>
+  <circle cx="165" cy="170" r="5" stroke="#a6a298" stroke-width="1.5"/>
+  <circle cx="185" cy="170" r="5" stroke="#a6a298" stroke-width="1.5"/>
+  <rect x="165" y="215" width="120" height="90" rx="6" stroke="#a6a298" stroke-width="2"/>
+  <rect x="300" y="215" width="120" height="90" rx="6" stroke="#a6a298" stroke-width="2"/>
+  <rect x="435" y="215" width="120" height="90" rx="6" stroke="#c8a45c" stroke-width="4"/>
+  <path d="M445 295 L470 262 L490 282 L505 266 L545 295" stroke="#c8a45c" stroke-width="2.5"/>
+  <rect x="165" y="330" width="90" height="8" rx="4" fill="#6f6b63"/>
+  <rect x="300" y="330" width="90" height="8" rx="4" fill="#6f6b63"/>
+  <rect x="435" y="330" width="90" height="8" rx="4" fill="#6f6b63"/>
+  <rect x="165" y="360" width="120" height="70" rx="6" stroke="#6f6b63" stroke-width="1.5"/>
+  <rect x="300" y="360" width="120" height="70" rx="6" stroke="#6f6b63" stroke-width="1.5"/>
+  <rect x="435" y="360" width="120" height="70" rx="6" stroke="#6f6b63" stroke-width="1.5"/>
+
+  <!-- dimension line under the viewport: full width vs one third -->
+  <line x1="140" y1="505" x2="580" y2="505" stroke="#6f6b63" stroke-width="1.5"/>
+  <line x1="140" y1="495" x2="140" y2="515" stroke="#6f6b63" stroke-width="1.5"/>
+  <line x1="580" y1="495" x2="580" y2="515" stroke="#6f6b63" stroke-width="1.5"/>
+
+  <!-- connector from gold card to chosen candidate -->
+  <path d="M555 260 C 650 260, 660 300, 740 300" stroke="#c8a45c" stroke-width="2.5" stroke-dasharray="2 9"/>
+
+  <!-- srcset ladder: candidate widths -->
+  <rect x="740" y="150" width="60" height="26" rx="5" stroke="#a6a298" stroke-width="2"/>
+  <rect x="740" y="205" width="110" height="26" rx="5" stroke="#a6a298" stroke-width="2"/>
+  <rect x="740" y="287" width="160" height="26" rx="5" fill="#c8a45c" fill-opacity="0.25" stroke="#c8a45c" stroke-width="4"/>
+  <rect x="740" y="345" width="230" height="26" rx="5" stroke="#a6a298" stroke-width="2" opacity="0.6"/>
+  <rect x="740" y="400" width="300" height="26" rx="5" stroke="#a6a298" stroke-width="2" opacity="0.45"/>
+  <rect x="740" y="455" width="340" height="26" rx="5" stroke="#6f6b63" stroke-width="2" opacity="0.4"/>
+  <line x1="740" y1="130" x2="740" y2="500" stroke="#6f6b63" stroke-width="1.5" opacity="0.6"/>
+  <path d="M912 300 L928 300 M920 292 L928 300 L920 308" stroke="#c8a45c" stroke-width="2.5"/>
+</svg>
