@@ -46,7 +46,13 @@ function onTap(i: number) {
 
 <template>
     <div>
-        <TeamHero :active="active" :selected="selected" @hover="stageHover = $event" @tap="onTap" />
+        <!-- Lazy for the same reason as the home hero: three.js stays out of the route chunk. -->
+        <LazyTeamHero
+            :active="active"
+            :selected="selected"
+            @hover="stageHover = $event"
+            @tap="onTap"
+        />
 
         <SiteSection
             id="core"

@@ -107,10 +107,14 @@ watch(isDesktop, (desktop) => {
                         </div>
                     </template>
                 </ClientOnly>
+                <!-- CSS picks the label, not `isDesktop`: the server renders for a desktop width, so
+                     a JS switch leaves the long desktop text on phones until hydration, where it
+                     paints late and becomes the LCP element. -->
                 <span
                     class="eyebrow pointer-events-none absolute start-4 top-3 text-faint md:start-8 md:top-12"
                 >
-                    {{ isDesktop ? t("hero.fig") : t("hero.figTouch") }}
+                    <span class="md:hidden">{{ t("hero.figTouch") }}</span>
+                    <span class="max-md:hidden">{{ t("hero.fig") }}</span>
                 </span>
             </div>
 

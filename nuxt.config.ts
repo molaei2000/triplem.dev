@@ -40,29 +40,36 @@ export default defineNuxtConfig({
                     media: "(prefers-color-scheme: light)",
                 },
             ],
-            // Icons come from public/favicon.* (nuxt-seo-utils reads type and size from the files).
-            link: [
-                // above-the-fold faces; the rest load on demand (font-display: swap)
-                {
-                    rel: "preload",
-                    as: "font",
-                    type: "font/woff2",
-                    crossorigin: "",
-                    href: "/fonts/FamiljenGrotesk/familjen-grotesk-latin-600-normal.woff2",
-                },
-                {
-                    rel: "preload",
-                    as: "font",
-                    type: "font/woff2",
-                    crossorigin: "",
-                    href: "/fonts/InstrumentSans/instrument-sans-latin-400-normal.woff2",
-                },
-            ],
+            // Icons come from public/favicon.* (nuxt-seo-utils reads type and size from the files);
+            // above-the-fold fonts are preloaded per locale in app.vue.
         },
     },
 
     fonts: {
         provider: "local",
+    },
+
+    image: {
+        // IPX answers with max-age=60 by default; a week lets browsers keep resized images.
+        ipx: { fs: { maxAge: 60 * 60 * 24 * 7 } },
+    },
+
+    nitro: {
+        // Pre-compress build assets and public files (gzip + brotli). Nitro serves the encoded
+        // copy when the browser accepts it, whatever the proxy in front compresses.
+        compressPublicAssets: true,
+    },
+
+    routeRules: {
+        // Unhashed public files (/_nuxt is already immutable). Fonts never change in place;
+        // covers, photos and the model can be rebuilt under the same name.
+        "/fonts/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
+        "/images/**": {
+            headers: { "cache-control": "public, max-age=86400, stale-while-revalidate=604800" },
+        },
+        "/models/**": {
+            headers: { "cache-control": "public, max-age=86400, stale-while-revalidate=604800" },
+        },
     },
 
     // Nuxt SEO. `site` feeds every module; app/app.meta.ts stays the single source.

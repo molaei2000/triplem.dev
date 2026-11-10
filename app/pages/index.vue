@@ -11,7 +11,9 @@ useSeoMeta({
 
 <template>
     <div>
-        <HomeHero />
+        <!-- Lazy keeps three.js out of the route chunk, so a prefetched link to this page stays
+             small. Rendered on the server, so its chunk is still preloaded here. -->
+        <LazyHomeHero />
         <HomeAbout />
         <HomeStack />
         <HomeAi />
