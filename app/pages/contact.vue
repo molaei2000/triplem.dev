@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import meta, { socialLinks } from "~/app.meta";
+import { personRef } from "~/app.meta";
 
 const { t } = useI18n();
-const localePath = useLocalePath();
 
 useSeoMeta({
     title: () => t("contactPage.metaTitle"),
@@ -12,17 +11,7 @@ useSeoMeta({
     ogType: "website",
 });
 
-useJsonLd(() => ({
-    "@type": "ContactPage",
-    name: t("contactPage.metaTitle"),
-    url: `${meta.siteUrl}${localePath("/contact")}`,
-    mainEntity: {
-        "@type": "Person",
-        name: meta.author.name,
-        email: `mailto:${meta.contactEmail}`,
-        sameAs: socialLinks.map((l) => l.href),
-    },
-}));
+useSchemaOrg([defineWebPage({ "@type": "ContactPage", mainEntity: personRef })]);
 </script>
 
 <template>

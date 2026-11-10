@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { definePerson } from "nuxt-schema-org/schema";
+import meta, { socialLinks } from "./app/app.meta";
 
 export default defineNuxtConfig({
     compatibilityDate: "2025-07-15",
@@ -10,6 +12,8 @@ export default defineNuxtConfig({
     },
 
     modules: [
+        // Before @nuxt/content: the sitemap hooks into content parsing.
+        "@nuxtjs/seo",
         "@nuxt/content",
         "@nuxt/eslint",
         "@nuxt/fonts",
@@ -36,8 +40,8 @@ export default defineNuxtConfig({
                     media: "(prefers-color-scheme: light)",
                 },
             ],
+            // Icons come from public/favicon.* (nuxt-seo-utils reads type and size from the files).
             link: [
-                { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
                 // above-the-fold faces; the rest load on demand (font-display: swap)
                 {
                     rel: "preload",
@@ -60,6 +64,51 @@ export default defineNuxtConfig({
     fonts: {
         provider: "local",
     },
+
+    // Nuxt SEO. `site` feeds every module; app/app.meta.ts stays the single source.
+    site: {
+        url: meta.siteUrl,
+        name: meta.name,
+        description: meta.description,
+        defaultLocale: "en",
+    },
+    seo: {
+        // Same whitelist as useLocaleHead in app.vue: each /blog?page=N is its own page.
+        canonicalQueryWhitelist: ["page"],
+        // Every page sets its title and app.vue names the home page; the fallback would
+        // title /fa "Fa" from its path.
+        fallbackTitle: false,
+    },
+    linkChecker: {
+        // The build prerenders no HTML, so there is nothing to scan; it still runs in dev.
+        runOnBuild: false,
+    },
+    robots: {
+        credits: false,
+        // No client-side bot fingerprinting; robots.txt, the meta tag and the header are enough.
+        botDetection: false,
+    },
+    sitemap: {
+        credits: false,
+    },
+    schemaOrg: {
+        identity: definePerson({
+            name: meta.author.name,
+            description: meta.author.description,
+            jobTitle: meta.author.jobTitle,
+            url: meta.siteUrl,
+            image: "/images/about/portrait.webp",
+            email: meta.contactEmail,
+            knowsLanguage: ["en", "fa"],
+            sameAs: socialLinks.map((l) => l.href),
+        }),
+    },
+    // Social images are static files: public/og-image.png (scripts/og-default.mjs) and one PNG
+    // per post (scripts/blog-cover.mjs). Nothing renders images at run time.
+    ogImage: false,
+    // Bundled with @nuxtjs/seo but not used here.
+    aiReady: false,
+    skewProtection: false,
 
     // Server-only secrets for the contact form; set via NUXT_SMTP_* / NUXT_CONTACT_TO (see .env.example).
     runtimeConfig: {
@@ -116,7 +165,7 @@ export default defineNuxtConfig({
     },
 
     i18n: {
-        baseUrl: "https://triplem.dev",
+        baseUrl: meta.siteUrl,
         defaultLocale: "en",
         strategy: "prefix_except_default",
         detectBrowserLanguage: false,

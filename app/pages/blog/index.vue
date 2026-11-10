@@ -59,6 +59,7 @@ useSeoMeta({
     ogDescription: () => t("blog.metaDescription"),
     ogType: "website",
 });
+useSchemaOrg([defineWebPage({ "@type": "CollectionPage" })]);
 </script>
 
 <template>

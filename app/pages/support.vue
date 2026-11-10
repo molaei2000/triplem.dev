@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import meta from "~/app.meta";
+import meta, { personRef } from "~/app.meta";
 import { REYMIT_URL, WALLETS } from "~/data/support";
 
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
+const { t } = useI18n();
 
 useSeoMeta({
     title: () => t("supportPage.metaTitle"),
@@ -13,17 +12,13 @@ useSeoMeta({
     ogType: "website",
 });
 
-useJsonLd(() => ({
-    "@type": "WebPage",
-    name: t("supportPage.metaTitle"),
-    url: `${meta.siteUrl}${localePath("/support")}`,
-    inLanguage: locale.value === "fa" ? "fa-IR" : "en-US",
-    potentialAction: {
-        "@type": "DonateAction",
-        target: REYMIT_URL,
-        recipient: { "@type": "Person", name: meta.author.name, url: meta.siteUrl },
-    },
-}));
+// The action is a node of its own: nuxt-schema-org treats a potentialAction with a `target`
+// written inline on the page as a ReadAction and rewrites it.
+const donate = { "@id": `${meta.siteUrl}/#donate` };
+useSchemaOrg([
+    defineWebPage({ potentialAction: [donate] }),
+    { ...donate, "@type": "DonateAction", target: REYMIT_URL, recipient: personRef },
+]);
 
 const uses = [0, 1, 2];
 </script>

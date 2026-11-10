@@ -2,7 +2,8 @@
 import meta from "~/app.meta";
 
 const route = useRoute();
-const { locale } = useI18n();
+const { t } = useI18n();
+const localePath = useLocalePath();
 const collection = useBlogCollection();
 
 const { data: post } = await useAsyncData(
@@ -54,17 +55,25 @@ useSeoMeta({
             : undefined,
     twitterCard: () => (image.value ? "summary_large_image" : "summary"),
 });
-useJsonLd(() => ({
-    "@type": "BlogPosting",
-    headline: post.value!.title,
-    description: post.value!.description,
-    datePublished: published.value,
-    inLanguage: locale.value === "fa" ? "fa-IR" : "en-US",
-    keywords: post.value!.tags.join(", "),
-    image: image.value,
-    mainEntityOfPage: url.value,
-    author: { "@type": "Person", name: meta.author.name, url: meta.siteUrl },
-}));
+// Author, publisher and language come from the site identity and the current locale.
+useSchemaOrg([
+    defineArticle({
+        "@type": "BlogPosting",
+        headline: post.value!.title,
+        description: post.value!.description,
+        image: image.value,
+        datePublished: published.value,
+        dateModified: published.value,
+        keywords: post.value!.tags,
+    }),
+    defineBreadcrumb({
+        itemListElement: [
+            { name: t("nav.home"), item: localePath("/") },
+            { name: t("blog.title"), item: localePath("/blog") },
+            { name: post.value!.title },
+        ],
+    }),
+]);
 
 const toc = computed(() => flattenToc(post.value?.body?.toc?.links));
 const article = useTemplateRef<HTMLElement>("article");

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import meta from "~/app.meta";
+import meta, { personRef } from "~/app.meta";
 import { COLLABORATORS, CORE_TEAM } from "~/data/team";
 
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
+const { t } = useI18n();
 
 useSeoMeta({
     title: () => t("teamPage.metaTitle"),
@@ -13,22 +12,22 @@ useSeoMeta({
     ogType: "website",
 });
 
-useJsonLd(() => ({
-    "@type": "AboutPage",
-    url: `${meta.siteUrl}${localePath("/team")}`,
-    inLanguage: locale.value === "fa" ? "fa-IR" : "en-US",
-    mainEntity: {
-        "@type": "Organization",
-        name: meta.name,
-        url: meta.siteUrl,
-        founder: { "@type": "Person", name: meta.author.name, url: meta.siteUrl },
-        member: [...CORE_TEAM, ...COLLABORATORS].map((m) => ({
-            "@type": "Person",
-            name: t(`teamPage.people.${m.id}.name`),
-            jobTitle: t(`teamPage.roles.${m.role}`),
-        })),
-    },
-}));
+useSchemaOrg([
+    defineWebPage({
+        "@type": "AboutPage",
+        mainEntity: {
+            "@type": "Organization",
+            name: meta.name,
+            url: meta.siteUrl,
+            founder: personRef,
+            member: [...CORE_TEAM, ...COLLABORATORS].map((m) => ({
+                "@type": "Person",
+                name: t(`teamPage.people.${m.id}.name`),
+                jobTitle: t(`teamPage.roles.${m.role}`),
+            })),
+        },
+    }),
+]);
 
 // One slash index (-1: none) shared by the 3D mark and the core cards.
 const stageHover = shallowRef(-1);
