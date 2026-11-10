@@ -81,7 +81,8 @@ useSchemaOrg([defineWebPage({ "@type": "CollectionPage" })]);
         </section>
 
         <section v-if="featured" class="shell pt-16 md:pt-20">
-            <SiteReveal>
+            <!-- On screen at load and the largest thing on it: enters without waiting for JS. -->
+            <SiteReveal immediate>
                 <BlogFeatured :post="featured" />
             </SiteReveal>
         </section>
