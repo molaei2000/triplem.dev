@@ -1,4 +1,7 @@
 {
+    "nuxtSiteConfig": {
+        "description": "محمد مهدی مولائی — مهندس ارشد فرانت‌اند که با Vue، Nuxt، React و Next.js تجربه‌های دیجیتال مقیاس‌پذیر می‌سازد."
+    },
     "nav": {
         "home": "خانه",
         "experience": "تجربه",

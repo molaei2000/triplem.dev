@@ -1,26 +1,19 @@
 <script setup lang="ts">
-import meta, { socialLinks } from "~/app.meta";
+const { t } = useI18n();
 
+// The Person, WebSite and WebPage JSON-LD nodes are site-wide (schemaOrg in nuxt.config.ts).
 useSeoMeta({
-    description: meta.description,
-    ogTitle: `${meta.author.name} — ${meta.author.jobTitle}`,
-    ogDescription: meta.description,
+    ogTitle: () => `${t("hero.name")} — ${t("footer.role")}`,
+    ogDescription: () => t("nuxtSiteConfig.description"),
     ogType: "website",
-});
-
-useJsonLd({
-    "@type": "Person",
-    name: meta.author.name,
-    jobTitle: meta.author.jobTitle,
-    url: meta.siteUrl,
-    email: `mailto:${meta.contactEmail}`,
-    sameAs: socialLinks.map((l) => l.href),
 });
 </script>
 
 <template>
     <div>
-        <HomeHero />
+        <!-- Lazy keeps three.js out of the route chunk, so a prefetched link to this page stays
+             small. Rendered on the server, so its chunk is still preloaded here. -->
+        <LazyHomeHero />
         <HomeAbout />
         <HomeStack />
         <HomeAi />

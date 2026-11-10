@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import meta, { socialLinks } from "~/app.meta";
+import meta, { personRef } from "~/app.meta";
 
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
+const { t } = useI18n();
 const portrait = `${meta.siteUrl}/images/about/portrait.webp`;
 
 useSeoMeta({
@@ -11,24 +10,16 @@ useSeoMeta({
     ogTitle: () => `${t("hero.name")} — ${t("footer.role")}`,
     ogDescription: () => t("aboutPage.metaDescription"),
     ogType: "profile",
-    ogImage: portrait,
+    ogImage: () => ({
+        url: portrait,
+        width: 1200,
+        height: 1500,
+        type: "image/webp",
+        alt: t("hero.name"),
+    }),
 });
 
-useJsonLd(() => ({
-    "@type": "ProfilePage",
-    url: `${meta.siteUrl}${localePath("/about")}`,
-    inLanguage: locale.value === "fa" ? "fa-IR" : "en-US",
-    mainEntity: {
-        "@type": "Person",
-        name: meta.author.name,
-        jobTitle: meta.author.jobTitle,
-        url: meta.siteUrl,
-        image: portrait,
-        email: `mailto:${meta.contactEmail}`,
-        knowsLanguage: ["en", "fa"],
-        sameAs: socialLinks.map((l) => l.href),
-    },
-}));
+useSchemaOrg([defineWebPage({ "@type": "ProfilePage", mainEntity: personRef })]);
 
 const facts = ["basedIn", "focus", "primary", "also", "languages"] as const;
 </script>

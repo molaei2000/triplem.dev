@@ -20,7 +20,7 @@ const meta = {
         telegramHandle: "@Triplem2000",
     },
     url: "https://github.com/molaei2000",
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
     contactEmail: "mahdi.molaei2000@gmail.com",
     /**
      * A CV in public/ (e.g. "/cv.pdf"). When set, the header, the mobile menu and /about show a
@@ -37,3 +37,9 @@ export const socialLinks = [
     { label: "LinkedIn", href: meta.social.linkedin, icon: "tm:linkedin" },
     { label: "Telegram", href: meta.social.telegram, icon: "tm:telegram" },
 ] as const;
+
+/**
+ * Reference to the site owner's Person node, the `schemaOrg.identity` in nuxt.config.ts. Pages
+ * point at it from their JSON-LD instead of repeating the person.
+ */
+export const personRef = { "@id": `${meta.siteUrl}/#identity` } as const;
