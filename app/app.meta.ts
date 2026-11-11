@@ -26,7 +26,7 @@ const meta = {
      * A CV in public/ (e.g. "/cv.pdf"). When set, the header, the mobile menu and /about show a
      * download button.
      */
-    cv: "/Mohammad-Mahdi-Molaei-2026-7-10.pdf" as string,
+    cv: "/MohammadMahdiMolaei.pdf" as string,
 };
 
 export default meta;
