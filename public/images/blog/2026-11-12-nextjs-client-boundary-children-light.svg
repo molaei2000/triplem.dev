@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#8e887d"/>
+    </pattern>
+  </defs>
+  <rect x="120" y="90" width="960" height="450" fill="url(#dots)" opacity="0.4"/>
+
+  <!-- server side: component tree -->
+  <rect x="150" y="150" width="130" height="56" rx="8" fill="#fbf8f2" stroke="#1b1a17" stroke-width="3"/>
+  <path d="M215 206 L215 250 M215 250 L165 250 L165 290 M215 250 L265 250 L265 290" stroke="#57534b" stroke-width="2"/>
+  <rect x="120" y="290" width="90" height="46" rx="8" fill="#fbf8f2" stroke="#57534b" stroke-width="2"/>
+  <rect x="220" y="290" width="90" height="46" rx="8" fill="#8f6f2e" fill-opacity="0.2" stroke="#8f6f2e" stroke-width="4"/>
+  <rect x="150" y="440" width="170" height="3" fill="#8e887d" opacity="0.6"/>
+  <rect x="150" y="460" width="110" height="3" fill="#8e887d" opacity="0.6"/>
+
+  <!-- the boundary -->
+  <line x1="470" y1="110" x2="470" y2="520" stroke="#8e887d" stroke-width="2" stroke-dasharray="4 10"/>
+
+  <!-- gold path: server output crossing as children -->
+  <path d="M310 313 C 400 313, 430 313, 560 313" stroke="#8f6f2e" stroke-width="3" stroke-dasharray="2 9"/>
+  <path d="M548 303 L562 313 L548 323" stroke="#8f6f2e" stroke-width="3"/>
+
+  <!-- client side: window holding only the interactive part -->
+  <rect x="560" y="150" width="500" height="340" rx="10" fill="#fbf8f2" stroke="#1b1a17" stroke-width="3"/>
+  <line x1="560" y1="190" x2="1060" y2="190" stroke="#57534b" stroke-width="1.5"/>
+  <circle cx="585" cy="170" r="5" stroke="#57534b" stroke-width="1.5"/>
+  <circle cx="605" cy="170" r="5" stroke="#57534b" stroke-width="1.5"/>
+  <rect x="590" y="215" width="150" height="40" rx="20" stroke="#1b1a17" stroke-width="2.5"/>
+  <circle cx="615" cy="235" r="9" stroke="#1b1a17" stroke-width="2.5"/>
+  <rect x="590" y="290" width="440" height="170" rx="8" stroke="#8f6f2e" stroke-width="4" stroke-dasharray="14 8"/>
+  <rect x="620" y="320" width="200" height="8" rx="4" fill="#57534b"/>
+  <rect x="620" y="350" width="340" height="8" rx="4" fill="#8e887d"/>
+  <rect x="620" y="380" width="280" height="8" rx="4" fill="#8e887d"/>
+  <rect x="620" y="410" width="160" height="8" rx="4" fill="#8e887d"/>
+</svg>
