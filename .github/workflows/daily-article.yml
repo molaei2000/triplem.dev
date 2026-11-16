@@ -2,7 +2,7 @@ name: Daily Blog Post
 
 on:
     schedule:
-        - cron: "0 5 * * *" # 05:00 UTC daily, adjust to your timezone
+        - cron: "0 4 * * *" # 04:00 UTC daily, adjust to your timezone
     workflow_dispatch: # manual trigger for testing
 
 concurrency:
