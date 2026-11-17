@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#8e887d" stroke-width="1"/></pattern></defs>
+<rect x="120" y="90" width="960" height="450" fill="url(#grid)" opacity="0.28"/>
+<path d="M600 150V230M600 230L430 320M600 230L770 320" stroke="#1b1a17" stroke-width="2.5"/>
+<path d="M430 320L350 410M430 320L510 410" stroke="#57534b" stroke-width="2.5"/>
+<path d="M770 320L690 410M770 320L850 410" stroke="#57534b" stroke-width="2" stroke-dasharray="6 8" opacity="0.6"/>
+<circle cx="600" cy="140" r="22" fill="#8f6f2e" stroke="#8f6f2e" stroke-width="4"/>
+<circle cx="600" cy="230" r="16" fill="#eae5da" stroke="#1b1a17" stroke-width="2.5"/>
+<circle cx="430" cy="320" r="14" fill="#eae5da" stroke="#1b1a17" stroke-width="2.5"/>
+<circle cx="770" cy="320" r="14" fill="#eae5da" stroke="#8e887d" stroke-width="2.5"/>
+<circle cx="350" cy="420" r="12" fill="#eae5da" stroke="#57534b" stroke-width="2.5"/>
+<circle cx="510" cy="420" r="12" fill="#eae5da" stroke="#57534b" stroke-width="2.5"/>
+<circle cx="690" cy="420" r="12" fill="#eae5da" stroke="#8e887d" stroke-width="2"/>
+<circle cx="850" cy="420" r="12" fill="#eae5da" stroke="#8e887d" stroke-width="2"/>
+<path d="M300 480H900" stroke="#8e887d" stroke-width="2" stroke-dasharray="3 10"/>
+<path d="M560 180H640" stroke="#8f6f2e" stroke-width="2.5" opacity="0"/>
+<path d="M660 140H780" stroke="#8f6f2e" stroke-width="3"/>
+<path d="M764 126L780 140L764 154" stroke="#8f6f2e" stroke-width="3"/>
+</svg>
