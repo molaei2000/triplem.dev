@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import meta from "~/app.meta";
 import { experience } from "~/data/experience";
 
 const { t } = useI18n();
@@ -37,6 +38,12 @@ const { t } = useI18n();
                     />
 
                     <li
+                        v-if="meta.openToWork"
+                        class="relative flex flex-col ps-8 pb-20 md:flex-row md:ps-0 md:pb-28"
+                    >
+                        <ExperienceNext :chapter="experience.length + 1" />
+                    </li>
+                    <li
                         v-for="(entry, i) in experience"
                         :key="entry.id"
                         class="relative flex flex-col ps-8 pb-20 last:pb-4 md:flex-row md:ps-0 md:pb-28"
@@ -44,7 +51,7 @@ const { t } = useI18n();
                         <ExperienceEntry
                             :entry="entry"
                             :chapter="experience.length - i"
-                            :current="i === 0"
+                            :current="!meta.openToWork && i === 0"
                         />
                     </li>
                 </ol>

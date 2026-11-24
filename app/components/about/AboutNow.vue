@@ -1,6 +1,9 @@
 <script setup lang="ts">
 /** "Now": what's in progress, dated so it doesn't silently go stale. */
+import meta from "~/app.meta";
+
 const { t } = useI18n();
+const to = meta.openToWork ? { path: "/contact", query: { topic: "role" } } : "/contact";
 </script>
 
 <template>
@@ -20,9 +23,7 @@ const { t } = useI18n();
         </div>
         <div class="col-span-4 md:col-span-4 md:justify-self-end">
             <UiButton as-child variant="gold" size="lg">
-                <NuxtLinkLocale to="/contact"
-                    >{{ t("aboutPage.nowCta") }} <SiteArrow
-                /></NuxtLinkLocale>
+                <NuxtLinkLocale :to="to">{{ t("aboutPage.nowCta") }} <SiteArrow /></NuxtLinkLocale>
             </UiButton>
         </div>
     </div>

@@ -28,6 +28,7 @@ const year = new Date().getFullYear();
             <div class="col-span-4 flex flex-col gap-1 md:col-span-4">
                 <span>{{ meta.author.name }}</span>
                 <span class="text-subtle">{{ t("footer.role") }}</span>
+                <SiteAvailability class="mt-2" />
             </div>
             <nav
                 :aria-label="t('footer.elsewhere')"

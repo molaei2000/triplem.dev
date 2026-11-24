@@ -42,6 +42,12 @@ const topic = computed({
             form.topic = v as ContactTopic;
     },
 });
+// A link that only changes `?topic=` (the footer's "Open to work" badge on /contact) keeps this
+// page mounted, so follow the query too.
+watch(
+    () => route.query.topic,
+    (q) => (topic.value = q),
+);
 
 const ids = { name: "cf-name", email: "cf-email", message: "cf-message" } as const;
 const errorId = (f: keyof typeof ids) => `${ids[f]}-error`;
