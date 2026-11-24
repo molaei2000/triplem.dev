@@ -68,6 +68,7 @@ watch(isDesktop, (desktop) => {
                     {{ t("hero.name") }}
                 </p>
                 <p class="text-sm text-subtle md:text-base">{{ t("hero.role") }}</p>
+                <SiteAvailability class="mt-2" />
             </div>
 
             <!-- Desktop size also tracks viewport height, so all four lines and the controls fit on short laptop screens -->

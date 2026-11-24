@@ -27,6 +27,12 @@ const meta = {
      * download button.
      */
     cv: "/MohammadMahdiMolaei.pdf" as string,
+    /**
+     * Looking for a new role. Shows the "Open to work" badge (hero, footer) and the next-chapter
+     * node on the Experience timeline and /about, which take over the gold "current" marker from
+     * the latest job. Set to false once a new role starts.
+     */
+    openToWork: true as boolean,
 };
 
 export default meta;

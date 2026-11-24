@@ -132,8 +132,8 @@
         "pathLink": "See the full timeline",
         "nowLabel": "Now",
         "nowUpdated": "Updated {date}",
-        "nowDate": "September 2026",
-        "now": "Building triplem.dev in the open (Nuxt 4, a WebGL hero and a bilingual blog) and writing about front-end architecture.",
+        "nowDate": "November 2026",
+        "now": "Open to my next front-end role since Tarazoo wrapped up in October 2026. Meanwhile, I’m building triplem.dev in the open and writing about front-end architecture.",
         "nowCta": "Start a conversation"
     },
     "teamPage": {
@@ -515,6 +515,15 @@
             "verify": "After pasting, check the first and last six characters.",
             "warning": "Send only USDT on {network}. Other tokens, or USDT sent on another network, can’t be recovered."
         }
+    },
+    "availability": {
+        "badge": "Open to work",
+        "badgeLabel": "Open to work: talk to me about a front-end role",
+        "when": "Now",
+        "title": "Open to the next chapter",
+        "body": "Tarazoo wrapped up in October 2026. I’m looking for my next front-end role, in Vue / Nuxt or React / Next.js.",
+        "cta": "Talk about a role",
+        "path": "Next front-end role"
     },
     "footer": {
         "role": "Senior Front-End Developer",
